@@ -13,10 +13,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rm -rf dist && react-scripts build && mv build dist",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "now-build": "rm -rf dist && react-scripts build && mv build dist"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

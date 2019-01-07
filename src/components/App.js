@@ -8,7 +8,12 @@ import { install, ThemeProvider } from '@material-ui/styles'
 import Home from './Home'
 import { Router } from '@reach/router'
 import { grey } from '@material-ui/core/colors'
+import { StylesProvider, createGenerateClassName } from '@material-ui/styles'
 
+const generateClassName = createGenerateClassName({
+  dangerouslyUseGlobalCSS: false,
+  productionPrefix: 'c'
+})
 install()
 
 const theme = createMuiTheme({
@@ -31,15 +36,17 @@ class App extends Component {
   render() {
     return (
       <>
-        {/* Supply both theme providers to support new experimental hook api*/}
-        <ThemeProvider theme={theme}>
+        <StylesProvider generateClassName={generateClassName}>
+          {/* Supply both theme providers to support new experimental hook api*/}
           <MuiThemeProvider theme={theme}>
-            <CssBaseline />
-            <Router>
-              <Home path="/" />
-            </Router>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <Router>
+                <Home path="/" />
+              </Router>
+            </ThemeProvider>
           </MuiThemeProvider>
-        </ThemeProvider>
+        </StylesProvider>
       </>
     )
   }
