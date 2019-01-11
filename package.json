@@ -14,6 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "rm -rf dist && react-scripts build && mv build dist",
+    "now-build": "npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

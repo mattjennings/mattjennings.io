@@ -4,8 +4,22 @@ import React from 'react'
 import { styled, makeStyles } from '@material-ui/styles'
 import { grey } from '@material-ui/core/colors'
 import PortfolioCard from './PortfolioCard'
+import PortfolioSection from './PortfolioSection'
 
-const projects = [
+const websites = [
+  {
+    title: 'Elliotte Friedman Decryptor',
+    description: `Decrypts Elliotte Friedman's acronyms that nobody understands`,
+    downloadLinks: [
+      {
+        text: 'Visit Website',
+        url: 'https://friedgism.mattjennings.io'
+      }
+    ]
+  }
+]
+
+const apps = [
   {
     title: 'Icebreaker',
     description: `Delivers notifications when an NHL trade or rumour has been reported on Twitter`,
@@ -16,7 +30,10 @@ const projects = [
           'https://itunes.apple.com/ca/app/icebreaker-nhl-trades-rumours/id1131047467?mt=8'
       }
     ]
-  },
+  }
+]
+
+const projects = [
   {
     title: 'team-finder',
     description: `Javascript library to help detect NHL teams from given text`,
@@ -48,7 +65,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: 20
   },
   content: {
-    marginTop: 60
+    // marginTop: 60
   },
   link: {},
   card: {
@@ -96,31 +113,9 @@ export default function Home() {
         </Grid>
       </Grid>
       <div className={classes.content}>
-        <Typography
-          className={classes.projectsTitle}
-          variant="h5"
-          align="center"
-        >
-          Projects
-        </Typography>
-        <Grid
-          container
-          justify="center"
-          direction="row"
-          wrap="wrap"
-          spacing={16}
-        >
-          {projects.map(project => (
-            <Grid key={project.title} item xs={8} sm={4} md={3} lg={2}>
-              <PortfolioCard
-                className={classes.card}
-                title={project.title}
-                description={project.description}
-                downloadLinks={project.downloadLinks}
-              />
-            </Grid>
-          ))}
-        </Grid>
+        <PortfolioSection title="Websites" data={websites} />
+        <PortfolioSection title="Apps" data={apps} />
+        <PortfolioSection title="Other Projects" data={projects} />
       </div>
     </div>
   )
