@@ -33,7 +33,7 @@ const apps = [
   }
 ]
 
-const projects = [
+const libraries = [
   {
     title: 'team-finder',
     description: `Javascript library to help detect NHL teams from given text`,
@@ -115,7 +115,7 @@ export default function Home() {
       <div className={classes.content}>
         <PortfolioSection title="Websites" data={websites} />
         <PortfolioSection title="Apps" data={apps} />
-        <PortfolioSection title="Other Projects" data={projects} />
+        <PortfolioSection title="Libraries" data={libraries} />
       </div>
     </div>
   )
