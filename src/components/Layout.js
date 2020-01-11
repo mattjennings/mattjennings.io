@@ -58,8 +58,8 @@ const Layout = ({ children, location }) => {
             style={{
               // 60px = header, 60px = footer
               minHeight: 'calc(100vh - 60px - 60px)',
-              paddingTop: 32,
-              paddingBottom: 32,
+              paddingTop: 16,
+              paddingBottom: 16,
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
