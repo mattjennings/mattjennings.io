@@ -55,7 +55,6 @@ const options = {
 }
 
 const useStyles = makeStyles(theme => {
-  console.log(theme)
   return {
     root: {
       ...theme.typography.body1,
