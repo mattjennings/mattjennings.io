@@ -1,92 +1,112 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { makeStyles, styled } from '@material-ui/styles'
 import {
-  Card,
-  CardContent,
+  ButtonGroup,
+  Paper,
   Typography,
   CardActions,
-  Button
+  Button,
+  IconButton,
 } from '@material-ui/core'
-import { grey } from '@material-ui/core/colors'
-import classnames from 'classnames'
+import { makeStyles } from '@material-ui/styles'
+import Link from './Link'
+import GitHubIcon from '@material-ui/icons/GitHub'
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
-    background: grey[700]
+    padding: theme.spacing(4),
   },
-  content: {},
   title: {
     display: 'flex',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    paddingBottom: 10
+    marginBottom: theme.spacing(),
   },
-  avatar: {
-    borderRadius: 10,
-    width: 50,
-    height: 50,
-    marginRight: 10
+  content: {
+    flexGrow: 1,
   },
   actions: {
+    marginTop: theme.spacing(3),
     display: 'flex',
-    justifyContent: 'stretch'
-  }
+    justifyContent: 'center',
+  },
+  link: {
+    // color: 'white',
+    marginLeft: theme.spacing(),
+  },
 }))
 
-const Link = styled(({ children, ...linkProps }) => (
-  <a {...linkProps}>
-    <Button variant="outlined" fullWidth={true}>
-      {children}
-    </Button>
-  </a>
-))({
-  textDecoration: 'none',
-  width: '100%'
-})
-
-const PortfolioCard = props => {
+export default function PortfolioCard({
+  title,
+  description,
+  web,
+  iOS,
+  android,
+  source,
+  ...rest
+}) {
   const classes = useStyles()
 
   return (
-    <Card className={classnames(classes.root, props.className)} elevation={5}>
-      <CardContent className={classes.content}>
-        <Typography component="h5" variant="h5" className={classes.title}>
-          {props.title}
-        </Typography>
-        <Typography variant="subtitle1" color="textSecondary">
-          {props.description}
-        </Typography>
-      </CardContent>
-      <CardActions className={classes.actions}>
-        {props.downloadLinks.map(link => (
-          <Link
-            key={link.url}
-            href={link.url}
+    <Paper className={classes.root} {...rest}>
+      <div className={classes.content}>
+        <div className={classes.title}>
+          <Typography variant="h5">{title}</Typography>
+          {source && (
+            <IconButton
+              component="a"
+              target="_blank"
+              rel="noopener noreferrer"
+              href={source}
+            >
+              <GitHubIcon />
+            </IconButton>
+          )}
+        </div>
+        <Typography variant="body1">{description}</Typography>
+      </div>
+      <div className={classes.actions}>
+        {web && (
+          <Button
+            component="a"
+            variant="outlined"
+            size="small"
+            href={web}
             target="_blank"
             rel="noopener noreferrer"
+            className={classes.link}
           >
-            {link.text}
-          </Link>
-        ))}
-      </CardActions>
-    </Card>
+            Website
+          </Button>
+        )}
+        {iOS && (
+          <Button
+            component="a"
+            variant="outlined"
+            size="small"
+            href={iOS}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={classes.link}
+          >
+            iOS
+          </Button>
+        )}
+        {android && (
+          <Button
+            component="a"
+            size="small"
+            variant="outlined"
+            href={android}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={classes.link}
+          >
+            Android
+          </Button>
+        )}
+      </div>
+    </Paper>
   )
 }
-
-PortfolioCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  imageBackground: PropTypes.string,
-  downloadLinks: PropTypes.arrayOf(
-    PropTypes.shape({
-      url: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired
-    })
-  )
-}
-
-export default PortfolioCard
