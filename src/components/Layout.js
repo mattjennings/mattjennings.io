@@ -18,9 +18,29 @@ import {
 
 import Header from './Header'
 import './layout.css'
-import { blueGrey, grey } from '@material-ui/core/colors'
+import { grey } from '@material-ui/core/colors'
+import { AnimatePresence, motion } from 'framer-motion'
+import Footer from './Footer'
 
-const Layout = ({ children }) => {
+const variants = {
+  initial: {
+    opacity: 0,
+  },
+  enter: {
+    opacity: 1,
+    transition: {
+      duration: 0.2,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.2,
+    },
+  },
+}
+
+const Layout = ({ children, location }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -74,9 +94,30 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header siteTitle={data.site.siteMetadata.title} />
-      <Container style={{ paddingTop: 32 }}>
-        <main>{children}</main>
+      <Container
+        style={{
+          // 60px = header, 40px = footer
+          minHeight: 'calc(100vh - 60px - 40px)',
+          paddingTop: 32,
+          paddingBottom: 32,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+        }}
+      >
+        <AnimatePresence initial={false} exitBeforeEnter>
+          <motion.main
+            key={location.pathname}
+            variants={variants}
+            initial="initial"
+            animate="enter"
+            exit="exit"
+          >
+            {children}
+          </motion.main>
+        </AnimatePresence>
       </Container>
+      <Footer />
     </ThemeProvider>
   )
 }

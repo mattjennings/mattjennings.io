@@ -1,8 +1,7 @@
-import { Typography, Grid } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import React from 'react'
-import Layout from '../components/Layout'
-import SEO from '../components/SEO'
 import Markdown from '../components/Markdown'
+import SEO from '../components/SEO'
 
 const software = `
 - [Visual Studio Code](https://code.visualstudio.com/) — text editor
@@ -36,7 +35,7 @@ const hardware = `
 
 const Uses = () => {
   return (
-    <Layout>
+    <>
       <SEO title="Uses" />
       <Grid container justify="center" spacing={4}>
         <Grid item xs={12} md={4}>
@@ -53,7 +52,7 @@ const Uses = () => {
           <Markdown>{software}</Markdown>
         </Grid>
       </Grid>
-    </Layout>
+    </>
   )
 }
 

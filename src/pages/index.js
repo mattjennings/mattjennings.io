@@ -4,6 +4,7 @@ import Layout from '../components/Layout'
 import PortfolioCard from '../components/PortfolioCard'
 import SEO from '../components/SEO'
 import { motion } from 'framer-motion'
+import { staggerVariants } from '../animations/stagger'
 
 const items = [
   {
@@ -41,7 +42,7 @@ const items = [
 const MotionGrid = motion.custom(Grid)
 const IndexPage = () => {
   return (
-    <Layout>
+    <>
       <SEO title="Portfolio" />
 
       <MotionGrid
@@ -49,22 +50,15 @@ const IndexPage = () => {
         justify="center"
         alignItems="stretch"
         spacing={4}
-        variants={{
-          hidden: {
-            transition: { staggerChildren: 0.07, delayChildren: 0.1 },
-          },
-          show: {
-            transition: { staggerChildren: 0.07, delayChildren: 0.1 },
-          },
-        }}
-        initial="hidden"
-        animate="show"
+        variants={staggerVariants}
+        initial="exit"
+        animate="enter"
       >
         {items.map(item => (
           <MotionGrid
             variants={{
-              hidden: { opacity: 0, y: 50 },
-              show: { opacity: 1, y: 0 },
+              exit: { opacity: 0, y: 50 },
+              enter: { opacity: 1, y: 0 },
             }}
             key={item.title}
             item
@@ -80,7 +74,7 @@ const IndexPage = () => {
           </MotionGrid>
         ))}
       </MotionGrid>
-    </Layout>
+    </>
   )
 }
 

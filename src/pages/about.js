@@ -1,15 +1,19 @@
-import { Typography, Grid } from '@material-ui/core'
 import React from 'react'
-import Layout from '../components/Layout'
-import PortfolioCard from '../components/PortfolioCard'
 import SEO from '../components/SEO'
-import { motion } from 'framer-motion'
+import Markdown from '../components/Markdown'
+
+const md = `
+I'm a Full Stack Developer living in Calgary, AB. I also like hockey, and am an avid Canucks fan.
+
+That's it. That's the page.
+`
 
 const About = () => {
   return (
-    <Layout>
+    <>
       <SEO title="About" />
-    </Layout>
+      <Markdown>{md}</Markdown>
+    </>
   )
 }
 
