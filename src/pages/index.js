@@ -3,6 +3,7 @@ import React from 'react'
 import Layout from '../components/Layout'
 import PortfolioCard from '../components/PortfolioCard'
 import SEO from '../components/SEO'
+import { motion } from 'framer-motion'
 
 const items = [
   {
@@ -36,24 +37,51 @@ const items = [
     source: 'https://github.com/mattjennings/ehm-ip-manager',
   },
 ]
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Portfolio" />
 
-    {/* <Typography variant="h5">I made these</Typography> */}
+const MotionGrid = motion.custom(Grid)
+const IndexPage = () => {
+  return (
+    <Layout>
+      <SEO title="Portfolio" />
 
-    <Grid container justify="center" alignItems="stretch" spacing={4}>
-      {items.map(item => (
-        <Grid key={item.title} item xs={10} sm={6} md={4}>
-          <PortfolioCard
-            style={{ height: '100%', width: '100%' }}
+      <MotionGrid
+        container
+        justify="center"
+        alignItems="stretch"
+        spacing={4}
+        variants={{
+          hidden: {
+            transition: { staggerChildren: 0.07, delayChildren: 0.1 },
+          },
+          show: {
+            transition: { staggerChildren: 0.07, delayChildren: 0.1 },
+          },
+        }}
+        initial="hidden"
+        animate="show"
+      >
+        {items.map(item => (
+          <MotionGrid
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              show: { opacity: 1, y: 0 },
+            }}
             key={item.title}
-            {...item}
-          />
-        </Grid>
-      ))}
-    </Grid>
-  </Layout>
-)
+            item
+            xs={10}
+            sm={6}
+            md={4}
+          >
+            <PortfolioCard
+              style={{ height: '100%', width: '100%' }}
+              key={item.title}
+              {...item}
+            />
+          </MotionGrid>
+        ))}
+      </MotionGrid>
+    </Layout>
+  )
+}
 
 export default IndexPage
