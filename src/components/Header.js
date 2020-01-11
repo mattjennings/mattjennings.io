@@ -4,22 +4,27 @@ import { Container, Typography, AppBar, Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core'
 import Link from './Link'
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    height: 60,
-    color: 'inherit',
+const useStyles = makeStyles(
+  {
+    root: {
+      height: 60,
+      color: 'inherit',
+    },
+    title: {},
+    content: {
+      padding: '16px 0px',
+    },
   },
-  title: {},
-  content: {
-    padding: '16px 0px',
-  },
-}))
+  {
+    name: 'Header',
+  }
+)
 
 const Header = ({ siteTitle }) => {
   const classes = useStyles()
 
   return (
-    <div className={classes.root}>
+    <header className={classes.root}>
       <Container>
         <Grid
           container
@@ -50,7 +55,7 @@ const Header = ({ siteTitle }) => {
           </Grid>
         </Grid>
       </Container>
-    </div>
+    </header>
   )
 }
 

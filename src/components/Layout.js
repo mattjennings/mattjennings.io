@@ -45,29 +45,30 @@ const Layout = ({ children, location }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <Container
-        style={{
-          // 60px = header, 60px = footer
-          minHeight: 'calc(100vh - 60px - 60px)',
-          paddingTop: 32,
-          paddingBottom: 32,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-        }}
-      >
-        <AnimatePresence initial={false} exitBeforeEnter>
-          <motion.main
-            key={location.pathname}
-            variants={variants}
-            initial="initial"
-            animate="enter"
-            exit="exit"
+
+      <AnimatePresence initial={false} exitBeforeEnter>
+        <motion.main
+          key={location.pathname}
+          variants={variants}
+          initial="initial"
+          animate="enter"
+          exit="exit"
+        >
+          <Container
+            style={{
+              // 60px = header, 60px = footer
+              minHeight: 'calc(100vh - 60px - 60px)',
+              paddingTop: 32,
+              paddingBottom: 32,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+            }}
           >
             {children}
-          </motion.main>
-        </AnimatePresence>
-      </Container>
+          </Container>
+        </motion.main>
+      </AnimatePresence>
       <Footer />
     </>
   )
