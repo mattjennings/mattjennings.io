@@ -1,18 +1,19 @@
-import PropTypes from "prop-types"
-import React from "react"
-import { Container, Typography, AppBar, Grid } from "@material-ui/core"
-import { makeStyles } from "@material-ui/styles"
-import Link from "./Link"
+import PropTypes from 'prop-types'
+import React from 'react'
+import { Container, Typography, AppBar, Grid } from '@material-ui/core'
+import { makeStyles } from '@material-ui/styles'
+import Link from './Link'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     height: 60,
-    color: "inherit",
+    color: 'inherit',
   },
+  title: {},
   content: {
-    padding: "16px 0px",
+    padding: '16px 0px',
   },
-})
+}))
 
 const Header = ({ siteTitle }) => {
   const classes = useStyles()
@@ -27,7 +28,7 @@ const Header = ({ siteTitle }) => {
           className={classes.content}
         >
           <Grid item>
-            <Typography variant="h4">
+            <Typography variant="h4" className={classes.title}>
               <Link to="/">
                 <strong>{siteTitle}</strong>
               </Link>
