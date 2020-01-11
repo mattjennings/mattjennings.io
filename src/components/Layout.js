@@ -5,13 +5,19 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import { Container } from '@material-ui/core'
+import {
+  Container,
+  createMuiTheme,
+  CssBaseline,
+  responsiveFontSizes,
+  ThemeProvider,
+} from '@material-ui/core'
+import { grey } from '@material-ui/core/colors'
 import { AnimatePresence, motion } from 'framer-motion'
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import Footer from './Footer'
 import Header from './Header'
-import './layout.css'
 
 const variants = {
   initial: {
@@ -31,6 +37,41 @@ const variants = {
   },
 }
 
+const theme = responsiveFontSizes(
+  createMuiTheme({
+    palette: {
+      type: 'dark',
+      primary: grey,
+      secondary: grey,
+    },
+    typography: {
+      fontFamily: '"Lato", "Helvetica", "Arial", sans-serif',
+      fontSize: 14,
+      fontWeightLight: 300,
+      fontWeightRegular: 400,
+      fontWeightMedium: 500,
+    },
+
+    props: {
+      MuiButtonBase: {
+        disableRipple: true,
+      },
+    },
+    overrides: {
+      MuiCard: {
+        root: {
+          borderRadius: 10,
+        },
+      },
+      MuiPaper: {
+        rounded: {
+          borderRadius: 10,
+        },
+      },
+    },
+  })
+)
+
 const Layout = ({ children, location }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -43,7 +84,8 @@ const Layout = ({ children, location }) => {
   `)
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Header siteTitle={data.site.siteMetadata.title} />
 
       <AnimatePresence initial={false} exitBeforeEnter>
@@ -70,7 +112,7 @@ const Layout = ({ children, location }) => {
         </motion.main>
       </AnimatePresence>
       <Footer />
-    </>
+    </ThemeProvider>
   )
 }
 

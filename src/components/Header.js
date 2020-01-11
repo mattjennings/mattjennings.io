@@ -40,7 +40,7 @@ const Header = ({ siteTitle }) => {
             </Typography>
           </Grid>
           <Grid item>
-            <Grid container spacing={4} wrap="nowrap">
+            <Grid container spacing={2} wrap="nowrap">
               <Grid item>
                 <Typography variant="h6">
                   <Link to="/about">About</Link>
