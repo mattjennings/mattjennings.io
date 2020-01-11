@@ -1,7 +1,6 @@
 import React from 'react'
 import MarkdownToJsx from 'markdown-to-jsx'
-import { Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/styles'
+import { Typography, makeStyles } from '@material-ui/core'
 import { blue } from '@material-ui/core/colors'
 
 const options = {
@@ -55,11 +54,14 @@ const options = {
   },
 }
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    ...theme.typography.body1,
-  },
-}))
+const useStyles = makeStyles(theme => {
+  console.log(theme)
+  return {
+    root: {
+      ...theme.typography.body1,
+    },
+  }
+})
 export default function Markdown(props) {
   const classes = useStyles()
   return (

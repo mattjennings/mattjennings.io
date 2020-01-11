@@ -1,15 +1,12 @@
-import React from 'react'
 import {
-  ButtonGroup,
-  Paper,
-  Typography,
-  CardActions,
   Button,
   IconButton,
+  makeStyles,
+  Paper,
+  Typography,
 } from '@material-ui/core'
-import { makeStyles } from '@material-ui/styles'
-import Link from './Link'
 import GitHubIcon from '@material-ui/icons/GitHub'
+import React from 'react'
 
 const useStyles = makeStyles(theme => ({
   root: {

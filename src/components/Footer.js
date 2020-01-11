@@ -2,8 +2,7 @@ import React from 'react'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import EmailIcon from '@material-ui/icons/Email'
-import { makeStyles } from '@material-ui/styles'
-import { IconButton } from '@material-ui/core'
+import { IconButton, makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles({
   root: {
