@@ -7,14 +7,15 @@ import Markdown from '../components/Markdown'
 const software = `
 - [Visual Studio Code](https://code.visualstudio.com/) — text editor
   - Appearance
-    - [Arc+ (Dark Monochrome) color theme](https://github.com/phil-harmoniq/arc-plus)
+    - [Arc+ (Dark Monochrome) color theme](https://marketplace.visualstudio.com/items?itemName=ph-hawkins.arc-plus)
     - [Fira Code font](https://github.com/tonsky/FiraCode)
-    - [Material Icon Theme](https://github.com/PKief/vscode-material-icon-theme.git)
+    - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
   - Other Extensions
-    - [Auto Rename Tag](https://github.com/formulahendry/vscode-auto-rename-tag.git)
-    - [Color Highlight](https://github.com/naumovs/vscode-ext-color-highlight.git)
-    - [Prettier](https://github.com/prettier/prettier-vscode.git)
-    - [Svg Preview](https://github.com/SimonSiefke/vscode-svg-preview.git)
+    - [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)
+    - [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
+    - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+    - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+    - [Svg Preview](https://marketplace.visualstudio.com/items?itemName=SimonSiefke.svg-preview)
 - [Toggl](https://toggl.com/) — time tracking
 - [1Password](https://1password.com/) — password manager
 - [Alfred](https://www.alfredapp.com/)
@@ -26,6 +27,7 @@ const hardware = `
     - 32GB RAM
     - 512GB storage
   - Acer B326HUL 32-inch Monitor
+  - Edifier R1280T Powered Bookshelf Speakers
   - Apple Magic Keyboard
   - Logitech G502 Mouse
   - Staples Hyken Technical Mesh Task Chair
