@@ -96,8 +96,8 @@ const Layout = ({ children, location }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <Container
         style={{
-          // 60px = header, 40px = footer
-          minHeight: 'calc(100vh - 60px - 40px)',
+          // 60px = header, 60px = footer
+          minHeight: 'calc(100vh - 60px - 60px)',
           paddingTop: 32,
           paddingBottom: 32,
           display: 'flex',
