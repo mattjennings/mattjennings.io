@@ -28,7 +28,7 @@ const Header = ({ siteTitle }) => {
           className={classes.content}
         >
           <Grid item>
-            <Typography variant="h4" className={classes.title}>
+            <Typography variant="h4" component="h1" className={classes.title}>
               <Link to="/">
                 <strong>{siteTitle}</strong>
               </Link>
