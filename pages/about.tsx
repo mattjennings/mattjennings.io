@@ -2,7 +2,7 @@ import Markdown from '../components/Markdown'
 import Head from 'next/head'
 
 const md = `
-I'm a Full Stack Developer living in Calgary, AB. I also like hockey, and am an avid Canucks fan.
+I'm a Full Stack Developer living in Brandon, MB. I also like hockey.
 
 That's it. That's the page.
 `
