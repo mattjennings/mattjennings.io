@@ -1,13 +1,15 @@
 import React from 'react'
 
-import SEO from '../components/SEO'
 import { Typography } from '@material-ui/core'
+import Head from 'next/head'
 
 const NotFoundPage = () => (
-  <>
-    <SEO title="404: Not found" />
+  <div>
+    <Head>
+      <title>404</title>
+    </Head>
     <Typography variant="h5" align="center" style={{ padding: '30px 0' }}>
-      oops, this page doesn't exist
+      {`oops, this page doesn't exist`}
     </Typography>
 
     <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
@@ -16,7 +18,7 @@ const NotFoundPage = () => (
         alt="philadelphia flyers mascot falling down"
       />
     </div>
-  </>
+  </div>
 )
 
 export default NotFoundPage

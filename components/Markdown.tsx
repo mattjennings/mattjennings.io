@@ -54,13 +54,14 @@ const options = {
   },
 }
 
-const useStyles = makeStyles(theme => {
+const useStyles = makeStyles((theme) => {
   return {
     root: {
       ...theme.typography.body1,
     },
   }
 })
+
 export default function Markdown(props) {
   const classes = useStyles()
   return (

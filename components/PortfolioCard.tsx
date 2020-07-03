@@ -4,11 +4,12 @@ import {
   makeStyles,
   Paper,
   Typography,
+  PaperProps,
 } from '@material-ui/core'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import React from 'react'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
@@ -42,7 +43,14 @@ export default function PortfolioCard({
   android,
   source,
   ...rest
-}) {
+}: {
+  title: string
+  description: string
+  web?: string
+  iOS?: string
+  android?: string
+  source?: string
+} & PaperProps) {
   const classes = useStyles()
 
   return (

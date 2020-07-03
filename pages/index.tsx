@@ -1,9 +1,9 @@
 import { Grid } from '@material-ui/core'
 import React from 'react'
 import PortfolioCard from '../components/PortfolioCard'
-import SEO from '../components/SEO'
 import { motion } from 'framer-motion'
 import { staggerVariants } from '../animations/stagger'
+import Head from 'next/head'
 
 const items = [
   {
@@ -15,16 +15,9 @@ const items = [
       'https://play.google.com/store/apps/details?id=xyz.appmaker.szwfyz&hl=en_CA',
   },
   {
-    title: 'Friedman Decryptor',
-    description: `Decrypts Elliotte Friedman's acronyms that nobody understands`,
-    web: 'https://friedgism.mattjennings.io/',
-    source: 'https://github.com/mattjennings/friedman-decryptor',
-  },
-  {
-    title: 'Hockey Stats',
-    description: `A hockey stats website using 100% scraped data from NHL.com. Made with Gatsby`,
-    web: 'https://hockey-stats.netlify.com/',
-    source: 'https://github.com/mattjennings/gatsby-hockey-stats',
+    title: 'svelte-phaser',
+    description: `Create Phaser games with Svelte`,
+    source: 'https://github.com/mattjennings/svelte-phaser',
   },
   {
     title: 'react-phaser-fiber',
@@ -32,9 +25,16 @@ const items = [
     source: 'https://github.com/mattjennings/react-phaser-fiber',
   },
   {
-    title: 'EHM IP Manager',
-    description: `Manages and changes your online league IPs for Eastside Hockey Manager`,
-    source: 'https://github.com/mattjennings/ehm-ip-manager',
+    title: 'Hockey Stats',
+    description: `NHL stats website built with Gatsby`,
+    web: 'https://hockey-stats.netlify.com/',
+    source: 'https://github.com/mattjennings/gatsby-hockey-stats',
+  },
+  {
+    title: 'Friedman Decryptor',
+    description: `Decrypts Elliotte Friedman's acronyms that nobody understands`,
+    web: 'https://friedgism.mattjennings.io/',
+    source: 'https://github.com/mattjennings/friedman-decryptor',
   },
 ]
 
@@ -42,8 +42,9 @@ const MotionGrid = motion.custom(Grid)
 const IndexPage = () => {
   return (
     <>
-      <SEO title="Portfolio" />
-
+      <Head>
+        <title>Matt Jennings</title>
+      </Head>
       <MotionGrid
         container
         justify="center"
@@ -53,7 +54,7 @@ const IndexPage = () => {
         initial="exit"
         animate="enter"
       >
-        {items.map(item => (
+        {items.map((item) => (
           <MotionGrid
             variants={{
               exit: { opacity: 0, y: 50 },

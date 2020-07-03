@@ -1,6 +1,4 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import { Container, Typography, AppBar, Grid } from '@material-ui/core'
+import { Container, Typography, Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core'
 import Link from './Link'
 
@@ -20,7 +18,7 @@ const useStyles = makeStyles(
   }
 )
 
-const Header = ({ siteTitle }) => {
+const Header = () => {
   const classes = useStyles()
 
   return (
@@ -34,8 +32,8 @@ const Header = ({ siteTitle }) => {
         >
           <Grid item>
             <Typography variant="h4" component="h1" className={classes.title}>
-              <Link to="/">
-                <strong>{siteTitle}</strong>
+              <Link href="/">
+                <strong>Matt Jennings</strong>
               </Link>
             </Typography>
           </Grid>
@@ -43,12 +41,12 @@ const Header = ({ siteTitle }) => {
             <Grid container spacing={2} wrap="nowrap">
               <Grid item>
                 <Typography variant="h6">
-                  <Link to="/about">About</Link>
+                  <Link href="/about">About</Link>
                 </Typography>
               </Grid>
               <Grid item>
                 <Typography variant="h6">
-                  <Link to="/uses">Uses</Link>
+                  <Link href="/uses">Uses</Link>
                 </Typography>
               </Grid>
             </Grid>
@@ -57,14 +55,6 @@ const Header = ({ siteTitle }) => {
       </Container>
     </header>
   )
-}
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
 }
 
 export default Header
