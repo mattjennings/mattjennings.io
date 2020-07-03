@@ -26,5 +26,5 @@ jobs:
         run: npm install vercel
       - name: Deploy
         run: >
-          vc --target production
+          vc --prod --confirm
           --token ${{ secrets.ZEIT_TOKEN }}
