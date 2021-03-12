@@ -1,120 +1,31 @@
-import './_app.css'
-import React from 'react'
-import PropTypes from 'prop-types'
+import '../css/tailwind.css'
+import type { AppProps } from 'next/app'
+import ModalStack from 'components/ModalStack'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { AnimateSharedLayout } from 'framer-motion'
 import Head from 'next/head'
-import {
-  ThemeProvider,
-  responsiveFontSizes,
-  createMuiTheme,
-} from '@material-ui/core/styles'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import { grey } from '@material-ui/core/colors'
-import Header from '../components/Header'
-import { Container } from '@material-ui/core'
-import { AnimatePresence, motion } from 'framer-motion'
-import { useRouter } from 'next/router'
-import Footer from '../components/Footer'
-const theme = responsiveFontSizes(
-  createMuiTheme({
-    palette: {
-      type: 'dark',
-      primary: grey,
-      secondary: grey,
-    },
-    typography: {
-      fontFamily: '"Lato", "Helvetica", "Arial", sans-serif',
-      fontSize: 14,
-      fontWeightLight: 300,
-      fontWeightRegular: 400,
-      fontWeightMedium: 500,
-    },
+import Header, { HeaderProps } from 'components/Header'
 
-    props: {
-      MuiButtonBase: {
-        disableRipple: true,
-      },
-    },
-    overrides: {
-      MuiCard: {
-        root: {
-          borderRadius: 10,
-        },
-      },
-      MuiPaper: {
-        rounded: {
-          borderRadius: 10,
-        },
-      },
-    },
-  })
-)
+const queryClient = new QueryClient()
 
-export default function MyApp(props) {
-  const { Component, pageProps } = props
+export interface PageProps {
+  title: string
+}
 
-  const router = useRouter()
-  React.useEffect(() => {
-    // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector('#jss-server-side')
-    if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles)
-    }
-  }, [])
-
+function App({ Component, pageProps }: AppProps<PageProps>) {
   return (
-    <React.Fragment>
-      <Head>
-        <title>Matt Jennings</title>
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width"
-        />
-      </Head>
-      <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        <Header />
-        <AnimatePresence initial={false} exitBeforeEnter>
-          <motion.main
-            key={router.pathname}
-            variants={{
-              initial: {
-                opacity: 0,
-              },
-              enter: {
-                opacity: 1,
-                transition: {
-                  duration: 0.2,
-                },
-              },
-              exit: {
-                opacity: 0,
-                transition: {
-                  duration: 0.2,
-                },
-              },
-            }}
-            initial="initial"
-            animate="enter"
-            exit="exit"
-          >
-            <Container
-              style={{
-                // 60px = header, 60px = footer
-                minHeight: 'calc(100vh - 60px - 60px)',
-                paddingTop: 16,
-                paddingBottom: 16,
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-              }}
-            >
-              <Component {...pageProps} />
-            </Container>
-            <Footer />
-          </motion.main>
-        </AnimatePresence>
-      </ThemeProvider>
-    </React.Fragment>
+    <AnimateSharedLayout>
+      <QueryClientProvider client={queryClient}>
+        <ModalStack>
+          <Head>
+            <title> Matt Jennings</title>
+          </Head>
+          <Header {...(pageProps.header ?? {})} />
+          <Component {...pageProps} />
+        </ModalStack>
+      </QueryClientProvider>
+    </AnimateSharedLayout>
   )
 }
+
+export default App

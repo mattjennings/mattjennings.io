@@ -1,6 +1,4 @@
 import React from 'react'
-
-import { Typography } from '@material-ui/core'
 import Head from 'next/head'
 
 const NotFoundPage = () => (
@@ -8,9 +6,7 @@ const NotFoundPage = () => (
     <Head>
       <title>404</title>
     </Head>
-    <Typography variant="h5" align="center" style={{ padding: '30px 0' }}>
-      {`oops, this page doesn't exist`}
-    </Typography>
+    <h5 className="text-center p-16">{`oops, this page doesn't exist`}</h5>
 
     <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
       <img

@@ -1,4 +1,3 @@
-import { Grid, Typography } from '@material-ui/core'
 import React from 'react'
 import Markdown from '../components/Markdown'
 
@@ -38,7 +37,7 @@ const Uses = () => {
       <head>
         <title>Matt Jennings | Uses</title>
       </head>
-      <Grid container justify="center" spacing={4}>
+      {/* <Grid container justify="center" spacing={4}>
         <Grid item xs={12} md={4}>
           <Typography variant="h4" component="h2">
             Hardware
@@ -52,7 +51,7 @@ const Uses = () => {
           </Typography>
           <Markdown>{software}</Markdown>
         </Grid>
-      </Grid>
+      </Grid> */}
     </>
   )
 }

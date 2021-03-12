@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import Head from 'next/head'
 import Header from 'components/Header'
 import Link from 'next/link'
 import { GetStaticProps } from 'next'
@@ -36,18 +37,13 @@ const items = [
   },
 ]
 
-export default function Index() {
+export default function Projects() {
   return (
     <>
-      <Header.Content>
-        <h1>Matt Jennings</h1>
-        <h2 className="text-sm sm:text-2xl text-green-200 ml-0.5 sm:ml-1">
-          web developer
-        </h2>
-      </Header.Content>
+      <Header.Content>Projects</Header.Content>
       <div className="pt-6">
-        <Link href="/projects">
-          <a>projects</a>
+        <Link href="/">
+          <a>home</a>
         </Link>
       </div>
     </>

@@ -1,60 +1,54 @@
-import { Container, Typography, Grid } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core'
-import Link from './Link'
+import { Portal } from '@headlessui/react'
+import clsx from 'clsx'
+import { motion } from 'framer-motion'
+import { HTMLProps } from 'react'
+import { createPortal } from 'react-dom'
+import NoSSR from './NoSSR'
 
-const useStyles = makeStyles(
-  {
-    root: {
-      height: 60,
-      color: 'inherit',
-    },
-    title: {},
-    content: {
-      padding: '16px 0px',
-    },
-  },
-  {
-    name: 'Header',
-  }
-)
+export interface HeaderProps {
+  className?: string
+  flat?: boolean
+  children: React.ReactNode
+}
 
-const Header = () => {
-  const classes = useStyles()
-
+export default function Header({ className, flat, children }: HeaderProps) {
   return (
-    <header className={classes.root}>
-      <Container>
-        <Grid
-          container
-          justify="space-between"
-          alignItems="center"
-          className={classes.content}
-        >
-          <Grid item>
-            <Typography variant="h4" component="h1" className={classes.title}>
-              <Link href="/">
-                <strong>Matt Jennings</strong>
-              </Link>
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Grid container spacing={2} wrap="nowrap">
-              <Grid item>
-                <Typography variant="h6">
-                  <Link href="/about">About</Link>
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography variant="h6">
-                  <Link href="/uses">Uses</Link>
-                </Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Container>
-    </header>
+    <motion.div
+      className={clsx(
+        `flex relative h-20 sm:h-40 bg-primary-600 w-screen`,
+        className
+      )}
+      animate={{
+        skewY: flat ? 0 : -6,
+        originX: `left`,
+      }}
+      initial={{
+        skewY: flat ? 0 : -6,
+        originX: `left`,
+      }}
+    >
+      <motion.div
+        id="header-content"
+        className={clsx(
+          `absolute top-0 left-0 flex flex-col`,
+          `flex justify-center h-full p-2 sm:pl-4 text-xl sm:text-5xl text-white font-medium`
+        )}
+        animate={{
+          skewY: flat ? 0 : 6,
+          originX: `left`,
+        }}
+        initial={{
+          skewY: flat ? 0 : 6,
+          originX: `left`,
+        }}
+      />
+    </motion.div>
   )
 }
 
-export default Header
+Header.Content = function HeaderContent(props: HTMLProps<HTMLDivElement>) {
+  if (!process.browser) {
+    return null
+  }
+  return createPortal(props.children, document.querySelector(`#header-content`))
+}

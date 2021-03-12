@@ -2,7 +2,6 @@ import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import { getPolicyBySlug, getAllPolicies } from 'lib/policies'
 import Markdown from '../../components/Markdown'
-import { Typography } from '@material-ui/core'
 
 export default function Policy({ policy }) {
   const router = useRouter()
@@ -17,7 +16,7 @@ export default function Policy({ policy }) {
 
   return (
     <div>
-      <Typography variant="h3">{policy.title}</Typography>
+      <h3>{policy.title}</h3>
       <Markdown>{policy.content}</Markdown>
     </div>
   )
