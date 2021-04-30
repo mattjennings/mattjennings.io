@@ -4,6 +4,8 @@ import Head from 'next/head'
 import Header from 'components/Header'
 import Link from 'next/link'
 import { GetStaticProps } from 'next'
+import { PageProps } from './_app'
+import PageTitle from 'components/PageTitle'
 
 const items = [
   {
@@ -39,13 +41,8 @@ const items = [
 
 export default function Projects() {
   return (
-    <>
-      <Header.Content>Projects</Header.Content>
-      <div className="pt-6">
-        <Link href="/">
-          <a>home</a>
-        </Link>
-      </div>
-    </>
+    <div className="pl-2 sm:pl-4 pt-6">
+      <PageTitle title="Projects" />
+    </div>
   )
 }

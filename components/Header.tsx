@@ -1,48 +1,62 @@
-import { Portal } from '@headlessui/react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import { HTMLProps } from 'react'
 import { createPortal } from 'react-dom'
-import NoSSR from './NoSSR'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import Head from 'next/head'
 
 export interface HeaderProps {
   className?: string
   flat?: boolean
-  children: React.ReactNode
 }
 
-export default function Header({ className, flat, children }: HeaderProps) {
+export default function Header({ className, flat }: HeaderProps) {
   return (
-    <motion.div
-      className={clsx(
-        `flex relative h-20 sm:h-40 bg-primary-600 w-screen`,
-        className
-      )}
-      animate={{
-        skewY: flat ? 0 : -6,
-        originX: `left`,
-      }}
-      initial={{
-        skewY: flat ? 0 : -6,
-        originX: `left`,
-      }}
-    >
+    <div className="relative w-screen flex flex-row max-w-[1920px]">
       <motion.div
-        id="header-content"
         className={clsx(
-          `absolute top-0 left-0 flex flex-col`,
-          `flex justify-center h-full p-2 sm:pl-4 text-xl sm:text-5xl text-white font-medium`
+          `flex relative h-16 md:h-36 bg-primary-600 w-screen`,
+          `transform origin-left skew-y-0 md:skew-y-[-8deg]`,
+          className
         )}
-        animate={{
-          skewY: flat ? 0 : 6,
-          originX: `left`,
-        }}
-        initial={{
-          skewY: flat ? 0 : 6,
-          originX: `left`,
-        }}
-      />
-    </motion.div>
+        // animate={{
+        //   skewY: flat ? 0 : -6,
+        //   originX: `left`,
+        // }}
+        // initial={{
+        //   skewY: flat ? 0 : -6,
+        //   originX: `left`,
+        // }}
+      >
+        <motion.div
+          id="header-content"
+          className={clsx(
+            `absolute top-0 left-0 flex flex-col`,
+            `flex justify-center h-full p-2 sm:pl-4 text-xl md:text-5xl text-white font-medium`,
+            `transform origin-left skew-y-0 md:skew-y-[8deg]`
+          )}
+          // animate={{
+          //   skewY: flat ? 0 : 6,
+          //   originX: `left`,
+          // }}
+          // initial={{
+          //   skewY: flat ? 0 : 6,
+          //   originX: `left`,
+          // }}
+        >
+          <h1>Matt Jennings</h1>
+          <h2 className="text-sm md:text-2xl text-green-200 ml-0.5 lowercase">
+            web developer
+          </h2>
+        </motion.div>
+      </motion.div>
+      <nav className="absolute right-0 top-0 flex items-center h-full space-x-6 pr-16">
+        <NavLink href="/">about</NavLink>
+        <NavLink href="/projects">projects</NavLink>
+        {/* <NavLink href="/blog">blog</NavLink> */}
+      </nav>
+    </div>
   )
 }
 
@@ -51,4 +65,30 @@ Header.Content = function HeaderContent(props: HTMLProps<HTMLDivElement>) {
     return null
   }
   return createPortal(props.children, document.querySelector(`#header-content`))
+}
+
+function NavLink({
+  href,
+  children,
+}: {
+  href: string
+  children: React.ReactNode
+}) {
+  const router = useRouter()
+
+  const isActive = router.pathname === href
+  return (
+    <Link href={href} passHref>
+      <motion.a
+        className={clsx(
+          `text-2xl`,
+          isActive ? `font-medium text-gray-800` : `font-normal text-gray-500`
+        )}
+        initial={{ origin: 0.5 }}
+        whileHover={{ scale: 1.2 }}
+      >
+        {children}
+      </motion.a>
+    </Link>
+  )
 }

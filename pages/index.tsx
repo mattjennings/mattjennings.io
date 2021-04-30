@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import Header from 'components/Header'
 import Link from 'next/link'
 import { GetStaticProps } from 'next'
+import PageTitle from 'components/PageTitle'
 
 const items = [
   {
@@ -38,18 +39,8 @@ const items = [
 
 export default function Index() {
   return (
-    <>
-      <Header.Content>
-        <h1>Matt Jennings</h1>
-        <h2 className="text-sm sm:text-2xl text-green-200 ml-0.5 sm:ml-1">
-          web developer
-        </h2>
-      </Header.Content>
-      <div className="pt-6">
-        <Link href="/projects">
-          <a>projects</a>
-        </Link>
-      </div>
-    </>
+    <div className="pl-2 sm:pl-4 pt-6">
+      <PageTitle title="About Me" />
+    </div>
   )
 }
