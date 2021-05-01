@@ -14,7 +14,7 @@
 	})()
 
 	$: linkClass = active
-		? 'text-xl md:text-2xl text-gray-800 dark:text-gray-white'
+		? 'text-xl md:text-2xl text-gray-800 dark:text-white'
 		: 'text-md md:text-xl text-gray-500 dark:text-gray-400'
 </script>
 

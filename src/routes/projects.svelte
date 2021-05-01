@@ -2,7 +2,12 @@
 	import Project from '$lib/Project.svelte'
 </script>
 
-<div class="flex flex-col divide-y">
+<p>
+	Here are some projects that I've worked on. I have others on my <a
+		href="https://github.com/mattjennings">GitHub</a
+	> if you'd like to see more.
+</p>
+<div class="flex flex-col divide-y dark:divide-gray-700">
 	<Project
 		title="Tradebreaker"
 		img="/tradebreaker.png"
@@ -31,5 +36,25 @@
 
 		It was originally written in GameMaker, but I'd like to remake it in another engine someday. The
 		video is a fan playing through the level.
+	</Project>
+
+	<Project
+		title="svelte-phaser"
+		web="https://svelte-phaser.com"
+		github="https://github.com/mattjennings/svelte-phaser"
+		img="/svelte-phaser.png"
+	>
+		A Svelte framework to write Phaser games. It's fairly experimental, but I've been able to make a
+		few example games and it's showing promise. I'm currently working on a companion build tool
+		similar to Sapper/SvelteKit as well.
+	</Project>
+
+	<Project
+		title="Rooster Teeth Nextjs"
+		web="https://rt.mattjennings.vercel.app"
+		github="https://github.com/mattjennings/roosterteeth-nextjs"
+		img="/rt-nextjs.png"
+	>
+		An alternative to roosterteeth.com built with Nextjs. Supports logging in with RT account.
 	</Project>
 </div>
