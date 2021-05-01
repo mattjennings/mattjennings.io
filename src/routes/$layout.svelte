@@ -1,6 +1,7 @@
 <script>
 	import '../app.css'
 	import Email from '$lib/Email.svelte'
+	import NavLink from '$lib/NavLink.svelte'
 </script>
 
 <svelte:head>
@@ -9,18 +10,10 @@
 
 <div class="flex flex-col min-h-screen bg-white dark:bg-gray-900">
 	<div class="flex-grow w-full max-w-4xl mx-auto">
-		<nav class="px-4 text-xl py-2 space-x-4 font-medium">
-			<a href="/" class="text-2xl text-gray-800 dark:text-white">Matt Jennings</a>
-			<a
-				href="/projects"
-				class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-100"
-				>projects</a
-			>
-			<a
-				href="/blog"
-				class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-100"
-				>blog</a
-			>
+		<nav class="flex items-center h-16 px-4 py-2 space-x-8">
+			<NavLink href="/">Matt Jennings</NavLink>
+			<NavLink href="/projects">projects</NavLink>
+			<NavLink href="/blog">blog</NavLink>
 		</nav>
 
 		<main>
