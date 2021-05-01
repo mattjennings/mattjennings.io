@@ -14,7 +14,7 @@ export function tooltip(element, options) {
 		tooltipComponent.$set({
 			text: options.text,
 			x: left + width / 2,
-			y: top - 48,
+			y: top - 48 + window.scrollY,
 			show: true
 		})
 		element.removeAttribute('title')
