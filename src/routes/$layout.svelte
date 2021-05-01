@@ -7,16 +7,24 @@
 	<title>Matt Jennings | Hello!</title>
 </svelte:head>
 
-<div class="flex flex-col min-h-screen">
-	<div class="flex-grow w-full max-w-2xl mx-auto">
-		<nav class="px-4 md:px-0 text-xl py-2 space-x-4 font-medium">
-			<a href="/" class="text-2xl text-gray-800">Matt Jennings</a>
-			<a href="/projects" class="text-gray-500 hover:text-gray-800">projects</a>
-			<a href="/blog" class="text-gray-500 hover:text-gray-800">blog</a>
+<div class="flex flex-col min-h-screen bg-white dark:bg-gray-900">
+	<div class="flex-grow w-full max-w-4xl mx-auto">
+		<nav class="px-4 text-xl py-2 space-x-4 font-medium">
+			<a href="/" class="text-2xl text-gray-800 dark:text-white">Matt Jennings</a>
+			<a
+				href="/projects"
+				class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-100"
+				>projects</a
+			>
+			<a
+				href="/blog"
+				class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-100"
+				>blog</a
+			>
 		</nav>
 
 		<main>
-			<article class="prose  prose-lg sm:prose-xl px-4 py-4">
+			<article class="prose dark:prose-light prose-lg sm:prose-xl py-4 px-4">
 				<slot />
 			</article>
 		</main>
