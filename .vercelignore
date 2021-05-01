@@ -1,3 +1,4 @@
 node_modules
 public
 dist
+.vercel_build_output

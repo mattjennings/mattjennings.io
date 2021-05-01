@@ -1,6 +1,6 @@
 <script>
-	import Email from '$lib/Email.svelte'
 	import '../app.css'
+	import Email from '$lib/Email.svelte'
 </script>
 
 <svelte:head>
@@ -9,17 +9,14 @@
 
 <div class="flex flex-col min-h-screen">
 	<div class="flex-grow max-w-2xl mx-auto">
-		<div class="text-center pt-4">
-			<h1 class="text-5xl font-semibold">Matt Jennings</h1>
-			<p class="text-xl opacity-60 font-medium">software developer</p>
-		</div>
-
-		<div class="overflow-hidden pt-4 mx-1">
-			<img alt="hello!" src="/hello.gif" class="mx-auto rounded-md" />
-		</div>
+		<nav class="px-4 md:px-0 text-xl py-2 space-x-4 font-medium">
+			<a href="/" class="text-2xl text-gray-800">Matt Jennings</a>
+			<a href="/projects" class="text-gray-500 hover:text-gray-800">projects</a>
+			<a href="/blog" class="text-gray-500 hover:text-gray-800">blog</a>
+		</nav>
 
 		<main>
-			<article class="prose prose-lg sm:prose-xl px-4 py-4">
+			<article class="prose  prose-lg sm:prose-xl px-4 py-4">
 				<slot />
 			</article>
 		</main>

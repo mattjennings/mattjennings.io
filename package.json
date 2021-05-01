@@ -9,6 +9,7 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
+		"@sveltejs/adapter-vercel": "next",
 		"@sveltejs/kit": "next",
 		"@tailwindcss/typography": "^0.4.0",
 		"@typescript-eslint/eslint-plugin": "^4.19.0",
