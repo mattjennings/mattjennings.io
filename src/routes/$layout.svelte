@@ -8,7 +8,7 @@
 	<title>Matt Jennings | Hello!</title>
 </svelte:head>
 
-<div class="flex flex-col min-h-screen bg-white dark:bg-gray-900">
+<div class="flex flex-col min-h-screen ">
 	<div class="flex-grow w-full max-w-4xl mx-auto">
 		<nav class="flex items-center h-16 px-4 py-2 space-x-8">
 			<NavLink href="/">Matt Jennings</NavLink>

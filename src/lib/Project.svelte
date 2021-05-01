@@ -33,7 +33,7 @@
 </script>
 
 <div class="flex flex-col md:flex-row items-start space-x-0 md:space-x-8 py-4">
-	<h3 class="!mt-0 !mb-0 md:hidden">{title}</h3>
+	<h3 class="!mt-0 !mb-0 md:hidden text-center w-full">{title}</h3>
 	<div class="py-2 !mx-auto w-auto md:w-1/3">
 		{#if img}
 			<img alt={`${title} Screenshot`} src={img} class="!mb-0 !mt-0 max-h-80 " />
