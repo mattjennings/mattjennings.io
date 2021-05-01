@@ -35,5 +35,8 @@
 		"typescript": "^4.0.0",
 		"vite": "^2.2.3"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"date-fns": "^2.21.1"
+	}
 }

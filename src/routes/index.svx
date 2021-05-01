@@ -1,0 +1,15 @@
+<script>
+  import { differenceInYears } from 'date-fns'
+
+  const age = differenceInYears(new Date(), new Date('1994-11-01'))
+</script>
+
+<div class="overflow-hidden mx-1">
+  <img alt="hello!" src="/hello.gif" width="360" height="202" class="rounded-md" style="margin-top: 0; margin-bottom: 0;"/>
+</div>
+
+I'm Matt Jennings, a {age} year-old software developer. I usually make websites, but I also like to make mobile apps and games.
+
+Lately, I've been working on a project called [svelte-phaser](https://svelte-phaser.com) that combines [Svelte](https://svelte.dev) with [Phaser](https://phaser.io). My goal is to mix the declarative paradigm of modern web development with game development.
+
+If you'd like to reach out, feel free to [tweet me](https://twitter.com/mattjennings44) or [email me](mailto:mattjennings@hey.com). Otherwise, [check out some of my work!](/projects)

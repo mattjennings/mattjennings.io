@@ -8,7 +8,7 @@
 </svelte:head>
 
 <div class="flex flex-col min-h-screen">
-	<div class="flex-grow max-w-2xl mx-auto">
+	<div class="flex-grow w-full max-w-2xl mx-auto">
 		<nav class="px-4 md:px-0 text-xl py-2 space-x-4 font-medium">
 			<a href="/" class="text-2xl text-gray-800">Matt Jennings</a>
 			<a href="/projects" class="text-gray-500 hover:text-gray-800">projects</a>
