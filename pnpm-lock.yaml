@@ -12,7 +12,6 @@ specifiers:
   eslint-config-prettier: ^8.1.0
   eslint-plugin-svelte3: ^3.2.0
   mdsvex: ^0.9.0
-  nightwind: ^1.1.11
   postcss: ^8.2.10
   postcss-load-config: ^3.0.1
   prettier: ~2.2.1
@@ -40,7 +39,6 @@ devDependencies:
   eslint-config-prettier: 8.3.0_eslint@7.25.0
   eslint-plugin-svelte3: 3.2.0_eslint@7.25.0+svelte@3.38.0
   mdsvex: 0.9.3_svelte@3.38.0
-  nightwind: 1.1.11_941a81a5c9afb5d3c8bce0db60f786b1
   postcss: 8.2.13
   postcss-load-config: 3.0.1
   prettier: 2.2.1
@@ -1615,15 +1613,6 @@ packages:
 
   /natural-compare/1.4.0:
     resolution: {integrity: sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=}
-    dev: true
-
-  /nightwind/1.1.11_941a81a5c9afb5d3c8bce0db60f786b1:
-    resolution: {integrity: sha512-otPDpr0u8uYEVUx+oMwriDFurTU4OwxMVf4b2Z26PkalV837qpDM7ym4LnwKLM4zROiH5B5+wubK93PyxxYF7A==}
-    dependencies:
-      tailwindcss: 2.1.2_941a81a5c9afb5d3c8bce0db60f786b1
-    transitivePeerDependencies:
-      - autoprefixer
-      - postcss
     dev: true
 
   /node-emoji/1.10.0:
