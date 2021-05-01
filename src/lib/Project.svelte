@@ -1,12 +1,18 @@
 <script>
 	export let title
-	export let img
+	export let img = undefined
+	export let video = undefined
 	export let iOS = undefined
 	export let android = undefined
 	export let web = undefined
 	export let github = undefined
+	export let download = undefined
 
 	let links = [
+		web && {
+			url: web,
+			label: 'Website'
+		},
 		iOS && {
 			url: iOS,
 			label: 'iOS'
@@ -15,25 +21,36 @@
 			url: android,
 			label: 'Android'
 		},
-		web && {
-			url: web,
-			label: 'Website'
-		},
 		github && {
 			url: github,
 			label: 'GitHub'
+		},
+		download && {
+			url: download,
+			label: 'Download'
 		}
 	].filter(Boolean)
 </script>
 
-<div class="flex flex-col md:flex-row items-start space-x-0 md:space-x-8">
+<div class="flex flex-col md:flex-row items-start space-x-0 md:space-x-8 py-4">
 	<h3 class="!mt-0 !mb-0 md:hidden">{title}</h3>
-	<img
-		alt={`${title} Screenshot`}
-		src={img}
-		class="!mb-2 !mt-2 max-h-80 !mx-auto w-auto md:w-1/2"
-	/>
-	<div class="w-auto md:w-1/2">
+	<div class="py-2 !mx-auto w-auto md:w-1/3">
+		{#if img}
+			<img alt={`${title} Screenshot`} src={img} class="!mb-0 !mt-0 max-h-80 " />
+		{/if}
+
+		{#if video}
+			<iframe
+				class="w-full h-60 rounded-md"
+				src={video}
+				{title}
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen
+			/>
+		{/if}
+	</div>
+	<div class="w-auto md:w-2/3">
 		<h3 id={title} class="!mt-0 !mb-0 hidden md:block"><a href={`#${title}`}>{title}</a></h3>
 		<div class="flex justify-center md:justify-start !mt-2 !mb-2 space-x-1">
 			{#each links as link}

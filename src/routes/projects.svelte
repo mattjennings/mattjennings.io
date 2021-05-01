@@ -2,15 +2,34 @@
 	import Project from '$lib/Project.svelte'
 </script>
 
-<Project
-	title="Tradebreaker"
-	img="/tradebreaker.png"
-	web="https://tradebreaker.io"
-	iOS="https://apps.apple.com/us/app/tradebreaker/id1471192218"
-	android="https://play.google.com/store/apps/details?id=xyz.appmaker.szwfyz&hl=en_CA"
->
-	Aggregates NHL news on Twitter and notifies you when they are added. It uses Natural Language
-	Processing to parse the tweets from select NHL insiders and detect whether or not it's actual
-	news. While it's not perfect, it is still a reliable way to be notified within seconds of news
-	breaking on Twitter.
-</Project>
+<div class="flex flex-col divide-y">
+	<Project
+		title="Tradebreaker"
+		img="/tradebreaker.png"
+		web="https://tradebreaker.io"
+		iOS="https://apps.apple.com/us/app/tradebreaker/id1471192218"
+		android="https://play.google.com/store/apps/details?id=xyz.appmaker.szwfyz&hl=en_CA"
+	>
+		Aggregates NHL news on Twitter and notifies you when they are added. It uses Natural Language
+		Processing to parse the tweets from select NHL insiders and detect whether or not it's actual
+		news. While it's not perfect, it is still a reliable way to be notified within seconds of news
+		breaking on Twitter.
+	</Project>
+
+	<Project
+		title="Megaman X Eclipse"
+		web="http://mmxeclipse.blogspot.com"
+		download="https://sites.google.com/site/mmxeclipse/home/Megaman%20X%20Eclipse%20Demo%20v1.02.zip?attredirects=0&d=1"
+		video="https://www.youtube.com/embed/ZdOGiwa5c7E"
+	>
+		A Megaman X fan game that my brother and I worked on while I was in high school. I spent many,
+		many hours on trying to imitate the physics of the original game. We were able to release a demo
+		in 2013 with 1 complete level, but we decided to take an indefinite break after that and
+		unfortunately never came back to it. However, it's still one of my most proud accomplishments.
+
+		<br /><br />
+
+		It was originally written in GameMaker, but I'd like to remake it in another engine someday. The
+		video is a fan playing through the level.
+	</Project>
+</div>
