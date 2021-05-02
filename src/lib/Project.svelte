@@ -32,7 +32,7 @@
 	].filter(Boolean)
 </script>
 
-<div class="flex flex-col md:flex-row items-start space-x-0 md:space-x-8 py-4">
+<div class="flex flex-col md:flex-row items-start space-x-0 md:space-x-8 py-8">
 	<h3 class="!mt-0 !mb-0 md:hidden text-center w-full">{title}</h3>
 	<div class="py-2 !mx-auto w-auto md:w-1/3">
 		{#if img}

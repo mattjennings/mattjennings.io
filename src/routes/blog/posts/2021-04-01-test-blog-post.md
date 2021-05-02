@@ -1,5 +1,6 @@
 ---
 title: Test Blog Post
+created: 2021-04-01
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent efficitur dui sapien, et sollicitudin tellus tincidunt at. Vivamus porttitor hendrerit elit, ac ultricies velit dapibus quis. Donec id dolor nisl. Sed feugiat imperdiet orci vitae iaculis. In vel egestas magna. Nunc et lacus ex. Nullam vel malesuada magna. Vivamus at lorem id tortor consequat euismod id sed erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;

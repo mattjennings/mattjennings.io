@@ -15,7 +15,7 @@
 		href="https://github.com/mattjennings">GitHub</a
 	> if you'd like to see more.
 </p>
-<div class="flex flex-col divide-y dark:divide-gray-700">
+<div class="flex flex-col divide-y dark:divide-gray-700 pb-8">
 	<Project
 		title="Tradebreaker"
 		img="/tradebreaker.png"
