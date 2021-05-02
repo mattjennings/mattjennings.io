@@ -1,6 +1,14 @@
+<script context="module">
+	export const prerender = true
+</script>
+
 <script>
 	import Project from '$lib/Project.svelte'
 </script>
+
+<svelte:head>
+	<title>Matt Jennings | Projects</title>
+</svelte:head>
 
 <p>
 	Here are some projects that I've worked on. I have others on my <a

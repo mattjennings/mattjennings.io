@@ -15,7 +15,7 @@
 
 	$: linkClass = active
 		? 'text-xl md:text-2xl text-gray-800 dark:text-white'
-		: 'text-md md:text-xl text-gray-500 dark:text-gray-600'
+		: 'text-md md:text-xl text-gray-500'
 </script>
 
 <a

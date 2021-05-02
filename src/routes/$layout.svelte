@@ -4,10 +4,6 @@
 	import NavLink from '$lib/NavLink.svelte'
 </script>
 
-<svelte:head>
-	<title>Matt Jennings | Hello!</title>
-</svelte:head>
-
 <div class="flex flex-col min-h-screen ">
 	<div class="flex-grow w-full max-w-4xl mx-auto">
 		<nav class="flex items-center h-16 px-4 py-2 space-x-8">

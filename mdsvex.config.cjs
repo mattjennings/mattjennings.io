@@ -1,19 +1,17 @@
 module.exports = {
-	extensions: [".svx", ".md"],
+	layout: './src/routes/$md.svelte',
+	extensions: ['.svx', '.md'],
 	smartypants: {
-		dashes: "oldschool",
+		dashes: 'oldschool'
 	},
-	remarkPlugins: [
-		[require("remark-github"), {
-			// Use your own repository
-			repository: "https://github.com/svelte-add/mdsvex.git",
-		}],
-		require("remark-abbr"),
-	],
+	remarkPlugins: [require('remark-abbr')],
 	rehypePlugins: [
-		require("rehype-slug"),
-		[require("rehype-autolink-headings"), {
-			behavior: "wrap",
-		}],
-	],
-};
+		require('rehype-slug'),
+		[
+			require('rehype-autolink-headings'),
+			{
+				behavior: 'wrap'
+			}
+		]
+	]
+}

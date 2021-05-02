@@ -4,6 +4,11 @@
   const age = differenceInYears(new Date(), new Date('1994-11-01'))
 </script>
 
+<svelte:head>
+
+  <title>Matt Jennings | Hello!</title>
+</svelte:head>
+
 <div class="overflow-hidden mx-1">
   <img alt="hello!" src="/hello.gif" width="360" height="202" class="rounded-md" style="margin-top: 0; margin-bottom: 0;"/>
 </div>
