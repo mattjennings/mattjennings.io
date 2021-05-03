@@ -22,8 +22,8 @@
 
     active = (!_href && !path) || (_href && path && _href.startsWith(path))
     linkClass = active
-      ? 'text-xl sm:text-2xl text-gray-800 dark:text-white'
-      : 'text-base sm:text-xl text-gray-500'
+      ? 'text-xl font-bold sm:text-2xl text-gray-800 dark:text-white'
+      : 'text-base font-medium sm:text-xl text-gray-500 dark:text-white dark:opacity-80'
   }
 </script>
 
@@ -32,7 +32,7 @@
   class={clsx(
     _class,
     linkClass,
-    `font-medium hover:text-gray-800 dark:hover:text-gray-100`,
+    `hover:text-gray-800 dark:hover:text-gray-100`,
     `transform transition-all`
   )}
 >

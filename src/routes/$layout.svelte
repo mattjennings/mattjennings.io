@@ -16,7 +16,7 @@
       <slot />
     </main>
   </div>
-  <footer class="flex space-x-4 items-center justify-center py-3 bg-gray-800">
+  <footer class="flex space-x-4 items-center justify-center bg-gray-800">
     <!-- twitter -->
     <a href="https://twitter.com/mattjennings44">
       <svg
@@ -48,3 +48,11 @@
     <Email />
   </footer>
 </div>
+
+<style>
+  footer {
+    /* 12px is value of py-3 */
+    padding-top: 12px;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  }
+</style>
