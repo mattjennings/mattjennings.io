@@ -1,30 +1,40 @@
 <script>
-	import clsx from 'clsx'
-	import { page } from '$app/stores'
+  import clsx from 'clsx'
+  import { page } from '$app/stores'
+  import { afterUpdate, onMount } from 'svelte'
 
-	let _class
-	export let href
-	export { _class as class }
+  let _class
+  export let href
+  export { _class as class }
 
-	$: active = (() => {
-		const [, path] = $page.path.split('/')
-		const [, _href] = href.split('/')
+  let active
+  let linkClass
 
-		return (!_href && !path) || (_href && path && _href.startsWith(path))
-	})()
+  // update active on navigation change
+  $: $page, update()
 
-	$: linkClass = active
-		? 'text-xl md:text-2xl text-gray-800 dark:text-white'
-		: 'text-md md:text-xl text-gray-500'
+  // make sure active is set for SSR
+  update()
+
+  function update() {
+    const [, path] = $page.path.split('/')
+    const [, _href] = href.split('/')
+
+    active = (!_href && !path) || (_href && path && _href.startsWith(path))
+    linkClass = active
+      ? 'text-xl md:text-2xl text-gray-800 dark:text-white'
+      : 'text-md md:text-xl text-gray-500'
+  }
 </script>
 
 <a
-	{href}
-	class={clsx(
-		_class,
-		`transform transition-all font-medium hover:text-gray-800 dark:hover:text-gray-100`,
-		linkClass
-	)}
+  {href}
+  class={clsx(
+    _class,
+    linkClass,
+    `font-medium hover:text-gray-800 dark:hover:text-gray-100`,
+    `transform transition-all`
+  )}
 >
-	<slot />
+  <slot />
 </a>

@@ -146,7 +146,7 @@ packages:
     resolution: {integrity: sha512-Fb85t1fktFP46HZEjmlF/TN9k95grger27FpvsKaNXSz1VTdKS8Sbq3l5hROetkRIgXzAfOb8FlJyLVpz9Go1g==}
     dependencies:
       '@sveltejs/kit': 1.0.0-next.91_svelte@3.38.0+vite@2.2.3
-      esbuild: 0.11.17
+      esbuild: 0.11.18
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -929,8 +929,8 @@ packages:
       is-arrayish: 0.2.1
     dev: true
 
-  /esbuild/0.11.17:
-    resolution: {integrity: sha512-Yj+rQATpLLU36ymg0/laLXn9FUoiGUl7mDPUJ0toQ5nXKFrj/rmIEkQ34T1GeiV2cP2SrT0G0s7xiNuDcsIyBg==}
+  /esbuild/0.11.18:
+    resolution: {integrity: sha512-KD7v4N9b5B8bxPUNn/3GA9r0HWo4nJk3iwjZ+2zG1ffg+r8ig+wqj7sW6zgI6Sn4/B2FnbzqWxcAokAGGM5zwQ==}
     hasBin: true
     requiresBuild: true
     dev: true

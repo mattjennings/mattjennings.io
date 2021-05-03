@@ -4,5 +4,5 @@
 @tailwind utilities;
 
 .prose img {
-	@apply rounded-md shadow-md;
+  @apply rounded-md shadow-md;
 }
