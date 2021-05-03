@@ -33,7 +33,7 @@
 </script>
 
 <div class="flex flex-col flex-grow">
-  <div class="flex-grow divide-y dark:divide-gray-700">
+  <div class="flex-grow divide-y divide-gray-300 dark:divide-gray-700">
     {#each posts as post}
       <div class="pt-8 first:pt-0">
         <div>

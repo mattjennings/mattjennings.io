@@ -1,5 +1,6 @@
 ---
 title: Test Blog Post
+layout: blog
 created: 2021-05-01
 ---
 

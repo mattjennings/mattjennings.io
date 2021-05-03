@@ -1,5 +1,6 @@
 ---
 title: Uses
+layout: page
 ---
 
 ### Hardware

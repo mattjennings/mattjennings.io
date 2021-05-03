@@ -22,6 +22,6 @@
   •
   <span>{length}</span>
 </div>
-<article>
+<article class="mx-auto">
   <slot />
 </article>

@@ -22,8 +22,8 @@
 
     active = (!_href && !path) || (_href && path && _href.startsWith(path))
     linkClass = active
-      ? 'text-xl md:text-2xl text-gray-800 dark:text-white'
-      : 'text-md md:text-xl text-gray-500'
+      ? 'text-xl sm:text-2xl text-gray-800 dark:text-white'
+      : 'text-base sm:text-xl text-gray-500'
   }
 </script>
 

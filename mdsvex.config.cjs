@@ -1,6 +1,10 @@
 const readingTime = require('reading-time')
 module.exports = {
-  layout: './src/routes/$md.svelte',
+  layout: {
+    blog: './src/md-layouts/blog.svelte',
+    page: './src/md-layouts/page.svelte',
+    _: './src/md-layouts/empty.svelte'
+  },
   extensions: ['.svx', '.md'],
   smartypants: {
     dashes: 'oldschool'

@@ -2,8 +2,8 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   mode: 'jit',
-  darkMode: 'media',
-  purge: ['./src/**/*.{html,js,svelte,ts}'],
+  // darkMode: 'media',
+  purge: ['./src/**/*.{html,js,svelte,ts,md,svx}'],
   theme: {
     extend: {
       colors: {
@@ -22,6 +22,7 @@ module.exports = {
               marginBottom: '0 !important'
             },
 
+            p: {},
             img: {
               marginLeft: 'auto',
               marginRight: 'auto'
