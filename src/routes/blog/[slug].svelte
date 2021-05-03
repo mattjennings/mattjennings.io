@@ -9,7 +9,8 @@
       props: {
         component: res.default
       },
-      maxage: 10
+      // 10 minutes
+      maxage: 60 * 10
     }
   }
 </script>

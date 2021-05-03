@@ -17,7 +17,9 @@
       props: {
         posts: posts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE),
         page
-      }
+      },
+      // 10 minutes
+      maxage: 60 * 10
     }
   }
 </script>
