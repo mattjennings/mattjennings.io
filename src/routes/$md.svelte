@@ -4,6 +4,10 @@
   export let title
   export let created
   export let length
+
+  function fixTimezone(date) {
+    return new Date(new Date(date).valueOf() + new Date(date).getTimezoneOffset() * 60 * 1000)
+  }
 </script>
 
 <svelte:head>
@@ -14,7 +18,7 @@
 
 <h3 class="!mt-0 !mb-0">{title}</h3>
 <div>
-  <time>{format(new Date(created), 'MMMM dd, yyyy')}</time>
+  <time>{format(fixTimezone(created), 'MMMM dd, yyyy')}</time>
   •
   <span>{length}</span>
 </div>
