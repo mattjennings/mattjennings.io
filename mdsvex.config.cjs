@@ -6,7 +6,6 @@ module.exports = {
     dashes: 'oldschool'
   },
   remarkPlugins: [
-    require('remark-abbr'),
     () => {
       return (info, file) => {
         // parse content of md
@@ -15,6 +14,7 @@ module.exports = {
         const readTime = readingTime(content)
 
         const preview = content.slice(0, 200)
+
         file.data.fm = {
           ...file.data.fm,
           length: readTime.text,

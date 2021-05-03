@@ -23,9 +23,13 @@
 </script>
 
 <script>
-  import { format } from 'date-fns'
+  import { format, parseISO } from 'date-fns'
   export let posts
   export let page
+
+  function fixTimezone(date) {
+    return new Date(new Date(date).valueOf() + new Date(date).getTimezoneOffset() * 60 * 1000)
+  }
 </script>
 
 <div class="flex flex-col flex-grow">
@@ -34,7 +38,7 @@
       <div class="pt-8 first:pt-0">
         <div>
           <h3 class="!mt-0 !mb-0"><a href={`/blog/${post.slug}`}>{post.title}</a></h3>
-          <time>{format(new Date(post.created), 'MMMM dd, yyyy')}</time>
+          <time>{format(fixTimezone(new Date(post.created)), 'MMMM d, yyyy')}</time>
           •
           <span>{post.length}</span>
         </div>
