@@ -50,7 +50,7 @@
     {/if}
   </div>
   <div class="order-1 md:order-2 w-auto md:w-2/3">
-    <h3 id={title} class="!mt-0 !mb-0 md:block"><a href={`#${title}`}>{title}</a></h3>
+    <h2 id={title} class="!mt-0 !mb-0 md:block"><a href={`#${title}`}>{title}</a></h2>
     <div class="flex justify-start !mt-2 !mb-2 space-x-1">
       {#each links as link}
         <a

@@ -16,12 +16,12 @@
   {/if}
 </svelte:head>
 
-<h3 class="!mt-0 !mb-0">{title}</h3>
+<h1 class="!mt-0 !mb-0">{title}</h1>
 <div>
-  <time>{format(fixTimezone(created), 'MMMM dd, yyyy')}</time>
+  <time>{format(fixTimezone(created), 'MMMM d, yyyy')}</time>
   •
   <span>{length}</span>
 </div>
-<article class="mx-auto">
+<article>
   <slot />
 </article>

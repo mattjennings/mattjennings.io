@@ -12,17 +12,13 @@ module.exports = {
   remarkPlugins: [
     () => {
       return (info, file) => {
-        // parse content of md
-        const content = parseMarkdownNodes(info.children)
-
-        const readTime = readingTime(content)
-
-        const preview = content.slice(0, 200)
+        const preview = getPreview(info)
+        const readTime = readingTime(getContent(info))
 
         file.data.fm = {
           ...file.data.fm,
           length: readTime.text,
-          preview: preview.length >= 200 ? `${preview}...` : preview
+          preview
         }
       }
     }
@@ -39,20 +35,30 @@ module.exports = {
 }
 
 /**
+ * Gets the first block of text and trims it to 200 characters if necessary
+ */
+function getPreview(info) {
+  const [text] = getContent(info).split('\n')
+
+  return text.length > 200 ? `${text}...` : text
+}
+
+/**
  * traverses through md nodes and extracts the text. it does not preserve formatting other than
  * new lines.
  */
-function parseMarkdownNodes(nodes) {
-  return nodes.reduce((content, node) => {
-    switch (node.type) {
-      case 'text':
-        return content + node.value + '\n'
-      default:
-        if (node.children) {
-          return content + parseMarkdownNodes(node.children)
-        }
-
-        return content
-    }
-  }, '')
+function getContent(info) {
+  return info.children
+    .flatMap((node) => {
+      switch (node.type) {
+        case 'text':
+          return node.value.replace(/\n/g, '')
+        default:
+          if (node.children) {
+            return getPreview(node)
+          }
+      }
+    })
+    .filter(Boolean)
+    .join('\n')
 }

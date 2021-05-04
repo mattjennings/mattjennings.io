@@ -33,6 +33,8 @@
   function fixTimezone(date) {
     return new Date(new Date(date).valueOf() + new Date(date).getTimezoneOffset() * 60 * 1000)
   }
+
+  $: console.log(posts[0])
 </script>
 
 <svelte:head>
@@ -43,7 +45,7 @@
     {#each posts as post}
       <div class="pt-8 first:pt-0">
         <div>
-          <h3 class="!mt-0 !mb-0"><a href={`/blog/${post.slug}`}>{post.title}</a></h3>
+          <h1 class="!mt-0 !mb-0"><a href={`/blog/${post.slug}`}>{post.title}</a></h1>
           <time>{format(fixTimezone(new Date(post.created)), 'MMMM d, yyyy')}</time>
           •
           <span>{post.length}</span>

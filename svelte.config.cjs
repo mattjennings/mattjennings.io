@@ -2,6 +2,7 @@ const { mdsvex } = require('mdsvex')
 const mdsvexConfig = require('./mdsvex.config.cjs')
 const preprocess = require('svelte-preprocess')
 const vercel = require('@sveltejs/adapter-vercel')
+
 /** @type {import('@sveltejs/kit').Config} */
 module.exports = {
   extensions: ['.svelte', ...mdsvexConfig.extensions],

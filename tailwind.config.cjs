@@ -21,8 +21,6 @@ module.exports = {
               marginTop: '0 !important',
               marginBottom: '0 !important'
             },
-
-            p: {},
             img: {
               marginLeft: 'auto',
               marginRight: 'auto'
@@ -36,6 +34,33 @@ module.exports = {
             }
           }
         },
+        lg: {
+          css: {
+            h1: {
+              fontSize: theme('fontSize.2xl')
+            },
+            h2: {
+              fontSize: theme('fontSize.xl')
+            },
+            h3: {
+              fontSize: theme('fontSize.lg')
+            }
+          }
+        },
+        xl: {
+          css: {
+            h1: {
+              fontSize: theme('fontSize.3xl')
+            },
+            h2: {
+              fontSize: theme('fontSize.2xl')
+            },
+            h3: {
+              fontSize: theme('fontSize.xl')
+            }
+          }
+        },
+
         light: {
           css: [
             {
