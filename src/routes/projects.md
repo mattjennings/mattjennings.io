@@ -3,7 +3,7 @@
 </script>
 
 <script>
-	import Project from '$lib/Project.svelte'
+	import Project from '$lib/components/Project.svelte'
 </script>
 
 <svelte:head>

@@ -1,9 +1,10 @@
 <script context="module">
+  import { parsePath } from '$lib/util/parse-path'
   const PAGE_SIZE = 10
 
-  const posts = Object.entries(import.meta.globEager('./posts/*.md'))
+  const posts = Object.entries(import.meta.globEager('./posts/**/*.md'))
     .map(([key, post]) => ({
-      slug: key.split('/').pop().replace(/\.md/, ''),
+      slug: parsePath(key).dir.split('/').pop(),
       ...post.metadata
     }))
     .sort((a, b) => (a.created < b.created ? 1 : -1))
@@ -34,6 +35,9 @@
   }
 </script>
 
+<svelte:head>
+  <title>Matt Jennings | Blog</title>
+</svelte:head>
 <div class="flex flex-col flex-grow">
   <div class="flex-grow divide-y divide-gray-300 dark:divide-gray-700">
     {#each posts as post}

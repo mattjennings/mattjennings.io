@@ -1,7 +1,7 @@
 <script>
   import '../app.css'
-  import Email from '$lib/Email.svelte'
-  import NavLink from '$lib/NavLink.svelte'
+  import Email from '$lib/components/Email.svelte'
+  import NavLink from '$lib/components/NavLink.svelte'
 </script>
 
 <div class="flex flex-col min-h-screen ">

@@ -3,7 +3,7 @@
    * @type {import('@sveltejs/kit').Load}
    */
   export async function load({ page, fetch }) {
-    const res = await import(`./posts/${page.params.slug}.md`)
+    const res = await import(`./posts/${page.params.slug}/index.md`)
 
     return {
       props: {

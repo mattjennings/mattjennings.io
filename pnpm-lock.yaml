@@ -35,7 +35,7 @@ dependencies:
 
 devDependencies:
   '@sveltejs/adapter-vercel': 1.0.0-next.15_svelte@3.38.1+vite@2.2.3
-  '@sveltejs/kit': 1.0.0-next.95_svelte@3.38.1+vite@2.2.3
+  '@sveltejs/kit': 1.0.0-next.96_svelte@3.38.1+vite@2.2.3
   '@tailwindcss/typography': 0.4.0_tailwindcss@2.1.2
   '@typescript-eslint/eslint-plugin': 4.22.0_e3b52a83531895e7febd6ecd5ba813eb
   '@typescript-eslint/parser': 4.22.0_eslint@7.25.0+typescript@4.2.4
@@ -168,8 +168,8 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.95_svelte@3.38.1+vite@2.2.3:
-    resolution: {integrity: sha512-J5RFS3k88Hz/XB/UoZBx2Rd4zUMipPgAKUMCRdXSstzlFJ3Cdw1Ix76sSvWuNwVHVxrOdHV5e1u5trhVAuU6Bw==}
+  /@sveltejs/kit/1.0.0-next.96_svelte@3.38.1+vite@2.2.3:
+    resolution: {integrity: sha512-SKJCqA80YFz9n/uY/w8XJPd+ADTHO3n3iy8jshI3uCpkGjjyWpu1aaLcVlmCpIYdSq+OxpT9WJuTXqmKx0St9w==}
     engines: {node: '>= 12.17.0'}
     hasBin: true
     peerDependencies:
