@@ -12,13 +12,14 @@ module.exports = {
   remarkPlugins: [
     () => {
       return (info, file) => {
-        const preview = getPreview(info)
-        const readTime = readingTime(getContent(info))
+        const content = getContent(info)
+        const [preview] = content.split('\n')
+        const readTime = readingTime(content)
 
         file.data.fm = {
           ...file.data.fm,
           length: readTime.text,
-          preview
+          preview: truncate(preview, 300)
         }
       }
     }
@@ -34,31 +35,36 @@ module.exports = {
   ]
 }
 
-/**
- * Gets the first block of text and trims it to 200 characters if necessary
- */
-function getPreview(info) {
-  const [text] = getContent(info).split('\n')
+function truncate(str, length) {
+  if (str.length < length) {
+    return str
+  }
 
-  return text.length > 200 ? `${text}...` : text
+  let truncated = str.slice(0, length).trim()
+
+  // prevent .... truncation
+  if (truncated.endsWith('.')) {
+    truncated = truncated.slice(0, length - 1)
+  }
+
+  return `${truncated}...`
 }
-
 /**
  * traverses through md nodes and extracts the text. it does not preserve formatting other than
  * new lines.
  */
 function getContent(info) {
-  return info.children
-    .flatMap((node) => {
-      switch (node.type) {
-        case 'text':
-          return node.value.replace(/\n/g, '')
-        default:
-          if (node.children) {
-            return getPreview(node)
-          }
-      }
-    })
-    .filter(Boolean)
-    .join('\n')
+  return info.children.reduce((content, node) => {
+    switch (node.type) {
+      case 'text':
+        return content + node.value.replace(/\n/g, '')
+      case 'link':
+        return content + getContent(node)
+      default:
+        if (node.children) {
+          return content + getContent(node) + '\n'
+        }
+    }
+    return content
+  }, '')
 }

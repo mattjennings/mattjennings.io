@@ -33,8 +33,6 @@
   function fixTimezone(date) {
     return new Date(new Date(date).valueOf() + new Date(date).getTimezoneOffset() * 60 * 1000)
   }
-
-  $: console.log(posts[0])
 </script>
 
 <svelte:head>
@@ -51,6 +49,7 @@
           <span>{post.length}</span>
         </div>
         <p class="whitespace-pre-wrap">{post.preview}</p>
+        <a href={`/blog/${post.slug}`}>Read More </a>
       </div>
     {/each}
   </div>
