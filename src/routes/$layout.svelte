@@ -1,5 +1,6 @@
 <script>
   import '../app.css'
+  import '../prism.css'
   import Email from '$lib/components/Email.svelte'
   import NavLink from '$lib/components/NavLink.svelte'
 </script>

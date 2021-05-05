@@ -6,3 +6,7 @@
 .prose img {
   @apply rounded-md shadow-md;
 }
+
+.prose video {
+  @apply rounded-md shadow-md;
+}

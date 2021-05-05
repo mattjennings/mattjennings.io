@@ -1,4 +1,5 @@
 const readingTime = require('reading-time')
+const path = require('path')
 module.exports = {
   layout: {
     blog: './src/md-layouts/blog.svelte',
@@ -18,6 +19,7 @@ module.exports = {
 
         file.data.fm = {
           ...file.data.fm,
+          slug: path.parse(file.filename).dir.split('/').pop(),
           length: readTime.text,
           preview: truncate(preview, 300)
         }
