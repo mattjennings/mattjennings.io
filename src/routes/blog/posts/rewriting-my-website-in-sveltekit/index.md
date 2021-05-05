@@ -1,7 +1,7 @@
 ---
 title: Rewriting my website in SvelteKit
 layout: blog
-created: 2021-05-03
+created: 2021-05-05
 ---
 
 <script>
@@ -11,30 +11,31 @@ import initSvelteKit from './init-sveltekit.mp4'
 
 [SvelteKit](https://kit.svelte.dev) is an upcoming Svelte framework for creating websites. It's similar to Next.js for React, or Nuxt for Vue. It's still in beta but I wanted to give it a try with an actual project --- this website --- and see how the experience compared.
 
-My website had been needing a fresh look. It's not that it was old --- I just didn't like it. I wrote it with Next.js which has long been my favorite React framework. It still is, but SvelteKit
-might take that spot soon enough.
-
 ## Why SvelteKit?
 
 SvelteKit by all means is Next.js but swap out React and Webpack for Svelte and [Vite](https://vitejs.dev). For me, Svelte and Vite are the two most exciting things in Javascript right now.
 
 Svelte has been [gaining popularity](https://www.npmtrends.com/svelte) over the past year. It is mature and production-ready, but the ecosystem still has catching up to do when compared to React.
 
-Vite is still rather bleeding edge, but I think it's only a matter of time before it becomes _the_ bundling tool to use.
-
 In terms of features of the framework, SvelteKit can do a lot of what Next.js can. Server-side rendering, static page generating, API functions, building for serverless, pretty much all of the core features. I didn't find myself missing Next.js features at all.
 
 ## What's wrong with Next.js?
 
-Nothing! I really enjoy Next.js. Compared to SvelteKit, it's much more mature and stable, and really shines when deployed with [Vercel](https://vercel.com) (I host just about everything there).
+Nothing! I really enjoy Next.js. Compared to SvelteKit today, it's much more mature and stable, and really shines when deployed to [Vercel](https://vercel.com).
 
-However, there are two things about it that have really worn on me over the last few years: React and Webpack. Let's start with React.
+However, there are two things about it that have really worn on me over the last few years: React and Webpack.
 
-I really like React - it does so many things well. It's not that there's something "wrong" with it, but the more I use it the more I get annoyed with some aspects of it. I'll probably write another blog post on this, but for now I'll say that I find Svelte to be far less tedious to write (a common sentiment among React developers).
+I really like React - it does so many things well. It's not that there's something "wrong" with it, but I find myself enjoying it less and less. I'll probably write another blog post on this, but for now I'll say that I find Svelte to be far less tedious to write (a common sentiment among React developers).
 
-[Vite](https://vitejs.dev) is a "next generation" bundling tool. Once upon a time, so was Webpack. I appreciate everything it's done for web development but boy, it has not been an easy tool to love. I don't hate configuring it as much as some do but in terms of performance it does not scale well.
+Webpack, on the other hand, I never liked too much. I appreciate everything it does and has done for web development, but I will not be sad to move on from it.
 
-Vite scales much better and is extremely, extremely fast. Like, hot reloads less than 50ms fast. I'd recommend reading their [great writeup](https://vitejs.dev/guide/why.html) on what it does differently compared to others. TLDR; it's way faster and my MacBook is 50 degrees cooler. It's really hard to go back to Webpack.
+## Enter Vite
+
+[Vite](https://vitejs.dev) is a "next generation" bundling tool. This is the biggest deal about SvelteKit to me. It is extremely, extremely fast. The dev server starts up in a second and hot reloads take less than 50ms. It also doesn't turn your laptop into a jet engine. How is that possible? To put it simply, it's processing far less code at a time thanks to ES Modules and pre-bundling dependencies.
+
+I'd recommend reading ["Why Vite"](https://vitejs.dev/guide/why.html) for a more in-depth explanation on what it does differently compared to a bundler like Webpack.
+
+Alright, on to the fun stuff.
 
 ## Starting with SvelteKit
 
@@ -84,11 +85,12 @@ By this point I was off to the races by creating my pages and components.
 
 ## Oh right, it's a beta
 
-... and then I started hit some of the more unstable parts of SvelteKit. It actually didn't happen too often, but setting up this blog in particular took a lot of time. I ran into some issues with [dynamic imports](https://github.com/sveltejs/kit/issues/1326) and spent a night fiddling around with that. There weren't many resources for how to setup a blog in SvelteKit, so a lot of what I learned was pieced together from google and the [Svelte discord](https://svelte.dev/chat) (which has been immensely helpful). There's also some growing pains with the all-in approach to ES modules in both the browser and in node from SvelteKit.
+... and then I started hit some of the more unstable parts of SvelteKit. It actually didn't happen too often, but setting up this blog in particular took a lot of time. I ran into some issues with [dynamic imports](https://github.com/sveltejs/kit/issues/1326) and spent a night fiddling around with that. There weren't many resources on how to setup a blog in SvelteKit, so a lot of what I learned was pieced together from google and the [Svelte discord](https://svelte.dev/chat) (which has been immensely helpful). There's also some growing pains with the all-in approach to ES modules in both the browser and in node from SvelteKit.
 
 ## Verdict
 
-I would not recommend using the beta in production unless you're ready to deal with constant breaking changes and bugs. It's not enough to make it impossible to use, but it's enough that it would frustrate you if you were relying on it. Until then, I'd recommend using [https://sapper.svelte.dev](Sapper) as there will be a clear migration guide to SvelteKit once it's released. Personally, I will keep using SvelteKit for my own projects but Next.js for everything else.
+Overall, I really enjoy using SvelteKit. Definitely don't use it in production yet
+unless you're ready to deal with constant breaking changes and bugs. It's not enough to make it impossible to use, but it's enough that it would frustrate you if you were relying on it. Until then, I'd recommend using [Sapper](https://sapper.svelte.dev) as there will be a clear migration guide to SvelteKit once it's released.
 
 The last thing I'll say is that once the bugs and issues are dealt with, the developer experience is really, really nice. For example, this is the code for the [/blogs](/blogs) page:
 
