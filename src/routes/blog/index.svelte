@@ -3,6 +3,7 @@
 
   const posts = Object.entries(import.meta.globEager('./posts/**/*.md'))
     .map(([, post]) => post.metadata)
+    .filter((post) => !post.hidden)
     .sort((a, b) => (a.created < b.created ? 1 : -1))
 
   export const prerender = true
