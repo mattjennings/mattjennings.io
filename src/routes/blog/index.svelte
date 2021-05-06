@@ -38,9 +38,9 @@
 <div class="flex flex-col flex-grow">
   <div class="flex-grow divide-y divide-gray-300 dark:divide-gray-700">
     {#each posts as post}
-      <div class="pt-8 first:pt-0">
+      <div class="py-8 first:pt-0">
         <div>
-          <h1 class="!mt-0 !mb-0"><a href={`/blog/${post.slug}`}>{post.title}</a></h1>
+          <h1 class="!mt-0 !mb-1"><a href={`/blog/${post.slug}`}>{post.title}</a></h1>
           <time>{format(offsetTimezone(new Date(post.created)), 'MMMM d, yyyy')}</time>
           •
           <span>{post.length}</span>
