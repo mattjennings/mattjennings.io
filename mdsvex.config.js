@@ -1,7 +1,6 @@
 import autolinkHeadings from 'rehype-autolink-headings'
 import slugPlugin from 'rehype-slug'
 import metaPlugin from './remark-plugins/blog-meta.js'
-import relativeImageUrls from './remark-plugins/relative-image-urls.js'
 import videos from './remark-plugins/videos.js'
 
 export default {
@@ -14,7 +13,7 @@ export default {
   smartypants: {
     dashes: 'oldschool'
   },
-  remarkPlugins: [metaPlugin, relativeImageUrls, videos],
+  remarkPlugins: [metaPlugin, videos],
   rehypePlugins: [
     slugPlugin,
     [

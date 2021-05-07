@@ -4,40 +4,50 @@ layout: blog
 created: 2021-05-05
 ---
 
+<script>
+  import svelteKit from './init-sveltekit.mp4'
+</script>
+
 [SvelteKit](https://kit.svelte.dev) is an upcoming Svelte framework for creating websites. It's similar to Next.js for React, or Nuxt for Vue. It's still in beta but I wanted to give it a try with an actual project --- this website --- and see how the experience compared.
 
 ## Why SvelteKit?
 
 Lately I've just been wanting to use Svelte instead of React. However, the lack of a Next-like framework was a deal breaker. Next has been one of my favorite frameworks over the last while and I've definitely gotten comfortable with everything it offered. [Sapper](https://sapper.dev) was the closest thing to it, but it wasn't enough for me.
 
-SvelteKit could be considered Next but with React & Webpack swapped out for Svelte & Vite. In terms of features, it has a lot more parity to Next than Sapper did. Server-side rendering, static page generating, API functions, serverless support, etc. It's been just about everything I wanted, and even a bit more.
+SvelteKit could be considered Next but with React & Webpack swapped out for Svelte & Vite. It's also the successor to Sapper, so it shares a lot of similarities and will get an official migration guide. One big difference, though, is SvelteKit's ability to build for serverless. This was something Sapper couldn't really do and was a huge obstacle for me.
 
-[Vite](https://vitejs.dev) is a "next generation" bundling tool, which SvelteKit uses as its bundler instead of Webpack. This is might be the most intriguing part of it to me. It is extremely, extremely fast. The development server starts up in a second, hot reloads are near-instant, and it doesn't turn your laptop into a jet engine. It's a novel experience. I'd recommend reading ["Why Vite"](https://vitejs.dev/guide/why.html) for a more in-depth explanation on what it does differently compared to a bundler like Webpack.
+[Vite](https://vitejs.dev) is a "next generation" bundling tool, which SvelteKit is built on. It's an ambitious decision because it's fairly new and is a lot different than Webpack, but it is extremely, extremely fast. The development server starts up in a second, hot reloads are near-instant, and it doesn't turn your laptop into a jet engine. It's a novel experience. I'd recommend reading ["Why Vite"](https://vitejs.dev/guide/why.html) for a more in-depth explanation on how it works and what it does differently.
 
 Alright, on to the fun stuff.
 
-## Starting with SvelteKit
+## Overall experience
 
-Creating a SvelteKit project was easy:
+I really, really enjoyed using SvelteKit. It came with its fair share of bugs and issues (which I'll get to later) but the pros far outweighed the cons for a project like this website.
+
+### Creating the project
+
+Before I got started, I knew I wanted to have two things: a blog with [mdsvex](https://mdsvex.pngwn.io), and [tailwindcss](https://tailwindcss.com) for styling. I was a little concerned at how complicated it would be to set those up, but it went really smoothly.
+
+First, I needed to make the project:
 
 ```
 npm init svelte@next my-website
 ```
 
-![creating a SvelteKit project](./init-sveltekit.mp4)
+<video src={svelteKit} title="creating a SvelteKit project" autoplay loop />
 
 This walked me through creating a blank project, giving me options for Typescript, eslint, prettier, etc.
 
-Next, I wanted to use [Tailwind](https://tailwindcss.com) for styling and [mdsvex](https://mdsvex.pngwn.io) for writing markdown. [svelte-add](https://github.com/svelte-add/svelte-add) was the easiest way to do this:
+Then, to add mdsvex and tailwind, I used [svelte-add](https://github.com/svelte-add/svelte-add). It's a collection of community-made "adders" that automatically sets up and configures the respective library in your project.
 
 ```
-npx svelte-add tailwindcss && npx svelte-add mdsvex
+npx svelte-add tailwindcss
+npx svelte-add mdsvex
 ```
 
-This added the necessary packages and config files to set both up for my blank SvelteKit project. Here's how the project looks now:
+This set up both tailwind and mdsvex painlessly. Here is how my project looked by this point:
 
 ```
-my-website
 ├── README.md
 ├── mdsvex.config.cjs
 ├── mdsvex.config.js
@@ -50,7 +60,6 @@ my-website
 │   ├── lib
 │   │   └── Example.svelte.md
 │   └── routes
-│       ├── $layout.svelte
 │       ├── example-markdown.md
 │       └── index.svelte
 ├── svelte.config.js
@@ -58,28 +67,34 @@ my-website
 └── tsconfig.json
 ```
 
-## Routing
+### Writing blog posts
 
-Every route is represented by a page component, located in `src/routes`. A path of `/` will render `src/routes/index.svelte` and so on. One neat thing about setting up mdsvex is that this also applies to .md files, meaning `/example-markdown` will render `src/routes/example-markdown.md`.
+SvelteKit uses a file-based routing system. All pages are located under `src/routes` as Svelte components. However, now that I've setup mdsvex, I can _also_ have .md files there as well. So with what I had so far, `https://mattjennings.io/example-markdown` would return a page with the rendered markdown.
 
-SvelteKit also offers a really nice [layout system](https://kit.svelte.dev/docs#layouts), similar to `_app.js` with Next.
+Following this convention I could get started with a blog by rearranging my project like this:
 
-For the most part, after adding a `/blog` page and a `/blog/posts` folder containing all my .md files, I had a very basic blogging website. Now I just need a way to show all of my blog posts.
+```
+├── src
+│   └── routes
+│       ├── blog
+│       │   └── my-first-post.md
+│       └── index.svelte
+```
 
-## Data loading
+and now I have a blog post live at `https://mattjennings.io/blog/my-first-post`.
 
-When you need to load data for your page you can give it a [load function](https://kit.svelte.dev/docs#loading). This function runs on both the server and the client, depending on how the user navigates, and returns the data as props. This is similar to Next's [getInitialProps](https://nextjs.org/docs/api-reference/data-fetching/getInitialProps).
+### Showing all blog posts
 
-(It's worth noting that Next encourages `getServerSideProps` or `getStaticProps` instead -- which only run on the server -- and it's interesting that SvelteKit chose the isomorphic approach).
+Next I needed a page to show all of my blog posts. This was a good opportunity to use SvelteKit's [data loading](https://kit.svelte.dev/docs#loading) for page components. If you've used Next.js, it's very similar to `getInitialProps`. It allows you to load data however you wish and provide the data as props for the page. This runs both on the server and on the client.
 
-Here is how I went about showing all of the blog posts for `/blog`:
+This is the end result of my `/blog` page (with simplified styling):
 
 ```svelte
 <!-- src/routes/blog/index.svelte -->
 <script context="module">
   // import all markdown files from ./posts and turn it into an array
   const posts = Object.entries(import.meta.globEager('./posts/**/*.md'))
-    .map(([, post]) => post.metadata) // metadata is the .md frontmatter
+    .map(([, post]) => post.metadata)
     .sort((a, b) => (a.created < b.created ? 1 : -1))
 
   export const load = async ({ page: { query } }) => {
@@ -121,22 +136,22 @@ Here is how I went about showing all of the blog posts for `/blog`:
 </div>
 ```
 
-I'm quite happy with this page in particular because it felt way too easy. `import.meta.globEager` is a [feature of Vite](https://vitejs.dev/guide/features.html#glob-import) that allowed me to import all of the .md files in the `./posts` directory. Then, in the load function, I parse the `page` query parameter and slice the posts into pages of 10 (it'll probably be a while before I have enough posts to require pagination, but nevertheless).
+`import.meta.globEager` is a feature of Vite that allowed me to import all of the .md files in the `./posts` directory. Thanks to mdsvex, importing a .md file returns both a Svelte component and a `metadata` property that represents the frontmatter data. We just need the metadata here.
 
-Most of my page components felt pretty easy to work with. Load the data, render the data. This isn't anything new, but I suppose the novelty of a new framework made it feel like it was.
+Then, in the load function, I parse the `page` query parameter and return 10 posts for whichever page we're on. Pagination is as simple as navigating to `/blog?page=2` etc.
 
-## Some things weren't easy
+If you go to [/blog](/blog) you'll notice I have a bit more extra information on the posts, such as reading time and a short preview. I had to [write my own plugin](https://github.com/mattjennings/mattjennings.io/tree/master/remark-plugins/blog-meta.js) to do this, which wasn't too bad, but did take me a few nights to figure out how to go about it.
 
-I was surprised at how easy it was to get mdsvex working thanks to the svelte-add plugin, but after that, I wasn't sure how I could add some extra functionality that I wanted. In particular, I wanted to render a short preview of the blog posts in `/blogs`, a reading time estimate, and be able to embed videos like the `npm init svelte@next` clip earlier.
+### The rest of the website
 
-I searched around and tried to find an example of someone doing any of those things with mdsvex, but there wasn't much. Eventually I asked [Discord channel](https://svelte.dev) and got some helpful pointers, but I still had to figure out an approach myself.
+Everything else was pretty straight forward. A home page and a portfolio page. They both are written using markdown as well because it was just easiest.
 
-The "reading time" feature is pretty common on Gatsby blogs, so I figured it must be available as a Gatsby plugin somewhere. A quick google search lead me to [gatsby-remark-reading-time](https://www.gatsbyjs.com/plugins/gatsby-remark-reading-time/) which seemed like the one. As the name suggests, it's a plugin for remark, something that mdsvex also uses.
+## Issues
 
-I had to do some learning on how to write remark plugins, but they weren't so bad. Their GitHub repo had a good resource for learning how to create one, and eventually I ended up with something that worked. I ended up writing plugins for [adding preview and reading time to the metadata](https://github.com/mattjennings/mattjennings.io/tree/master/remark-plugins/blog-meta.js), [embedding videos](https://github.com/mattjennings/mattjennings.io/tree/master/remark-plugins/video.js), and [referencing relative image urls](https://github.com/mattjennings/mattjennings.io/tree/master/remark-plugins/relative-image-urls.js).
+There were more than a few times where I ran into issues simply because SvelteKit is still in beta. For example, this post doesn't load for me in development when rendered server-side. A fix is already on the way (it actually was a Vite bug), but things like that can _really_ grind you if you're trying to use this for a production project. I definitely don't recommend using it in production yet.
 
-If I were using Gatsby or Next, it would be reasonable to expect that someone has already solved these problems and provided solutions in the form of plugins or npm modules. SvelteKit and even Svelte itself have such a young ecosystem that we don't have that luxury yet. At the same time, the fact that mdsvex even exists is pretty fortunate, and there are similarly great things being worked on already.
+Additionally, the ecosystem for Svelte and SvelteKit is still relatively young. As mentioned earlier, I had to write a custom plugin for adding extra metadata to my blog posts. If I were using Gatsby or Next.js it would be reasonable to expect someone had done this already with an example. On the other hand, it's good that SvelteKit/mdsvex work in a way that I _could_ figure it out on my own. It's just a maturity thing, and eventually we'll see examples that cover all kinds of use cases like this.
 
 ## Verdict
 
-Overall, I really enjoy using SvelteKit. Definitely don't use it in production yet, there are still breaking changes and bugs happening regularly. Usually you're at the mercy of a GitHub comment or someone in the Discord channel explaining how to fix it. Once they hit a stable release though, I think this will be my go-to for projects whenever possible.
+I think I will continue to use SvelteKit for personal projects. Once it sees a stable release, it'll really come down to Svelte vs React when choosing projects. Next.js is still a really great framework and it'll be tough to replace it, but if I ever decide to replace React with Svelte, then SvelteKit is a no-brainer.

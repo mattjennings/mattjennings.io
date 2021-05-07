@@ -15,10 +15,13 @@ module.exports = {
           css: {
             code: {
               borderRadius: theme('borderRadius.md'),
-              padding: theme('spacing.1'),
+              paddingTop: theme('spacing.1'),
+              paddingBottom: theme('spacing.1'),
+              paddingLeft: theme('spacing.2'),
+              paddingRight: theme('spacing.2'),
               backgroundColor: theme('colors.gray.200'),
               fontFamily: 'inherit !important',
-              fontWeight: '500 !important'
+              fontWeight: '400 !important'
             },
             'code::before': {
               content: '""'
