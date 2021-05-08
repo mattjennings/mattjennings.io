@@ -19,17 +19,11 @@ Alright, on to the fun stuff.
 
 ## Starting with SvelteKit
 
-<script>
-  import svelteKit from './init-sveltekit.mp4'
-</script>
-
 Creating a SvelteKit project was easy:
 
 ```
 npm init svelte@next my-website
 ```
-
-<video src={svelteKit} title="creating a SvelteKit project" autoplay loop />
 
 This walked me through creating a blank project, giving me options for Typescript, eslint, prettier, etc.
 
