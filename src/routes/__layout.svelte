@@ -3,7 +3,10 @@
   import '../prism.css'
   import Email from '$lib/components/Email.svelte'
   import NavLink from '$lib/components/NavLink.svelte'
+  import Fathom from '$lib/components/Fathom.svelte'
 </script>
+
+<Fathom />
 
 <div class="flex flex-col min-h-screen">
   <div class="max-w-4xl mx-auto flex flex-col flex-grow w-full">

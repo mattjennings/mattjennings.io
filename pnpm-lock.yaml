@@ -13,6 +13,7 @@ specifiers:
   eslint: ^7.22.0
   eslint-config-prettier: ^8.1.0
   eslint-plugin-svelte3: ^3.2.0
+  fathom-client: ^3.0.0
   mdsvex: ^0.9.0
   postcss: ^8.2.10
   postcss-load-config: ^3.0.1
@@ -32,6 +33,7 @@ specifiers:
 dependencies:
   clsx: 1.1.1
   date-fns: 2.21.1
+  fathom-client: 3.0.0
   reading-time: 1.3.0
 
 devDependencies:
@@ -1120,6 +1122,10 @@ packages:
     dependencies:
       reusify: 1.0.4
     dev: true
+
+  /fathom-client/3.0.0:
+    resolution: {integrity: sha512-d0oH2SHWCMIVLbbegB7nBIjSvbqbHrZBZxIOWSVAxlJL/roL0Ah9NNb6rTIcKMlA4gov9AjWQGEcZRzlnGc3XQ==}
+    dev: false
 
   /file-entry-cache/6.0.1:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==}
