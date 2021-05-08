@@ -19,12 +19,9 @@
 
 <!--
   span fixes a weird sveltekit/msdvex bug where "Check them out" would end up inside of {age}.
-  if content is changed,
 -->
 
 I'm Matt Jennings, a <span>{age}</span> year-old software developer. Some of my work includes a hockey news app, a Megaman X fan game, and a framework for writing games with Svelte. [Check them out!](/projects)
-
-As you might be able to tell from said projects, my hobbies include watching hockey and playing video games. They often are inspiration for my personal projects.
 
 Currently, I work at [PaintScout](https://paintscout.com) as a full stack developer and have been with them since 2016.
 
