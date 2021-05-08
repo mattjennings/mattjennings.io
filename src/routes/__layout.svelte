@@ -18,7 +18,7 @@
     </main>
   </div>
   <footer class="bg-gray-800">
-    <div class="max-w-4xl mx-auto flex space-x-4 items-center justify-center">
+    <div class="max-w-4xl mx-auto flex space-x-8 items-center justify-center">
       <!-- twitter -->
       <a href="https://twitter.com/mattjennings44">
         <svg

@@ -1,20 +1,20 @@
 <script>
-	import { fade, fly } from 'svelte/transition'
-	export let text
-	export let x
-	export let y
-	export let show = false
+  import { fade } from 'svelte/transition'
+  export let text
+  export let x
+  export let y
+  export let show = false
 </script>
 
 {#if show}
-	<div
-		in:fade={{ duration: 200 }}
-		out:fade={{ duration: 200 }}
-		class="absolute transform -translate-x-1/2 py-2 px-3 text-sm bg-gray-600 text-gray-100 shadow-md rounded-md"
-		style="
+  <div
+    in:fade={{ duration: 200 }}
+    out:fade={{ duration: 200 }}
+    class="absolute transform -translate-x-1/2 py-2 px-3 text-sm bg-gray-600 text-gray-100 shadow-md rounded-md"
+    style="
 		top: {y}px;
 		left: {x}px;"
-	>
-		{text}
-	</div>
+  >
+    {text}
+  </div>
 {/if}

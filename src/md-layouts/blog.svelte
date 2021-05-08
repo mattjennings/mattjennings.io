@@ -1,5 +1,6 @@
 <script>
   import { format } from 'date-fns'
+  import ButtonLink from '$lib/components/ButtonLink.svelte'
 
   export let title
   export let created
@@ -44,15 +45,16 @@
   <slot />
 </article>
 
-<div class="pt-0">
-  <a
+<div class="pt-0 flex justify-start">
+  <ButtonLink
+    isBack
     href="/blog"
-    class="flex items-center space-x-2"
     on:click={(ev) => {
       if (window.history && window.history.back) {
         ev.preventDefault()
         window.history.back()
       }
-    }}>Back</a
-  >
+    }}
+    >Back
+  </ButtonLink>
 </div>

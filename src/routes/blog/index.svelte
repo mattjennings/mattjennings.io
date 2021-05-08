@@ -23,6 +23,7 @@
 </script>
 
 <script>
+  import ButtonLink from '$lib/components/ButtonLink.svelte'
   import { format } from 'date-fns'
   export let posts
   export let page
@@ -47,19 +48,21 @@
           <span>{post.length}</span>
         </div>
         <p class="whitespace-pre-wrap">{post.preview}</p>
-        <a href={`/blog/${post.slug}`}>Read More </a>
+        <div class="flex justify-end w-full">
+          <ButtonLink href={`/blog/${post.slug}`}>Read More</ButtonLink>
+        </div>
       </div>
     {/each}
   </div>
   <!-- pagination -->
   <div class="flex justify-between">
     {#if page > 1}
-      <a href={`/blog?page=${page - 1}`}>back</a>
+      <ButtonLink isBack href={`/blog?page=${page - 1}`}>Back</ButtonLink>
     {:else}
       <div />
     {/if}
     {#if posts.length === PAGE_SIZE}
-      <a href={`/blog?page=${page + 1}`}>next</a>
+      <ButtonLink href={`/blog?page=${page + 1}`}>Next</ButtonLink>
     {/if}
   </div>
 </div>

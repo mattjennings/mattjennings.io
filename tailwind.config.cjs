@@ -53,12 +53,15 @@ module.exports = {
         lg: {
           css: {
             h1: {
-              fontSize: theme('fontSize.2xl')
+              fontSize: theme('fontSize.3xl')
             },
             h2: {
-              fontSize: theme('fontSize.xl')
+              fontSize: theme('fontSize.2xl')
             },
             h3: {
+              fontSize: theme('fontSize.xl')
+            },
+            h4: {
               fontSize: theme('fontSize.lg')
             }
           }
@@ -103,16 +106,16 @@ module.exports = {
               borderLeftColor: theme('colors.gray.600')
             },
             h1: {
-              color: theme('colors.white')
+              color: theme('colors.gray.200')
             },
             h2: {
-              color: theme('colors.white')
+              color: theme('colors.gray.200')
             },
             h3: {
-              color: theme('colors.white')
+              color: theme('colors.gray.200')
             },
             h4: {
-              color: theme('colors.white')
+              color: theme('colors.gray.200')
             },
             'figure figcaption': {
               color: theme('colors.gray.400')
