@@ -1,0 +1,12 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.prose img {
+  @apply rounded-md shadow-md;
+}
+
+.prose video {
+  @apply rounded-md shadow-md;
+}
