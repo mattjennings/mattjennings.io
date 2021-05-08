@@ -1,3 +1,0 @@
-- better favicon
-- better code theme for dark mode
-- footer alignment
