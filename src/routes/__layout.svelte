@@ -13,7 +13,9 @@
       <NavLink href="/blog">blog</NavLink>
     </nav>
 
-    <main class="flex flex-col flex-grow prose dark:prose-dark prose-lg sm:prose-xl py-4 px-4">
+    <main
+      class="flex flex-col w-full flex-grow prose dark:prose-dark prose-lg sm:prose-xl py-4 px-4"
+    >
       <slot />
     </main>
   </div>

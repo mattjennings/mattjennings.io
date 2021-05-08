@@ -10,3 +10,7 @@
 .prose video {
   @apply rounded-md shadow-md;
 }
+
+.prose {
+  max-width: none;
+}
