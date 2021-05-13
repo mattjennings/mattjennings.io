@@ -8,6 +8,7 @@ export default function blogMeta() {
   return (info, file) => {
     const content = getContent(info)
     const readTime = readingTime(content)
+    const [previewHtml] = getContent(info, true).split('\n')
     const [preview] = content.split('\n')
 
     file.data.fm = {
@@ -15,7 +16,7 @@ export default function blogMeta() {
       slug: path.parse(file.filename).dir.split('/').pop(),
       length: readTime.text,
       preview: truncate(preview, 300),
-      previewHtml: truncate(getContent(info, true).split('\n'), 300)
+      previewHtml: truncate(previewHtml, 300)
     }
   }
 }
@@ -46,13 +47,13 @@ function getContent(info, html = false) {
         return content + node.value.replace(/\n/g, '')
       case 'link':
         if (html) {
-          return content + `<a href="${node.url}">${getContent(node)}</a>`
+          return content + `<a href="${node.url}">${getContent(node, html)}</a>`
         } else {
-          return content + getContent(node)
+          return content + getContent(node, html)
         }
       default:
         if (node.children) {
-          return content + getContent(node) + '\n'
+          return content + getContent(node, html) + '\n'
         }
     }
     return content

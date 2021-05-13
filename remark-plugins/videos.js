@@ -1,6 +1,6 @@
 import { visit } from 'unist-util-visit'
 
-export default function relativeAssets(options = {}) {
+export default function videos(options = {}) {
   return function transformer(tree, file) {
     visit(tree, 'image', (node, index, parent) => {
       if (node.url.endsWith('mp4')) {
