@@ -20,6 +20,7 @@
       maxage: 60 * 10
     }
   }
+
 </script>
 
 <script>
@@ -31,6 +32,7 @@
   function offsetTimezone(date) {
     return new Date(new Date(date).valueOf() + new Date(date).getTimezoneOffset() * 60 * 1000)
   }
+
 </script>
 
 <svelte:head>
@@ -47,7 +49,7 @@
           •
           <span>{post.length}</span>
         </div>
-        <p class="whitespace-pre-wrap">{post.preview}</p>
+        <p class="whitespace-pre-wrap">{@html post.previewHtml}</p>
         <div class="flex justify-end w-full">
           <ButtonLink href={`/blog/${post.slug}`}>Read More</ButtonLink>
         </div>
