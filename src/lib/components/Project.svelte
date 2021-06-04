@@ -30,10 +30,13 @@
       label: 'Download'
     }
   ].filter(Boolean)
+
 </script>
 
-<div class="flex flex-col md:flex-row items-start space-x-0 md:space-x-8 py-8">
-  <div class="order-2 md:order-1 pt-6 md:pt-0 md:py-2 !mx-auto w-auto md:md-0 md:w-1/3">
+<div
+  class="flex flex-col md:flex-row items-start space-x-0 md:space-x-8 pb-8 border-b border-gray-300 dark:border-gray-700"
+>
+  <div class="order-2 md:order-1 !mx-auto w-auto md:md-0 md:w-1/3">
     {#if img}
       <img alt={`${title} Screenshot`} src={img} class="!mb-0 !mt-0 max-h-80 " />
     {/if}
@@ -61,7 +64,7 @@
         </a>
       {/each}
     </div>
-    <p class="!my-0">
+    <p>
       <slot />
     </p>
   </div>
