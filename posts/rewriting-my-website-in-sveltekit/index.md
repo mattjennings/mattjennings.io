@@ -19,7 +19,9 @@ Alright, on to the fun stuff.
 
 I really, really enjoyed using SvelteKit. It came with its fair share of bugs and issues (which I'll get to later) but the pros far outweighed the cons for a project like this website.
 
-#### Creating the project
+---
+
+## Creating the project
 
 Before I got started, I knew I wanted to have two things: a blog with [mdsvex](https://mdsvex.pngwn.io), and [tailwindcss](https://tailwindcss.com) for styling. I was a little concerned at how complicated it would be to set those up, but it went really smoothly.
 
@@ -64,7 +66,7 @@ This set up both tailwind and mdsvex painlessly. Here is how my project looked b
 └── tsconfig.json
 ```
 
-#### Writing blog posts
+## Writing blog posts
 
 SvelteKit uses a file-based routing system. All pages are located under `src/routes` as Svelte components. However, now that I've setup mdsvex, I can _also_ use .md files there as well.
 
@@ -80,7 +82,7 @@ Following this convention I could get started with a blog by rearranging my proj
 
 and now I have a blog post live at `https://mattjennings.io/blog/my-first-post`.
 
-#### Showing all blog posts
+## Showing all blog posts
 
 Next I needed a page to show all blog posts. This was a good opportunity to use SvelteKit's [data loading](https://kit.svelte.dev/docs#loading) for page components. If you've used Next.js, it's very similar to `getInitialProps`. It allows you to load data however you wish and provide the data as props for the page. This runs both on the server and on the client.
 
@@ -139,9 +141,11 @@ Then, in the load function, I parse the `page` query parameter and return 10 pos
 
 If you go to [/blog](/blog) you'll notice I have a bit more extra information on the posts, such as reading time and a short preview. I had to [write my own plugin](https://github.com/mattjennings/mattjennings.io/tree/master/remark-plugins/blog-meta.js) to do this, which wasn't too bad, but it did take me a few nights to figure out how to go about it.
 
-#### The rest of the website
+## The rest of the website
 
 Everything else was pretty straight forward. A home page and a portfolio page. They are both written using markdown as well because it was easiest.
+
+---
 
 ## Issues
 

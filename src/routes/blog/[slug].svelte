@@ -73,6 +73,6 @@
   <svelte:component this={component} />
 </article>
 
-<div class="pt-0 flex justify-start">
+<div class="pt-12 flex justify-start">
   <ButtonLink isBack href="/blog">Blog Posts</ButtonLink>
 </div>

@@ -14,3 +14,7 @@
 .prose {
   max-width: none;
 }
+
+hr {
+  @apply !border-gray-300 dark:!border-gray-700;
+}
