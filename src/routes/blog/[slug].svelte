@@ -1,3 +1,6 @@
+<!-- 
+  This page just renders the post at /blog/[slug] rather than /blog/post/[slug]
+-->
 <script context="module">
   /**
    * @type {import('@sveltejs/kit').Load}
@@ -13,11 +16,12 @@
       maxage: 60 * 10
     }
   }
+
 </script>
 
-<!--  -->
 <script>
   export let component
+
 </script>
 
 <svelte:component this={component} />

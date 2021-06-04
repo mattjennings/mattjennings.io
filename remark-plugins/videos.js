@@ -1,5 +1,8 @@
 import { visit } from 'unist-util-visit'
 
+/**
+ * Adds support to video files in markdown image links
+ */
 export default function videos(options = {}) {
   return function transformer(tree, file) {
     visit(tree, 'image', (node, index, parent) => {
@@ -7,7 +10,6 @@ export default function videos(options = {}) {
         node.type = 'html'
         node.value = `
             <video src="${node.url}"
-              class="gatsby-remark-oembed-photo"
               autoplay
               loop
               title="${node.alt}"/>

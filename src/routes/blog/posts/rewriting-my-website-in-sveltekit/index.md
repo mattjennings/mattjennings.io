@@ -4,10 +4,6 @@ layout: blog
 created: 2021-05-07
 ---
 
-<script>
-  import svelteKit from './init-sveltekit.mp4'
-</script>
-
 [SvelteKit](https://kit.svelte.dev) is an upcoming Svelte framework for creating websites. It's similar to Next.js for React, or Nuxt for Vue. It's still in beta but I wanted to give it a try with an actual project --- this website --- and see how the experience compared.
 
 ## Why SvelteKit?
@@ -34,7 +30,9 @@ First, I needed to make the project:
 npm init svelte@next my-website
 ```
 
-<video src={svelteKit} title="creating a SvelteKit project" autoplay loop />
+<!-- <video src={svelteKit} title="creating a SvelteKit project" autoplay loop /> -->
+
+![Creating a SvelteKit project](./init-sveltekit.mp4)
 
 This walked me through creating a blank project, giving me options for Typescript, eslint, prettier, etc.
 
