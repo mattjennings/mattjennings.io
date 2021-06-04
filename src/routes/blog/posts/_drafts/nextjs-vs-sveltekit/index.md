@@ -41,7 +41,7 @@ Creating a SvelteKit project was easy:
 npm init svelte@next my-website
 ```
 
-![creating a SvelteKit project](./init-sveltekit.mp4)
+<!-- ![creating a SvelteKit project](./init-sveltekit.mp4) -->
 
 This walked me through creating a blank project, giving me options for Typescript, eslint, prettier, etc.
 
