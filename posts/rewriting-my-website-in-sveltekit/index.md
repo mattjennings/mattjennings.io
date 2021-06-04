@@ -1,6 +1,5 @@
 ---
 title: Rewriting my website in SvelteKit
-layout: blog
 created: 2021-05-07
 ---
 

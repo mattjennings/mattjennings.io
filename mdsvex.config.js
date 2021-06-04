@@ -7,8 +7,7 @@ import { visit } from 'unist-util-visit'
 
 export default {
   layout: {
-    blog: './src/md-layouts/blog.svelte',
-    page: './src/md-layouts/page.svelte',
+    document: './src/md-layouts/document.svelte',
     _: './src/md-layouts/empty.svelte'
   },
   extensions: ['.svx', '.md'],

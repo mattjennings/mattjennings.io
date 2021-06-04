@@ -1,12 +1,12 @@
 ---
 title: Uses
-layout: page
+layout: document
 ---
 
 ### Hardware
 
-- Mac Mini 2018 (i7, 32GB RAM)
-- Acer B326HUL 32-inch Monitor
+- Mac Mini 2018
+- 38" LG 38WK95C-W Monitor
 - Edifier R1280T Powered Bookshelf Speakers
 - Apple Magic Keyboard
 - Apple Magic Trackpad

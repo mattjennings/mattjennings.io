@@ -1,6 +1,7 @@
 <script>
   export let href
   export let isBack = false
+  export let prefetch = true
 
 </script>
 

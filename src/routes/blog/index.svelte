@@ -1,7 +1,7 @@
 <script context="module">
   const PAGE_SIZE = 10
 
-  const posts = Object.entries(import.meta.globEager('./posts/**/*.md'))
+  const posts = Object.entries(import.meta.globEager('../../../posts/**/*.md'))
     .map(([, post]) => post.metadata)
     .filter((post) => !post.hidden)
     .sort((a, b) => (a.created < b.created ? 1 : -1))
@@ -51,7 +51,7 @@
         </div>
         <p class="whitespace-pre-wrap">{@html post.previewHtml}</p>
         <div class="flex justify-end w-full">
-          <ButtonLink href={`/blog/${post.slug}`}>Read More</ButtonLink>
+          <ButtonLink sveltekit:prefetch href={`/blog/${post.slug}`}>Read More</ButtonLink>
         </div>
       </div>
     {/each}
