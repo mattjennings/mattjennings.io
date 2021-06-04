@@ -4,18 +4,49 @@
   import Email from '$lib/components/Email.svelte'
   import NavLink from '$lib/components/NavLink.svelte'
   import Fathom from '$lib/components/Fathom.svelte'
+  import { MoonIcon, SunIcon } from '@mattjennings/heroicons-svelte/solid'
+  import { browser } from '$app/env'
+
+  let prefersLight = browser ? Boolean(JSON.parse(localStorage.getItem('prefersLight'))) : false
+
 </script>
 
 <Fathom />
 
 <div class="flex flex-col min-h-screen">
   <div class="max-w-4xl mx-auto flex flex-col flex-grow w-full">
-    <nav class="flex items-center h-16 px-4 py-2 space-x-8">
-      <NavLink href="/">Matt Jennings</NavLink>
-      <NavLink href="/projects">projects</NavLink>
-      <NavLink href="/blog">blog</NavLink>
-    </nav>
+    <div class="flex h-16 px-4 py-2 justify-between items-center">
+      <nav class="flex items-center space-x-8">
+        <NavLink href="/">Matt Jennings</NavLink>
+        <NavLink href="/projects">projects</NavLink>
+        <NavLink href="/blog">blog</NavLink>
+      </nav>
+      {#if browser}
+        <button
+          type="button"
+          role="switch"
+          aria-label="Toggle Dark Mode"
+          aria-checked={!prefersLight}
+          class="h-8 w-8 p-1"
+          on:click={() => {
+            prefersLight = !prefersLight
+            localStorage.setItem('prefersLight', prefersLight.toString())
 
+            if (prefersLight) {
+              document.querySelector('html').classList.remove('dark')
+            } else {
+              document.querySelector('html').classList.add('dark')
+            }
+          }}
+        >
+          {#if prefersLight}
+            <MoonIcon class="text-gray-500" />
+          {:else}
+            <SunIcon class="text-yellow-500" />
+          {/if}
+        </button>
+      {/if}
+    </div>
     <main
       class="flex flex-col w-full flex-grow prose dark:prose-dark prose-lg sm:prose-xl py-4 px-4"
     >
@@ -63,4 +94,5 @@
     padding-top: 12px;
     padding-bottom: calc(12px + env(safe-area-inset-bottom));
   }
+
 </style>

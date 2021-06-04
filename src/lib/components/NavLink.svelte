@@ -3,7 +3,7 @@
   import { page } from '$app/stores'
   import { afterUpdate, onMount } from 'svelte'
 
-  let _class
+  let _class = undefined
   export let href
   export { _class as class }
 
@@ -25,6 +25,7 @@
       ? 'text-xl font-bold sm:text-2xl text-gray-800 dark:text-white'
       : 'text-base font-medium sm:text-xl text-gray-500 dark:text-white dark:opacity-80'
   }
+
 </script>
 
 <a

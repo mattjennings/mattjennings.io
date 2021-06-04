@@ -1,9 +1,10 @@
 <script>
   import { fade } from 'svelte/transition'
-  export let text
-  export let x
-  export let y
+  export let text = ''
+  export let x = 0
+  export let y = 0
   export let show = false
+
 </script>
 
 {#if show}

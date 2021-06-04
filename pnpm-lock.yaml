@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@mattjennings/heroicons-svelte': ^0.0.1
   '@sveltejs/adapter-vercel': ^1.0.0-next.22
   '@sveltejs/kit': ^1.0.0-next.113
   '@tailwindcss/typography': ^0.4.1
@@ -32,6 +33,7 @@ specifiers:
   vite: ^2.3.6
 
 dependencies:
+  '@mattjennings/heroicons-svelte': 0.0.1_svelte@3.38.2
   clsx: 1.1.1
   date-fns: 2.22.1
   fathom-client: 3.0.0
@@ -112,6 +114,14 @@ packages:
     dependencies:
       purgecss: 3.1.3
     dev: true
+
+  /@mattjennings/heroicons-svelte/0.0.1_svelte@3.38.2:
+    resolution: {integrity: sha512-MdPBD38GYLFxcWmBytK7GZlhibDTPz2V9LeyWsCRKyJc+MRSebpqAUq479ef0nEnQvVzGkz6AOi0f9bbImrDTA==}
+    peerDependencies:
+      svelte: '>= 3'
+    dependencies:
+      svelte: 3.38.2
+    dev: false
 
   /@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
