@@ -14,7 +14,15 @@
 </svelte:head>
 
 <div class="overflow-hidden mx-1">
-  <img alt="hello!" src="/hello.gif" width="360" height="202" class="rounded-md" style="margin-top: 0; margin-bottom: 0;"/>
+  <video 
+    class="rounded-md !my-0 mx-auto w-[360px] h-[202px]" 
+    autoplay 
+    muted 
+    loop
+    playsinline
+    title="hello!" 
+    src="/hello.mp4" 
+  />
 </div>
 
 <!--
