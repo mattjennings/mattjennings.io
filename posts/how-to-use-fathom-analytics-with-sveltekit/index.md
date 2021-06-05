@@ -3,26 +3,25 @@ title: How to use Fathom Analytics with SvelteKit
 created: 2021-06-05
 ---
 
-[Fathom](https://usefathom.com) is a simple, light-weight, privacy-first alternative to Google Analytics. I decided to set it up with this website (which uses SvelteKit) and thought I would share how you can too.
-
-If you're reading this post you're probably already using Fathom, but if you're not, you can get $10 credit by [signing up with my referral link](https://usefathom.com/ref/QAKNUF) (much appreciated if you do, and I promise this post isn't a shill to get referrals).
+[Fathom](https://usefathom.com) is a simple, light-weight, privacy-first alternative to Google Analytics. I recently set it up with SvelteKit so I'll share with you how I did it.
 
 Follow along with an existing SvelteKit project of your own, or [create a new one](https://kit.svelte.dev/docs#introduction-getting-started) if needed.
 
+_If you're reading this post you're probably already using Fathom, but if you're not, you can get $10 credit by [signing up with my referral link](https://usefathom.com/ref/QAKNUF) (I promise this post isn't a shill to get referrals)._
+
 ## Getting started
 
-First let's add [fathom-client](https://github.com/derrickreimer/fathom-client):
+First let's add [fathom-client](https://github.com/derrickreimer/fathom-client), a javascript library for interacting with Fathom:
 
 ```
 npm install fathom-client
 ```
 
-## Tracking page views
+## Setting up Fathom & tracking page views
 
 We'll be updating `src/routes/__layout.svelte` to set up Fathom and start tracking page views. If you don't have one in your project, create it and use the following code for its content. If you do have one, update it to look like this:
 
 ```svelte
-<!-- __layout.svelte -->
 <script>
   import { onMount } from 'svelte'
   import { browser } from '$app/env'
@@ -36,7 +35,7 @@ We'll be updating `src/routes/__layout.svelte` to set up Fathom and start tracki
     })
   })
 
-  // track a page view when the page changes
+  // track a page view when the URL path changes
   $: $page.path, browser && Fathom.trackPageview()
 </script>
 
@@ -47,7 +46,7 @@ Replace `YOUR-SITE-ID` with your Fathom Site ID and you will start seeing page v
 
 ## Tracking goals
 
-Now that Fathom is configured in our layout, we can use `fathom-client` anywhere in our app. For tracking goals, you could do something like this:
+In order to track goals, you can import the `trackGoal` function from `fathom-client`:
 
 ```svelte
 <script>
@@ -62,6 +61,8 @@ Now that Fathom is configured in our layout, we can use `fathom-client` anywhere
   Buy Awesome Product
 </button>
 ```
+
+It's safe to import and use `fathom-client` anywhere in your site, so this makes for some pretty clean usage.
 
 ## That's it!
 
