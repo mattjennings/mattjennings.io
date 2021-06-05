@@ -16,7 +16,7 @@
 <div class="flex flex-col min-h-screen">
   <div class="max-w-4xl mx-auto flex flex-col flex-grow w-full">
     <div class="flex h-16 px-4 py-2 justify-between items-center">
-      <nav class="flex items-center space-x-8">
+      <nav class="flex items-center space-x-4 sm:space-x-8">
         <NavLink href="/">Matt Jennings</NavLink>
         <NavLink href="/projects">projects</NavLink>
         <NavLink href="/blog">blog</NavLink>
@@ -27,7 +27,7 @@
           role="switch"
           aria-label="Toggle Dark Mode"
           aria-checked={!prefersLight}
-          class="h-8 w-8 p-1"
+          class="h-4 w-4 sm:h-8 sm:w-8 sm:p-1"
           on:click={() => {
             prefersLight = !prefersLight
             localStorage.setItem('prefersLight', prefersLight.toString())

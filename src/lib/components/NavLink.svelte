@@ -1,7 +1,6 @@
 <script>
   import clsx from 'clsx'
   import { page } from '$app/stores'
-  import { afterUpdate, onMount } from 'svelte'
 
   let _class = undefined
   export let href
@@ -22,7 +21,7 @@
 
     active = (!_href && !path) || (_href && path && _href.startsWith(path))
     linkClass = active
-      ? 'text-xl font-bold sm:text-2xl text-gray-800 dark:text-white'
+      ? 'text-lg font-bold sm:text-2xl text-gray-800 dark:text-white'
       : 'text-base font-medium sm:text-xl text-gray-500 dark:text-white dark:opacity-80'
   }
 
