@@ -11,9 +11,11 @@ export default function blogMeta() {
     const [previewHtml] = getContent(info, true).split('\n')
     const [preview] = content.split('\n')
 
+    const parsed = path.parse(file.filename)
+
     file.data.fm = {
       ...file.data.fm,
-      slug: path.parse(file.filename).dir.split('/').pop(),
+      slug: parsed.name === 'index' ? path.parse(file.filename).dir.split('/').pop() : parsed.name,
       length: readTime.text,
       preview: truncate(preview, 300),
       previewHtml: truncate(previewHtml, 300),
