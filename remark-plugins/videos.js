@@ -9,10 +9,14 @@ export default function videos(options = {}) {
       if (node.url.endsWith('mp4')) {
         node.type = 'html'
         node.value = `
-            <video src="${node.url}"
+            <video 
+              src="${node.url}"
               autoplay
+              muted
+              playsinline
               loop
-              title="${node.alt}"/>
+              title="${node.alt}"
+            />
           `
       }
     })
