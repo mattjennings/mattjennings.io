@@ -7,8 +7,8 @@ import { visit } from 'unist-util-visit'
 
 export default {
   layout: {
-    document: './src/md-layouts/document.svelte',
-    _: './src/md-layouts/empty.svelte'
+    document: './src/lib/mdsvex-layouts/document.svelte',
+    _: './src/lib/mdsvex-layouts/empty.svelte'
   },
   extensions: ['.svx', '.md'],
   smartypants: {
