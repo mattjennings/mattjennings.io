@@ -3,10 +3,12 @@
 
   let copied = false
   let copiedTimeout
+
 </script>
 
 <button
   title="mattjennings@hey.com"
+  aria-label="mattjennings@hey.com"
   use:tooltip={{ text: copied ? 'Copied!' : 'mattjennings@hey.com' }}
   on:mousedown={() => {
     if (navigator) {

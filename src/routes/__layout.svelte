@@ -1,6 +1,7 @@
 <script>
   import '../app.css'
   import '../prism.css'
+  import 'focus-visible'
   import Email from '$lib/components/Email.svelte'
   import NavLink from '$lib/components/NavLink.svelte'
   import Fathom from '$lib/components/Fathom.svelte'
@@ -56,7 +57,7 @@
   <footer class="bg-gray-800">
     <div class="max-w-4xl mx-auto flex space-x-8 items-center justify-center">
       <!-- twitter -->
-      <a href="https://twitter.com/mattjennings44">
+      <a aria-label="twitter" href="https://twitter.com/mattjennings44">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6 text-blue-400 fill-current"
@@ -70,7 +71,7 @@
       </a>
 
       <!-- github -->
-      <a href="https://github.com/mattjennings">
+      <a aria-label="github" href="https://github.com/mattjennings">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6 text-gray-50 fill-current"
