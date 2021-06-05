@@ -72,13 +72,13 @@
   <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
-<h1 class="!mt-0 !mb-1">{title}</h1>
-<div>
-  <time>{format(fixTimezone(created), 'MMMM d, yyyy')}</time>
-  •
-  <span>{length}</span>
-</div>
 <article>
+  <h1 class="!mt-0 !mb-1">{title}</h1>
+  <div>
+    <time>{format(fixTimezone(created), 'MMMM d, yyyy')}</time>
+    •
+    <span>{length}</span>
+  </div>
   <svelte:component this={component} />
 </article>
 

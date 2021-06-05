@@ -53,6 +53,22 @@ module.exports = {
             }
           }
         },
+        sm: {
+          css: {
+            h1: {
+              fontSize: theme('fontSize.xl')
+            },
+            h2: {
+              fontSize: theme('fontSize.lg')
+            },
+            h3: {
+              fontSize: theme('fontSize.base')
+            },
+            h4: {
+              fontSize: theme('fontSize.base')
+            }
+          }
+        },
         lg: {
           css: {
             h1: {
@@ -66,19 +82,6 @@ module.exports = {
             },
             h4: {
               fontSize: theme('fontSize.lg')
-            }
-          }
-        },
-        xl: {
-          css: {
-            h1: {
-              fontSize: theme('fontSize.3xl')
-            },
-            h2: {
-              fontSize: theme('fontSize.2xl')
-            },
-            h3: {
-              fontSize: theme('fontSize.xl')
             }
           }
         },

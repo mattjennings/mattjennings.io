@@ -48,7 +48,7 @@
       {/if}
     </div>
     <main
-      class="flex flex-col w-full flex-grow prose dark:prose-dark prose-lg sm:prose-xl py-4 px-4"
+      class="flex flex-col w-full flex-grow prose prose-sm sm:prose-lg dark:prose-dark py-4 px-4"
     >
       <slot />
     </main>
