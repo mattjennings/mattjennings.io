@@ -16,7 +16,8 @@ export default function blogMeta() {
       slug: path.parse(file.filename).dir.split('/').pop(),
       length: readTime.text,
       preview: truncate(preview, 300),
-      previewHtml: truncate(previewHtml, 300)
+      previewHtml: truncate(previewHtml, 300),
+      created: offsetTimezone(new Date(file.data.fm.created))
     }
   }
 }
@@ -58,4 +59,8 @@ function getContent(info, html = false) {
     }
     return content
   }, '')
+}
+
+function offsetTimezone(date) {
+  return new Date(new Date(date).valueOf() + new Date(date).getTimezoneOffset() * 60 * 1000)
 }

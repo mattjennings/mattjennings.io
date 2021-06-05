@@ -2,12 +2,21 @@
   Renders the post at /blog/[slug]
 -->
 <script context="module">
+  import { isBefore } from 'date-fns'
+
   /**
    * @type {import('@sveltejs/kit').Load}
    */
   export async function load({ page }) {
     const res = await import(`../../../posts/${page.params.slug}/index.md`)
 
+    if (!isBefore(new Date(res.metadata.created), new Date())) {
+      return {
+        props: {},
+        redirect: '/404',
+        status: 307
+      }
+    }
     return {
       props: {
         // frontmatter data from post

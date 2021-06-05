@@ -1,9 +1,11 @@
 <script context="module">
+  import { isBefore } from 'date-fns'
+
   const PAGE_SIZE = 10
 
   const posts = Object.entries(import.meta.globEager('../../../posts/**/*.md'))
     .map(([, post]) => post.metadata)
-    .filter((post) => !post.hidden)
+    .filter((post) => isBefore(new Date(post.created), new Date()))
     .sort((a, b) => (a.created < b.created ? 1 : -1))
 
   export const prerender = true
@@ -29,10 +31,6 @@
   export let posts
   export let page
 
-  function offsetTimezone(date) {
-    return new Date(new Date(date).valueOf() + new Date(date).getTimezoneOffset() * 60 * 1000)
-  }
-
 </script>
 
 <svelte:head>
@@ -45,7 +43,7 @@
       <div class="py-8 first:pt-0">
         <div>
           <h1 class="!mt-0 !mb-1"><a href={`/blog/${post.slug}`}>{post.title}</a></h1>
-          <time>{format(offsetTimezone(new Date(post.created)), 'MMMM d, yyyy')}</time>
+          <time>{format(new Date(post.created), 'MMMM d, yyyy')}</time>
           •
           <span>{post.length}</span>
         </div>
