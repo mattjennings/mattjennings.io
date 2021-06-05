@@ -11,6 +11,9 @@
 <svelte:head>
 
   <title>Matt Jennings | Hello!</title>
+  <meta name="description" content={`
+  I'm Matt Jennings, a ${age} year-old software developer. Some of my work includes a hockey news app, a Megaman X fan game, and a framework for writing games with Svelte.
+  `}>
 </svelte:head>
 
 <div class="overflow-hidden mx-1">
@@ -25,11 +28,7 @@
   />
 </div>
 
-<!--
-  span fixes a weird sveltekit/msdvex bug where "Check them out" would end up inside of {age}.
--->
-
-I'm Matt Jennings, a <span>{age}</span> year-old software developer. Some of my work includes a hockey news app, a Megaman X fan game, and a framework for writing games with Svelte. [Check them out!](/projects)
+I'm Matt Jennings, a {age} year-old software developer. Some of my work includes a hockey news app, a Megaman X fan game, and a framework for writing games with Svelte. [Check them out!](/projects)
 
 Currently, I work at [PaintScout](https://paintscout.com) as a full stack developer and have been with them since 2017.
 
