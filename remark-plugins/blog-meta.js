@@ -17,7 +17,7 @@ export default function blogMeta() {
       length: readTime.text,
       preview: truncate(preview, 300),
       previewHtml: truncate(previewHtml, 300),
-      created: offsetTimezone(new Date(file.data.fm.created))
+      created: file.data.fm ? offsetTimezone(new Date(file.data.fm.created)) : undefined
     }
   }
 }
