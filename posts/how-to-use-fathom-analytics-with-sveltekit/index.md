@@ -19,7 +19,7 @@ npm install fathom-client
 
 ## Setting up Fathom & tracking page views
 
-We'll be updating `src/routes/__layout.svelte` to set up Fathom and start tracking page views. If you don't have one in your project, create it and use the following code for its content. If you do have one, update it to look like this:
+Next, we'll update `src/routes/__layout.svelte` to load Fathom and start tracking page views. If you don't have one in your project, create it and use the following code for its content. If you do have one, update it to look like this:
 
 ```svelte
 <script>
