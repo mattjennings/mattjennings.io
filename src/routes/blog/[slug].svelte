@@ -53,8 +53,9 @@
 </script>
 
 <svelte:head>
-  <title>{title}</title>
+  <title>{title} by Matt Jennings</title>
   <meta name="description" content={preview} />
+  <meta name="author" content="Matt Jennings" />
 
   <!-- Facebook Meta Tags -->
   <meta property="og:url" content={`https://mattjennings.io/blog/${slug}`} />
@@ -75,7 +76,9 @@
 <article>
   <h1 class="!mt-0 !mb-1">{title}</h1>
   <div>
-    <time>{format(fixTimezone(created), 'MMMM d, yyyy')}</time>
+    <time datetime={new Date(fixTimezone(created)).toISOString()}
+      >{format(fixTimezone(created), 'MMMM d, yyyy')}</time
+    >
     •
     <span>{length}</span>
   </div>

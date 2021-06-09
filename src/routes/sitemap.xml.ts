@@ -40,6 +40,11 @@ const render = ({ policies, posts }) => html`<?xml version="1.0" encoding="UTF-8
   >
     <url>
       <loc>https://mattjennings.io</loc>
+      <priority>1.0</priority>
+    </url>
+    <url>
+      <loc>https://mattjennings.io/blog</loc>
+      <priority>0.5</priority>
     </url>
     <url>
       <loc>https://mattjennings.io/projects</loc>
@@ -51,7 +56,7 @@ const render = ({ policies, posts }) => html`<?xml version="1.0" encoding="UTF-8
           <loc>https://mattjennings.io/blog/${post.slug}</loc>
           <lastmod>${new Date(post.created).toISOString()}</lastmod>
           <changefreq>monthly</changefreq>
-          <priority>1</priority>
+          <priority>1.0</priority>
         </url>`
       )
       .join('')}
@@ -59,7 +64,7 @@ const render = ({ policies, posts }) => html`<?xml version="1.0" encoding="UTF-8
       .map(
         (post) => html`<url>
           <loc>https://mattjennings.io/policies/${post.slug}</loc>
-          <priority>1</priority>
+          <priority>1.0</priority>
         </url>`
       )
       .join('')}

@@ -38,7 +38,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@mattjennings/heroicons-svelte": "^0.0.2",
+		"@mattjennings/heroicons-svelte": "^0.0.6",
 		"clsx": "^1.1.1",
 		"date-fns": "^2.22.1",
 		"fathom-client": "^3.0.0",

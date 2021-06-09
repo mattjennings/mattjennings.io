@@ -10,7 +10,7 @@
 
 <svelte:head>
 
-  <title>Matt Jennings | Hello!</title>
+  <title>Matt Jennings | Software Developer</title>
   <meta name="description" content={`
   I'm Matt Jennings, a ${age} year-old software developer. Some of my work includes a hockey news app, a Megaman X fan game, and a framework for writing games with Svelte.
   `}>
