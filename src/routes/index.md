@@ -32,4 +32,4 @@ I'm Matt Jennings, a {age} year-old software developer. Some of my work includes
 
 Currently, I work at [PaintScout](https://paintscout.com) as a full stack developer and have been with them since 2017.
 
-If you'd like to reach out, feel free to [tweet me](https://twitter.com/mattjennings44) or [email me](mailto:mattjennings@hey.com).
+If you'd like to reach out, feel free to [tweet me](https://twitter.com/mattjennings44) or [email me](mailto:matt@mattjennings.io).

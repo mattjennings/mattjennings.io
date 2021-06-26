@@ -7,12 +7,12 @@
 </script>
 
 <button
-  title="mattjennings@hey.com"
-  aria-label="mattjennings@hey.com"
-  use:tooltip={{ text: copied ? 'Copied!' : 'mattjennings@hey.com' }}
+  title="matt@mattjennings.io"
+  aria-label="matt@mattjennings.io"
+  use:tooltip={{ text: copied ? 'Copied!' : 'matt@mattjennings.io' }}
   on:mousedown={() => {
     if (navigator) {
-      navigator.clipboard.writeText('mattjennings@hey.com')
+      navigator.clipboard.writeText('matt@mattjennings.io')
       copied = true
 
       clearTimeout(copiedTimeout)
