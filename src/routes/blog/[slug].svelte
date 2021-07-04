@@ -29,7 +29,6 @@
       maxage: 60 * 10
     }
   }
-
 </script>
 
 <script>
@@ -49,11 +48,10 @@
   }
 
   const ogImage = `https://og.mattjennings.io/${encodeURIComponent(title)}.png?md=1&fontSize=100px`
-
 </script>
 
 <svelte:head>
-  <title>{title} by Matt Jennings</title>
+  <title>{title}</title>
   <meta name="description" content={preview} />
   <meta name="author" content="Matt Jennings" />
 
