@@ -1,4 +1,3 @@
-import readingTime from 'reading-time'
 import path from 'path'
 
 /**
@@ -7,7 +6,6 @@ import path from 'path'
 export default function blogMeta() {
   return (info, file) => {
     const content = getContent(info)
-    const readTime = readingTime(content)
     const [previewHtml] = getContent(info, true).split('\n')
     const [preview] = content.split('\n')
 
@@ -16,7 +14,6 @@ export default function blogMeta() {
     file.data.fm = {
       ...file.data.fm,
       slug: parsed.name === 'index' ? path.parse(file.filename).dir.split('/').pop() : parsed.name,
-      length: readTime.text,
       preview: truncate(preview, 300),
       previewHtml: truncate(previewHtml, 300),
       created: file.data.fm ? offsetTimezone(new Date(file.data.fm.created)) : undefined

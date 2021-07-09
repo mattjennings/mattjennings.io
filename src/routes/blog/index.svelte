@@ -3,7 +3,7 @@
 
   const PAGE_SIZE = 10
 
-  const posts = Object.entries(import.meta.globEager('../../../posts/**/*.md'))
+  const allPosts = Object.entries(import.meta.globEager('../../../posts/**/*.md'))
     .map(([, post]) => post.metadata)
     .filter((post) => isBefore(new Date(post.created), new Date()))
     .sort((a, b) => (a.created < b.created ? 1 : -1))
@@ -15,14 +15,13 @@
 
     return {
       props: {
-        posts: posts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE),
+        posts: allPosts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE),
         page
       },
       // cache page for 10 minutes
       maxage: 60 * 10
     }
   }
-
 </script>
 
 <script>
@@ -30,7 +29,6 @@
   import { format } from 'date-fns'
   export let posts
   export let page
-
 </script>
 
 <svelte:head>
@@ -45,7 +43,7 @@
           <h1 class="!mt-0 !mb-1"><a href={`/blog/${post.slug}`}>{post.title}</a></h1>
           <time>{format(new Date(post.created), 'MMMM d, yyyy')}</time>
           •
-          <span>{post.length}</span>
+          <span>{post.readingTime.text}</span>
         </div>
         <p class="whitespace-pre-wrap">{@html post.previewHtml}</p>
         <div class="flex justify-end w-full">

@@ -40,7 +40,7 @@
   export let title
   export let created
   export let preview
-  export let length
+  export let readingTime
   export let slug
 
   function fixTimezone(date) {
@@ -78,7 +78,7 @@
       >{format(fixTimezone(created), 'MMMM d, yyyy')}</time
     >
     •
-    <span>{length}</span>
+    <span>{readingTime.text}</span>
   </div>
   <svelte:component this={component} />
 </article>
