@@ -45,7 +45,7 @@
           •
           <span>{post.readingTime.text}</span>
         </div>
-        <p class="whitespace-pre-wrap">{@html post.previewHtml}</p>
+        <div>{@html post.previewHtml}</div>
         <div class="flex justify-end w-full">
           <ButtonLink sveltekit:prefetch href={`/blog/${post.slug}`}>Read More</ButtonLink>
         </div>

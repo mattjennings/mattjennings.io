@@ -4,6 +4,7 @@ import metaPlugin from './remark-plugins/blog-meta.js'
 import videos from './remark-plugins/videos.js'
 import relativeUrls from './remark-plugins/relative-urls.js'
 import readingTime from 'remark-reading-time'
+import preview, { textFormatter, htmlFormatter } from 'remark-preview'
 
 export default {
   layout: {
@@ -14,7 +15,22 @@ export default {
   smartypants: {
     dashes: 'oldschool'
   },
-  remarkPlugins: [readingTime(), metaPlugin, videos, relativeUrls],
+  remarkPlugins: [
+    readingTime(),
+    preview(textFormatter({ length: 300, maxBlocks: 1 })),
+    preview(
+      htmlFormatter({
+        length: 300,
+        maxBlocks: 1
+      }),
+      {
+        attribute: 'previewHtml'
+      }
+    ),
+    metaPlugin,
+    videos,
+    relativeUrls
+  ],
   rehypePlugins: [
     slugPlugin,
     [
