@@ -2,7 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@mattjennings/heroicons-svelte': ^0.0.6
-  '@sveltejs/adapter-vercel': 1.0.0-next.24
+  '@sveltejs/adapter-static': ^1.0.0-next.13
   '@sveltejs/kit': ^1.0.0-next.123
   '@tailwindcss/typography': ^0.4.1
   '@typescript-eslint/eslint-plugin': ^4.26.0
@@ -45,7 +45,7 @@ dependencies:
   focus-visible: 5.2.0
 
 devDependencies:
-  '@sveltejs/adapter-vercel': 1.0.0-next.24
+  '@sveltejs/adapter-static': 1.0.0-next.13
   '@sveltejs/kit': 1.0.0-next.123_svelte@3.38.3
   '@tailwindcss/typography': 0.4.1_tailwindcss@2.2.4
   '@typescript-eslint/eslint-plugin': 4.28.2_5031fffb45dfb7117e61c1d8ea1ef3ff
@@ -188,10 +188,8 @@ packages:
       picomatch: 2.3.0
     dev: true
 
-  /@sveltejs/adapter-vercel/1.0.0-next.24:
-    resolution: {integrity: sha512-fTJptAA+UPF6HloAeRgfRNR85i2EDCaGN4XS028aXp9qwZ8X7Dhh9mFxRV4hko5USzj3j/HsH672Mp8OsAu12A==}
-    dependencies:
-      esbuild: 0.12.15
+  /@sveltejs/adapter-static/1.0.0-next.13:
+    resolution: {integrity: sha512-zaXJlWK9JfrjrE6nG5etB8kf4DSkbE3H8Ql6gmCk3WjdvpY85a60TMYBU9OK2iunkqpHnPYiMUGEnOGYmWlLYA==}
     dev: true
 
   /@sveltejs/kit/1.0.0-next.123_svelte@3.38.3:

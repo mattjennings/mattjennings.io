@@ -1,18 +1,15 @@
 <script context="module">
-  const PAGE_SIZE = 5
-
-  export const load = async ({ page: { query }, fetch }) => {
-    const page = parseInt(query.get('page') ?? '1')
-    const posts = await fetch(`/blog/posts?page=${page}&limit=${PAGE_SIZE}`).then((res) =>
-      res.json()
-    )
+  export const load = async () => {
+    const posts = Object.entries(import.meta.globEager('/posts/**/*.md'))
+      // get post metadata
+      .map(([, post]) => post.metadata)
+      // sort by date
+      .sort((a, b) => (a.date < b.date ? 1 : -1))
 
     return {
       props: {
-        posts: posts,
-        currentPage: page
-      },
-      maxage: 600
+        posts
+      }
     }
   }
 </script>
@@ -20,10 +17,8 @@
 <script>
   import ButtonLink from '$lib/components/ButtonLink.svelte'
   import { format } from 'date-fns'
-  import { page } from '$app/stores'
 
   export let posts
-  export let currentPage
 </script>
 
 <svelte:head>
@@ -42,20 +37,9 @@
         </div>
         <div>{@html post.previewHtml}</div>
         <div class="flex justify-end w-full">
-          <ButtonLink sveltekit:prefetch href={`/blog/${post.slug}`}>Read More</ButtonLink>
+          <ButtonLink href={`/blog/${post.slug}`}>Read More</ButtonLink>
         </div>
       </div>
     {/each}
-  </div>
-  <!-- pagination -->
-  <div class="flex justify-between">
-    {#if currentPage > 1}
-      <ButtonLink isBack href={`${$page.path}?page=${currentPage - 1}`}>Back</ButtonLink>
-    {:else}
-      <div />
-    {/if}
-    {#if posts[posts.length - 1]?.previous}
-      <ButtonLink href={`${$page.path}?page=${currentPage + 1}`}>Next</ButtonLink>
-    {/if}
   </div>
 </div>

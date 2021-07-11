@@ -9,7 +9,7 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-vercel": "1.0.0-next.24",
+		"@sveltejs/adapter-static": "^1.0.0-next.13",
 		"@sveltejs/kit": "^1.0.0-next.123",
 		"@tailwindcss/typography": "^0.4.1",
 		"@typescript-eslint/eslint-plugin": "^4.26.0",
@@ -30,15 +30,15 @@
 		"prettier-plugin-svelte": "^2.3.0",
 		"rehype-autolink-headings": "^5.1.0",
 		"rehype-slug": "^4.0.1",
+		"remark-preview": "^1.0.0",
+		"remark-reading-time": "^1.0.1",
 		"svelte": "^3.38.2",
 		"svelte-preprocess": "^4.7.4",
 		"tailwindcss": "^2.1.0",
 		"truncate-html": "^1.0.4",
 		"tslib": "^2.2.0",
 		"typescript": "^4.3.2",
-		"unist-util-visit": "^3.1.0",
-		"remark-preview": "^1.0.0",
-		"remark-reading-time": "^1.0.1"
+		"unist-util-visit": "^3.1.0"
 	},
 	"type": "module",
 	"dependencies": {
@@ -46,6 +46,6 @@
 		"clsx": "^1.1.1",
 		"date-fns": "^2.22.1",
 		"fathom-client": "^3.0.0",
-		"focus-visible": "^5.2.0"		
+		"focus-visible": "^5.2.0"
 	}
 }

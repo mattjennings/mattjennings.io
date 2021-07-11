@@ -1,7 +1,7 @@
 import { mdsvex } from 'mdsvex'
 import mdsvexConfig from './mdsvex.config.js'
 import preprocess from 'svelte-preprocess'
-import vercel from '@sveltejs/adapter-vercel'
+import adapter from '@sveltejs/adapter-static'
 
 /** @type {import('@sveltejs/kit').Config} */
 export default {
@@ -11,7 +11,10 @@ export default {
   preprocess: [mdsvex(mdsvexConfig), [preprocess()]],
 
   kit: {
-    adapter: vercel(),
+    adapter: adapter({
+      pages: 'public',
+      assets: 'public'
+    }),
     // hydrate the <div id="svelte"> element in src/app.html
     target: '#svelte'
   }
