@@ -1,4 +1,4 @@
-import { isBefore } from 'date-fns'
+import { isPostPublic } from '$lib/isPostPublic'
 
 /**
  * Generates a sitemap.xml
@@ -8,8 +8,8 @@ import { isBefore } from 'date-fns'
 export async function get() {
   const posts = Object.entries(import.meta.globEager('../../posts/**/*.md'))
     .map(([, post]) => post.metadata)
-    .filter((post) => isBefore(new Date(post.created), new Date()))
-    .sort((a, b) => (a.created < b.created ? 1 : -1))
+    .sort((a, b) => (a.date < b.date ? 1 : -1))
+    .filter(isPostPublic)
 
   const policies = Object.entries(import.meta.globEager('./policies/**/*.md')).map(
     ([, page]) => page.metadata
@@ -54,7 +54,7 @@ const render = ({ policies, posts }) => html`<?xml version="1.0" encoding="UTF-8
       .map(
         (post) => html`<url>
           <loc>https://mattjennings.io/blog/${post.slug}</loc>
-          <lastmod>${new Date(post.created).toISOString()}</lastmod>
+          <lastmod>${new Date(post.date).toISOString()}</lastmod>
           <changefreq>monthly</changefreq>
           <priority>1.0</priority>
         </url>`

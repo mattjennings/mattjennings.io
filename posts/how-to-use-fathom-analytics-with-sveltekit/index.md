@@ -1,6 +1,6 @@
 ---
 title: How to use Fathom Analytics with SvelteKit
-created: 2021-06-05
+date: 2021-06-05
 ---
 
 [Fathom](https://usefathom.com) is a simple, light-weight, privacy-first alternative to Google Analytics. I recently set it up with SvelteKit so I'll share with you how I did it.

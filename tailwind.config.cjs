@@ -1,29 +1,22 @@
-const colors = require('tailwindcss/colors')
-
 module.exports = {
   mode: 'jit',
   darkMode: 'class',
   purge: ['./src/**/*.{html,js,svelte,ts,md,svx}'],
   theme: {
     extend: {
-      colors: {
-        'light-blue': colors.lightBlue,
-        cyan: colors.cyan
-      },
       typography: (theme) => {
         return {
           DEFAULT: {
             css: {
+              maxWidth: 'none',
               code: {
                 borderRadius: theme('borderRadius.md'),
                 paddingTop: theme('spacing.1'),
                 paddingBottom: theme('spacing.1'),
                 paddingLeft: theme('spacing.1'),
                 paddingRight: theme('spacing.1'),
-                backgroundColor: theme('colors.gray.800'),
                 fontFamily: 'inherit !important',
                 fontWeight: '500 !important',
-                whiteSpace: 'nowrap',
                 color: theme('colors.gray.900'),
                 backgroundColor: theme('colors.gray.300')
               },
@@ -54,14 +47,29 @@ module.exports = {
                   fontWeight: 'inherit',
                   textDecoration: 'none'
                 }
+              },
+              h1: {
+                fontSize: theme('fontSize.2xl')
+              },
+              h2: {
+                fontSize: theme('fontSize.xl')
+              },
+              h3: {
+                fontSize: theme('fontSize.md')
+              },
+              h4: {
+                fontSize: theme('fontSize.base')
+              },
+              h5: {
+                fontSize: theme('fontSize.base')
+              },
+              h6: {
+                fontSize: theme('fontSize.base')
               }
             }
           },
           sm: {
             css: {
-              'pre code': {
-                fontSize: theme('fontSize.sm')[0]
-              },
               h1: {
                 fontSize: theme('fontSize.xl')
               },
@@ -73,14 +81,17 @@ module.exports = {
               },
               h4: {
                 fontSize: theme('fontSize.base')
+              },
+              h5: {
+                fontSize: theme('fontSize.base')
+              },
+              h6: {
+                fontSize: theme('fontSize.base')
               }
             }
           },
           lg: {
             css: {
-              'pre code': {
-                fontSize: theme('fontSize.base')[0]
-              },
               code: {
                 paddingLeft: theme('spacing.2'),
                 paddingRight: theme('spacing.2')

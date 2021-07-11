@@ -1,7 +1,7 @@
 ---
 title: Next.js vs SvelteKit
 layout: blog
-created: 2021-05-06
+date: 2021-05-06
 hidden: true
 ---
 

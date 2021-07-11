@@ -1,25 +1,18 @@
 <script context="module">
-  import { isBefore } from 'date-fns'
+  const PAGE_SIZE = 5
 
-  const PAGE_SIZE = 10
-
-  const allPosts = Object.entries(import.meta.globEager('../../../posts/**/*.md'))
-    .map(([, post]) => post.metadata)
-    .filter((post) => isBefore(new Date(post.created), new Date()))
-    .sort((a, b) => (a.created < b.created ? 1 : -1))
-
-  export const prerender = true
-
-  export const load = async ({ page: { query } }) => {
+  export const load = async ({ page: { query }, fetch }) => {
     const page = parseInt(query.get('page') ?? '1')
+    const posts = await fetch(`/blog/posts?page=${page}&limit=${PAGE_SIZE}`).then((res) =>
+      res.json()
+    )
 
     return {
       props: {
-        posts: allPosts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE),
-        page
+        posts: posts,
+        currentPage: page
       },
-      // cache page for 10 minutes
-      maxage: 60 * 10
+      maxage: 600
     }
   }
 </script>
@@ -27,8 +20,10 @@
 <script>
   import ButtonLink from '$lib/components/ButtonLink.svelte'
   import { format } from 'date-fns'
+  import { page } from '$app/stores'
+
   export let posts
-  export let page
+  export let currentPage
 </script>
 
 <svelte:head>
@@ -41,7 +36,7 @@
       <div class="py-8 first:pt-0">
         <div>
           <h1 class="!mt-0 !mb-1"><a href={`/blog/${post.slug}`}>{post.title}</a></h1>
-          <time>{format(new Date(post.created), 'MMMM d, yyyy')}</time>
+          <time>{format(new Date(post.date), 'MMMM d, yyyy')}</time>
           •
           <span>{post.readingTime.text}</span>
         </div>
@@ -54,13 +49,13 @@
   </div>
   <!-- pagination -->
   <div class="flex justify-between">
-    {#if page > 1}
-      <ButtonLink isBack href={`/blog?page=${page - 1}`}>Back</ButtonLink>
+    {#if currentPage > 1}
+      <ButtonLink isBack href={`${$page.path}?page=${currentPage - 1}`}>Back</ButtonLink>
     {:else}
       <div />
     {/if}
-    {#if posts.length === PAGE_SIZE}
-      <ButtonLink href={`/blog?page=${page + 1}`}>Next</ButtonLink>
+    {#if posts[posts.length - 1]?.previous}
+      <ButtonLink href={`${$page.path}?page=${currentPage + 1}`}>Next</ButtonLink>
     {/if}
   </div>
 </div>

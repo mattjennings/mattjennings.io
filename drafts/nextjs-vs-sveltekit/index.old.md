@@ -1,7 +1,7 @@
 ---
 title: Remaking my website in SvelteKit
 layout: blog
-created: 2021-05-05
+date: 2021-05-05
 hidden: true
 ---
 

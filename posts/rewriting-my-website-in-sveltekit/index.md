@@ -1,6 +1,6 @@
 ---
 title: Rewriting my website in SvelteKit
-created: 2021-05-07
+date: 2021-05-07
 ---
 
 [SvelteKit](https://kit.svelte.dev) is an upcoming Svelte framework for creating websites. It's similar to Next.js for React, or Nuxt for Vue. It's still in beta but I wanted to give it a try with an actual project --- this website --- and see how the experience compared.
