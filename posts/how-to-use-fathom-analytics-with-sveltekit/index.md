@@ -1,6 +1,7 @@
 ---
 title: How to use Fathom Analytics with SvelteKit
 date: 2021-06-05
+updated: 2021-12-31
 ---
 
 [Fathom](https://usefathom.com) is a simple, light-weight, privacy-first alternative to Google Analytics. I recently set it up with SvelteKit so I'll share with you how I did it.
@@ -35,8 +36,8 @@ Next, we'll update `src/routes/__layout.svelte` to load Fathom and start trackin
     })
   })
 
-  // track a page view when the URL path changes
-  $: $page.path, browser && Fathom.trackPageview()
+  // track a page view when the pathname changes
+  $: $page.url.pathname, browser && Fathom.trackPageview()
 </script>
 
 <slot />

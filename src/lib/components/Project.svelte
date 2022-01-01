@@ -1,4 +1,6 @@
 <script>
+  import LinkIcon from 'heroicons-svelte/outline/ExternalLinkIcon.svelte'
+
   export let title
   export let img = undefined
   export let video = undefined
@@ -30,7 +32,6 @@
       label: 'Download'
     }
   ].filter(Boolean)
-
 </script>
 
 <div
@@ -60,7 +61,10 @@
           href={link.url}
           class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium !no-underline bg-gray-200 hover:bg-gray-300 text-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600"
         >
-          {link.label}
+          <span class="mr-1">
+            {link.label}
+          </span>
+          <LinkIcon class="w-3" />
         </a>
       {/each}
     </div>

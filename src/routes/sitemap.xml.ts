@@ -54,7 +54,11 @@ const render = ({ policies, posts }) => html`<?xml version="1.0" encoding="UTF-8
       .map(
         (post) => html`<url>
           <loc>https://mattjennings.io/blog/${post.slug}</loc>
-          <lastmod>${new Date(post.date).toISOString()}</lastmod>
+          <lastmod
+            >${post.updated
+              ? new Date(post.updated).toISOString()
+              : new Date(post.date).toISOString()}</lastmod
+          >
           <changefreq>monthly</changefreq>
           <priority>1.0</priority>
         </url>`

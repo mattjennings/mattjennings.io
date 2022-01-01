@@ -2,7 +2,7 @@
   /**
    * @type {import('@sveltejs/kit').Load}
    */
-  export async function load({ page: { params } }) {
+  export async function load({ params }) {
     // get all posts
     const posts = Object.entries(import.meta.globEager('/posts/**/*.md'))
       .map(([, post]) => ({

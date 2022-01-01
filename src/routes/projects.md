@@ -29,7 +29,7 @@
 		title="Megaman X Eclipse"
 		web="http://mmxeclipse.blogspot.com"
 		download="https://sites.google.com/site/mmxeclipse/home/Megaman%20X%20Eclipse%20Demo%20v1.02.zip?attredirects=0&d=1"
-		video="https://www.youtube.com/embed/ZdOGiwa5c7E"
+		video="https://www.youtube.com/embed/A6REot5ZJYk"
 	>
 	A Megaman X fan game that my brother and I worked on while I was in high school. I spent many,
 	many hours on trying to imitate the physics of the original game. We were able to release a demo

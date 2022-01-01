@@ -5,11 +5,11 @@
   import Email from '$lib/components/Email.svelte'
   import NavLink from '$lib/components/NavLink.svelte'
   import Fathom from '$lib/components/Fathom.svelte'
-  import { MoonIcon, SunIcon } from '@mattjennings/heroicons-svelte/solid'
+  import MoonIcon from 'heroicons-svelte/solid/MoonIcon.svelte'
+  import SunIcon from 'heroicons-svelte/solid/SunIcon.svelte'
   import { browser } from '$app/env'
 
   let prefersLight = browser ? Boolean(JSON.parse(localStorage.getItem('prefersLight'))) : false
-
 </script>
 
 <Fathom />
@@ -95,5 +95,4 @@
     padding-top: 12px;
     padding-bottom: calc(12px + env(safe-area-inset-bottom));
   }
-
 </style>

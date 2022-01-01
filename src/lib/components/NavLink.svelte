@@ -16,7 +16,7 @@
   update()
 
   function update() {
-    const [, path] = $page.path.split('/')
+    const [, path] = $page.url.pathname.split('/')
     const [, _href] = href.split('/')
 
     active = (!_href && !path) || (_href && path && _href.startsWith(path))
@@ -24,7 +24,6 @@
       ? 'text-lg font-bold sm:text-2xl text-gray-800 dark:text-white'
       : 'text-base font-medium sm:text-xl text-gray-500 dark:text-white dark:opacity-80'
   }
-
 </script>
 
 <a
