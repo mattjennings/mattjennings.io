@@ -4,7 +4,7 @@
 
 <script>
   import { differenceInYears } from 'date-fns'
-
+  
   const age = differenceInYears(new Date(), new Date('1994-11-01'))
 
   const intro = `I'm Matt Jennings, a ${age} year-old Software Engineer. Some of my work includes a hockey news app, a Megaman X fan game, and various open source libraries for web apps.`

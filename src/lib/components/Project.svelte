@@ -35,7 +35,7 @@
 </script>
 
 <div
-  class="flex flex-col md:flex-row items-start space-x-0 md:space-x-8 pb-8 border-b border-gray-300 dark:border-gray-700"
+  class="flex flex-col md:flex-row items-start space-x-0 md:space-x-8 pb-8 border-b border-slate-300 dark:border-slate-700"
 >
   <div class="order-2 md:order-1 !mx-auto w-auto md:md-0 md:w-1/3">
     {#if img}
@@ -59,7 +59,7 @@
       {#each links as link}
         <a
           href={link.url}
-          class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium !no-underline bg-gray-200 hover:bg-gray-300 text-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600"
+          class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium !no-underline bg-slate-200 hover:bg-slate-300 text-slate-800 dark:bg-slate-700 dark:hover:bg-slate-600"
         >
           <span class="mr-1">
             {link.label}

@@ -2,33 +2,29 @@
   /**
    * @type {import('@sveltejs/kit').Load}
    */
-  export async function load({ params }) {
-    // get all posts
-    const posts = Object.entries(import.meta.globEager('/posts/**/*.md'))
-      .map(([, post]) => ({
-        // frontmatter data
-        metadata: post.metadata,
-
-        // the processed Svelte component from the markdown file
-        component: post.default
-      }))
-      .sort((a, b) => (a.metadata.date < b.metadata.date ? 1 : -1))
-
+  export async function load({ params, fetch }) {
     const { slug } = params
-    const index = posts.findIndex((post) => slug === post.metadata.slug)
 
-    const { metadata, component } = posts[index]
+    // fetch posts from endpoint so that it includes all metadata (see posts.json.js for explanation)
+    const posts = await fetch('/posts.json').then((res) => res.json())
+    const post = posts.find((post) => slug === post.slug)
 
-    // next/previous posts
-    const next = posts[index - 1]?.metadata
-    const previous = posts[index + 1]?.metadata
+    if (!post) {
+      return {
+        status: 404,
+        error: 'Post not found'
+      }
+    }
+
+    const component = post.isIndexFile
+      ? // vite requires relative paths and explicit file extensions for dynamic imports
+        await import(`../../../posts/${post.slug}/index.md`)
+      : await import(`../../../posts/${post.slug}.md`)
 
     return {
       props: {
-        component,
-        ...metadata,
-        next,
-        previous
+        ...post,
+        component: component.default
       }
     }
   }
@@ -36,10 +32,15 @@
 
 <script>
   import { format } from 'date-fns'
+  import { page } from '$app/stores'
   import ButtonLink from '$lib/components/ButtonLink.svelte'
+  import ToC from '$lib/components/ToC.svelte'
+  import PostPreview from '$lib/components/PostPreview.svelte'
+  import ArrowLeftIcon from '$lib/components/ArrowLeftIcon.svelte'
 
   export let component
 
+  // metadata
   export let title
   export let date
   export let preview
@@ -72,23 +73,81 @@
   <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
-<article>
-  <h1 class="!mt-0 !mb-1">{title}</h1>
-  <div class="back">
+<article class="relative">
+  <h1 class="!mt-0 !mb-2">
+    <a class="!font-medium" href={$page.url.pathname}>
+      {title}
+    </a>
+  </h1>
+  <div class="opacity-70">
     <time datetime={new Date(date).toISOString()}>{format(new Date(date), 'MMMM d, yyyy')}</time>
     •
-    <span>{readingTime.text}</span>
+    <span>{readingTime}</span>
   </div>
-  <svelte:component this={component} />
+
+  <div class="relative">
+    <!-- render the post -->
+    <svelte:component this={component} />
+
+    <!-- table of contents -->
+    <div class="hidden xl:block absolute not-prose left-[100%]" aria-label="Table of Contents">
+      <div class="fixed z-10 px-4 py-2 ml-8 top-[4.5rem]">
+        <!-- ignore h1 tags as they should only be used for the post title -->
+        <ToC allowedHeadings={['h2', 'h3', 'h4', 'h5', 'h6']} />
+      </div>
+    </div>
+  </div>
 </article>
 
 <div class="pt-12 flex justify-between">
-  {#if previous}
-    <ButtonLink isBack href={`/blog/${previous.slug}`}>{previous.title}</ButtonLink>
-  {:else}
-    <div />
-  {/if}
-  {#if next}
-    <ButtonLink href={`/blog/${next.slug}`}>{next.title}</ButtonLink>
-  {/if}
+  <ButtonLink href={`/blog`}>
+    <slot slot="icon-start">
+      <ArrowLeftIcon class="h-5 w-5" />
+    </slot>
+    Back to Posts
+    <slot slot="icon-end" />
+  </ButtonLink>
 </div>
+
+<!-- next/previous posts -->
+{#if previous || next}
+  <hr />
+  <div class="grid gap-8 grid-cols-1 sm:grid-cols-2">
+    {#if previous}
+      <div class="flex flex-col">
+        <h6 class="not-prose post-preview-label">Previous Post</h6>
+        <div class="flex-1 post-preview">
+          <PostPreview post={previous} small />
+        </div>
+      </div>
+    {:else}
+      <div />
+    {/if}
+    {#if next}
+      <div class="flex flex-col">
+        <h6 class="not-prose post-preview-label flex justify-end">Next Post</h6>
+        <div class="flex-1 post-preview">
+          <PostPreview post={next} small />
+        </div>
+      </div>
+    {/if}
+  </div>
+{/if}
+
+<style lang="postcss">
+  .post-preview {
+    @apply flex p-4 border border-slate-300 rounded-lg;
+  }
+
+  .post-preview-label {
+    @apply mb-2 text-slate-500 uppercase text-base font-medium;
+  }
+
+  :global(.dark) .post-preview {
+    @apply border-slate-700;
+  }
+
+  :global(.dark) .post-preview-label {
+    @apply text-slate-400;
+  }
+</style>

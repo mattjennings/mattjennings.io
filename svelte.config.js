@@ -8,22 +8,28 @@ const config = {
   extensions: ['.svelte', ...mdsvexConfig.extensions],
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
-  preprocess: [mdsvex(mdsvexConfig), [preprocess()]],
+  preprocess: [
+    mdsvex(mdsvexConfig),
+    [
+      preprocess({
+        postcss: true
+      })
+    ]
+  ],
+
   kit: {
-    vite: {
-      server: {
-        fs: {
-          // Allow serving files from one level up to the project root
-          allow: ['./posts']
-        }
-      }
-    },
+    target: '#svelte',
     adapter: adapter({
       pages: 'public',
       assets: 'public'
     }),
-    // hydrate the <div id="svelte"> element in src/app.html
-    target: '#svelte'
+    vite: {
+      server: {
+        fs: {
+          allow: ['./']
+        }
+      }
+    }
   }
 }
 

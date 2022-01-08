@@ -1,3 +1,5 @@
+import { getPosts } from '$lib/posts'
+
 import { isPostPublic } from '$lib/isPostPublic'
 
 /**
@@ -6,13 +8,16 @@ import { isPostPublic } from '$lib/isPostPublic'
  * credit to David Parker for the idea: https://www.youtube.com/watch?v=u8n5-urtGB0
  */
 export async function get() {
-  const posts = Object.entries(import.meta.globEager('../../posts/**/*.md'))
-    .map(([, post]) => post.metadata)
-    .sort((a, b) => (a.date < b.date ? 1 : -1))
-    .filter(isPostPublic)
+  const posts = getPosts().filter(isPostPublic)
 
-  const policies = Object.entries(import.meta.globEager('./policies/**/*.md')).map(
-    ([, page]) => page.metadata
+  const policies = Object.entries(import.meta.globEager('../../policies/**/*.md')).map(
+    ([filepath, page]) => ({
+      ...page.metadata,
+      slug: filepath
+        .replace(/(\/index)?\.md/, '')
+        .split('/')
+        .pop()
+    })
   )
 
   return {

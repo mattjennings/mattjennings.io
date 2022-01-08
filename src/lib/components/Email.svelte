@@ -3,7 +3,6 @@
 
   let copied = false
   let copiedTimeout
-
 </script>
 
 <button
@@ -24,7 +23,7 @@
 >
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="h-6 w-6 text-gray-50 fill-current block pointer-events-none"
+    class="h-6 w-6 text-slate-800 dark:text-slate-50 fill-current block pointer-events-none"
     viewBox="0 0 20 20"
   >
     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />

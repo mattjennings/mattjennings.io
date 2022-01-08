@@ -41,20 +41,20 @@
           }}
         >
           {#if prefersLight}
-            <MoonIcon class="text-gray-500" />
+            <MoonIcon class="text-slate-500" />
           {:else}
-            <SunIcon class="text-yellow-500" />
+            <SunIcon class="text-slate-400" />
           {/if}
         </button>
       {/if}
     </div>
     <main
-      class="flex flex-col w-full flex-grow prose prose-sm sm:prose-lg dark:prose-dark py-4 px-4"
+      class="mt-4 flex flex-col w-full flex-grow py-4 px-4 prose prose-slate prose-sm sm:prose sm:prose-slate sm:prose-lg sm:max-w-none dark:prose-invert"
     >
       <slot />
     </main>
   </div>
-  <footer class="bg-gray-800">
+  <footer>
     <div class="max-w-4xl mx-auto flex space-x-8 items-center justify-center">
       <!-- twitter -->
       <a aria-label="twitter" href="https://twitter.com/mattjennings44">
@@ -74,7 +74,7 @@
       <a aria-label="github" href="https://github.com/mattjennings">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6 text-gray-50 fill-current"
+          class="h-6 w-6 text-slate-800 dark:text-slate-50 fill-current"
           width="24"
           height="24"
           viewBox="0 0 24 24"
