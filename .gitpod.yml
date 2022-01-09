@@ -1,0 +1,9 @@
+tasks:
+  - init: pnpm install
+    command: |
+      export GITPOD_URL="$(gp url 3000)"
+      npm run dev
+
+ports:
+  - port: 3000
+    onOpen: open-preview
