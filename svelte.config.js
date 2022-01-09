@@ -34,13 +34,13 @@ const config = {
 
       server: {
         hmr: GITPOD_URL ? 
-        {
-          clientPort: 443,
-          port: 443,
-          protocol: 'wss',
-          host: GITPOD_URL.replace('https://', '')
-        } 
-        : true,
+          {
+            clientPort: 443,
+            protocol: 'wss',
+            host: GITPOD_URL.replace('https://', '')
+          } 
+        : 
+          true,
         fs: {
           allow: ['./']
         }

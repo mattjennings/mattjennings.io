@@ -1,8 +1,7 @@
 tasks:
-  - init: pnpm install
-    command: |
-      export GITPOD_URL="$(gp url 3000)"
-      npm run dev
+  - init: npx --yes pnpm install
+    before: echo 'export GITPOD_URL="$(gp url 3000)"' >> $HOME/.bashrc
+    command: npm run dev
 
 ports:
   - port: 3000
