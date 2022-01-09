@@ -1,5 +1,4 @@
 import { getPosts } from '$lib/posts'
-
 import { isPostPublic } from '$lib/isPostPublic'
 
 /**

@@ -19,6 +19,9 @@ const config = {
 
   kit: {
     target: '#svelte',
+    prerender: {
+      entries: ['*', '/sitemap.xml']
+    },
     adapter: adapter({
       pages: 'public',
       assets: 'public'
