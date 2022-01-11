@@ -83,8 +83,7 @@ pre[class*='language-'] {
 }
 
 .token.deleted {
-  color: rgba(239, 83, 80, 0.56);
-  font-style: italic;
+  color: rgba(239, 83, 80);
 }
 
 .token.symbol,
@@ -122,6 +121,14 @@ pre[class*='language-'] {
 .token.attr-name,
 .token.inserted {
   color: rgb(173, 219, 103);
+}
+
+.token.prefix.inserted,
+.token.prefix.deleted {
+  user-select: none;
+}
+
+.token.attr-name {
   font-style: italic;
 }
 

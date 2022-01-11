@@ -61,21 +61,23 @@
 
 <svelte:window on:scroll={setActiveHeading} />
 
-<h6 id="__sections" class="uppercase text-slate-400/75 dark:text-slate-600 font-bold text-sm">
-  Sections
-</h6>
+{#if headings.length}
+  <h6 id="__sections" class="uppercase text-slate-400/75 dark:text-slate-600 font-bold text-sm">
+    Sections
+  </h6>
 
-<ul class="mt-2 !pl-0">
-  {#each headings as heading}
-    <li
-      class="heading list-none my-2 !pl-0 text-base text-slate-400 hover:text-slate-900 dark:text-slate-500 hover:dark:text-slate-100 transition-colors"
-      class:active={activeHeading?.node === heading.node}
-      style={`--depth: ${heading.depth}`}
-    >
-      <a class="!no-underline" href={`#${heading.node.id}`}>{heading.title}</a>
-    </li>
-  {/each}
-</ul>
+  <ul class="mt-2 !pl-0">
+    {#each headings as heading}
+      <li
+        class="heading list-none my-2 !pl-0 text-base text-slate-400 hover:text-slate-900 dark:text-slate-500 hover:dark:text-slate-100 transition-colors"
+        class:active={activeHeading?.node === heading.node}
+        style={`--depth: ${heading.depth}`}
+      >
+        <a class="!no-underline" href={`#${heading.node.id}`}>{heading.title}</a>
+      </li>
+    {/each}
+  </ul>
+{/if}
 
 <style lang="postcss">
   .heading {
