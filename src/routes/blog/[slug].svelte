@@ -54,14 +54,14 @@
 
 <svelte:head>
   <title>{title}</title>
-  <meta name="description" content={preview} />
+  <meta name="description" content={preview.text} />
   <meta name="author" content="Matt Jennings" />
 
   <!-- Facebook Meta Tags -->
   <meta property="og:url" content={`https://mattjennings.io/blog/${slug}`} />
   <meta property="og:type" content="website" />
   <meta property="og:title" content={title} />
-  <meta property="og:description" content={preview} />
+  <meta property="og:description" content={preview.text} />
   <meta property="og:image" content={ogImage} />
 
   <!-- Twitter Meta Tags -->
@@ -69,7 +69,7 @@
   <meta property="twitter:domain" content="https://mattjennings.io" />
   <meta property="twitter:url" content={`https://mattjennings.io/blog/${slug}`} />
   <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={preview} />
+  <meta name="twitter:description" content={preview.text} />
   <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
