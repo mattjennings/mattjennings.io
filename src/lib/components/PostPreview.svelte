@@ -10,11 +10,11 @@
   <div>
     {#if !small}
       <h1 class="!mt-0 !mb-2">
-        <a href={`/blog/${post.slug}`}>{post.title}</a>
+        <a href={`/blog/${post.slug}`} sveltekit:prefetch>{post.title}</a>
       </h1>
     {:else}
       <h3 class="!mt-0 !mb-2">
-        <a href={`/blog/${post.slug}`}>{post.title}</a>
+        <a href={`/blog/${post.slug}`} sveltekit:prefetch>{post.title}</a>
       </h3>
     {/if}
     <div class="opacity-70">

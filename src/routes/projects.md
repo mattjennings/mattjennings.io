@@ -1,7 +1,3 @@
-<script context="module">
-	export const prerender = true
-</script>
-
 <script>
 	import Project from '$lib/components/Project.svelte'
 	import ButtonLink from '$lib/components/ButtonLink.svelte'

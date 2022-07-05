@@ -1,54 +1,6 @@
-<script context="module">
-  export const prerender = true
-
-  /**
-   * @type {import("@sveltejs/kit").Load}
-   */
-  export const load = async ({ fetch, params }) => {
-    let page = 1
-    let limit = 10
-
-    if (params.page) {
-      try {
-        // a url of /blog/page/2 will come through as 'page/2' for params.page
-        page = parseInt(params.page.split('page/').pop())
-      } catch (e) {
-        console.error(e)
-      }
-    }
-
-    const fetchPostsParams = new URLSearchParams()
-
-    fetchPostsParams.set('page', page.toString())
-    fetchPostsParams.set('limit', limit.toString())
-
-    const posts = await fetch(`/posts.json?${fetchPostsParams.toString()}`).then((res) =>
-      res.json()
-    )
-
-    // if page doesn't exist, direct to page 1
-    if (posts.length == 0 && page > 1) {
-      return {
-        redirect: `/posts`,
-        status: 302
-      }
-    }
-
-    return {
-      props: {
-        posts,
-        page,
-        limit
-      }
-    }
-  }
-</script>
-
 <script>
   import ArrowLeftIcon from '$lib/components/ArrowLeftIcon.svelte'
-
   import ButtonLink from '$lib/components/ButtonLink.svelte'
-
   import PostPreview from '$lib/components/PostPreview.svelte'
 
   export let posts

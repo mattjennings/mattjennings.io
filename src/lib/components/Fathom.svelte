@@ -6,7 +6,7 @@
 
   onMount(() => {
     Fathom.load('IDGMCFHT', {
-      url: 'https://wasp.mattjennings.io/script.js',
+      url: 'https://book-respected.mattjennings.io/script.js',
       includedDomains: ['mattjennings.io']
     })
   })

@@ -28,6 +28,7 @@
 
 <a
   {href}
+  sveltekit:prefetch
   class={clsx(
     _class,
     linkClass,
