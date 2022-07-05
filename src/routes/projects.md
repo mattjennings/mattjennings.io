@@ -36,13 +36,18 @@
     </Project>
 
     <Project
+    	title="svelte-pixi"
+    	web="https://svelte-pixi.com"
+    	github="https://github.com/mattjennings/svelte-pixi"
+    	img="/svelte-pixi.png">
+    A Svelte framework for creating PixiJS applications
+    </Project>
+    <Project
     	title="svelte-phaser"
     	web="https://svelte-phaser.com"
     	github="https://github.com/mattjennings/svelte-phaser"
     	img="/svelte-phaser.png">
-    A Svelte framework to write Phaser games. It's fairly experimental, but I've been able to make a
-    few example games and it's showing promise. I'm currently working on a companion build tool
-    similar to Sapper/SvelteKit as well.
+    A Svelte framework for creating Phaser games. It's fairly experimental, but I've been able to make a few example games with it.
     </Project>
 
     <Project
