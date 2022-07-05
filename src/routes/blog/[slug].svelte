@@ -36,42 +36,44 @@
   export let component
   export let post
 
-  const { title, date, preview, readingTime, slug, next, previous } = post
-
-  const ogImage = `https://og.mattjennings.io/${encodeURIComponent(title)}.png?md=1&fontSize=100px`
+  const ogImage = `https://og.mattjennings.io/${encodeURIComponent(
+    post.title
+  )}.png?md=1&fontSize=100px`
 </script>
 
 <svelte:head>
-  <title>{title}</title>
-  <meta name="description" content={preview.text} />
+  <title>{post.title}</title>
+  <meta name="description" content={post.preview.text} />
   <meta name="author" content="Matt Jennings" />
 
   <!-- Facebook Meta Tags -->
-  <meta property="og:url" content={`https://mattjennings.io/blog/${slug}`} />
+  <meta property="og:url" content={`https://mattjennings.io/blog/${post.slug}`} />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={preview.text} />
+  <meta property="og:title" content={post.title} />
+  <meta property="og:description" content={post.preview.text} />
   <meta property="og:image" content={ogImage} />
 
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta property="twitter:domain" content="https://mattjennings.io" />
-  <meta property="twitter:url" content={`https://mattjennings.io/blog/${slug}`} />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={preview.text} />
+  <meta property="twitter:url" content={`https://mattjennings.io/blog/${post.slug}`} />
+  <meta name="twitter:title" content={post.title} />
+  <meta name="twitter:description" content={post.preview.text} />
   <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
 <article class="relative">
   <h1 class="!mt-0 !mb-2">
     <a class="!font-medium" href={$page.url.pathname}>
-      {title}
+      {post.title}
     </a>
   </h1>
   <div class="opacity-70">
-    <time datetime={new Date(date).toISOString()}>{format(new Date(date), 'MMMM d, yyyy')}</time>
+    <time datetime={new Date(post.date).toISOString()}
+      >{format(new Date(post.date), 'MMMM d, yyyy')}</time
+    >
     •
-    <span>{readingTime}</span>
+    <span>{post.readingTime}</span>
   </div>
 
   <div class="relative">
@@ -99,24 +101,24 @@
 </div>
 
 <!-- next/previous posts -->
-{#if previous || next}
+{#if post.previous || post.next}
   <hr />
   <div class="grid gap-8 grid-cols-1 sm:grid-cols-2">
-    {#if previous}
+    {#if post.previous}
       <div class="flex flex-col">
         <h6 class="not-prose post-preview-label">Previous Post</h6>
         <div class="flex-1 post-preview">
-          <PostPreview post={previous} small />
+          <PostPreview post={post.previous} small />
         </div>
       </div>
     {:else}
       <div />
     {/if}
-    {#if next}
+    {#if post.next}
       <div class="flex flex-col">
         <h6 class="not-prose post-preview-label flex justify-end">Next Post</h6>
         <div class="flex-1 post-preview">
-          <PostPreview post={next} small />
+          <PostPreview post={post.next} small />
         </div>
       </div>
     {/if}
