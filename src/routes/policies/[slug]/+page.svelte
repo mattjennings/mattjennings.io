@@ -9,10 +9,8 @@
       const policy = await import(`../../../policies/${slug}.md`)
 
       return {
-        props: {
-          ...policy.metadata,
-          component: policy.default
-        }
+        ...policy.metadata,
+        component: policy.default
       }
     } catch (e) {
       return {
@@ -26,22 +24,21 @@
 <script>
   import { page } from '$app/stores'
 
-  export let component
-  export let title
+  export let data
 </script>
 
 <svelte:head>
-  <title>{title}</title>
+  <title>{data.title}</title>
 </svelte:head>
 
 <article class="relative">
   <h1 class="!mt-0 !mb-2">
     <a class="!font-medium" href={$page.url.pathname}>
-      {title}
+      {data.title}
     </a>
   </h1>
 
   <div class="relative">
-    <svelte:component this={component} />
+    <svelte:component this={data.component} />
   </div>
 </article>

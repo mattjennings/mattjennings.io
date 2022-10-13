@@ -1,32 +1,27 @@
 <script>
-  import { format } from 'date-fns'
-  import ButtonLink from './ButtonLink.svelte'
+  import Card from './Card.svelte'
+  import ArrowRightIcon from './ArrowRightIcon.svelte'
 
   export let post
-  export let small = false
 </script>
 
-<div class="flex flex-col">
-  <div>
-    {#if !small}
-      <h1 class="!mt-0 !mb-2">
-        <a href={`/blog/${post.slug}`} sveltekit:prefetch>{post.title}</a>
-      </h1>
-    {:else}
-      <h3 class="!mt-0 !mb-2">
-        <a href={`/blog/${post.slug}`} sveltekit:prefetch>{post.title}</a>
-      </h3>
-    {/if}
-    <div class="opacity-70">
-      <time>{format(new Date(post.date), 'MMMM d, yyyy')}</time>
-      •
-      <span>{post.readingTime}</span>
+<Card href={`/blog/${post.slug}`} data-sveltekit-prefetch>
+  <slot slot="eyebrow" name="eyebrow" />
+  <slot slot="title">{post.title}</slot>
+  <div slot="description" class="prose">
+    {@html post.preview.html}
+  </div>
+  <div slot="actions">
+    <div class="flex items-center text-pink-500 dark:text-cyan-500">
+      <span class="text-sm font-medium">Read</span>
+      <ArrowRightIcon class="w-4 h-4 ml-1" />
     </div>
   </div>
-  <div class="flex-1">{@html post.preview.html}</div>
-  <slot name="actions">
-    <div class="flex justify-end w-full">
-      <ButtonLink href={`/blog/${post.slug}`}>Read More</ButtonLink>
-    </div>
-  </slot>
-</div>
+</Card>
+
+<style>
+  .prose > :global(p) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+</style>
