@@ -21,7 +21,7 @@ const config = {
 
     // remove this if you don't want prerendering
     prerender: {
-      entries: ['*', '/sitemap.xml', '/rss.xml']
+      entries: ['*', '/sitemap.xml']
     }
   }
 }
