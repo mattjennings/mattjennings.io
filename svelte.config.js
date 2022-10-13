@@ -6,29 +6,22 @@ import adapter from '@sveltejs/adapter-auto'
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   extensions: ['.svelte', ...mdsvexConfig.extensions],
+
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
   preprocess: [
-    mdsvex(mdsvexConfig),
-    [
-      preprocess({
-        postcss: true
-      })
-    ]
+    preprocess({
+      postcss: true
+    }),
+    mdsvex(mdsvexConfig)
   ],
 
   kit: {
-    prerender: {
-      default: true,
-      entries: ['*', '/sitemap.xml']
-    },
     adapter: adapter(),
-    vite: {
-      server: {
-        fs: {
-          allow: ['./']
-        }
-      }
+
+    // remove this if you don't want prerendering
+    prerender: {
+      entries: ['*', '/sitemap.xml', '/rss.xml']
     }
   }
 }

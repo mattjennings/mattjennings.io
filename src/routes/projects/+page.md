@@ -50,18 +50,10 @@
     A Svelte framework for creating Phaser games. It's fairly experimental, but I've been able to make a few example games with it.
     </Project>
 
-    <Project
-    	title="Rooster Teeth Nextjs"
-    	web="https://rt.mattjennings.vercel.app"
-    	github="https://github.com/mattjennings/roosterteeth-nextjs"
-    	img="/rt-nextjs.png">
-    An alternative to roosterteeth.com built with Nextjs. Supports logging in with RT account.
-    </Project>
-
-    <div class="flex justify-center sm:justify-end pb-8">
-    		<ButtonLink href="https://github.com/mattjennings" rel="external">
+    <div class="text-center text-3xl">
+    		<a href="https://github.com/mattjennings" rel="external">
     		Check out the rest on GitHub
-    		</ButtonLink>
+    		</a>
     </div>
 
 </div>

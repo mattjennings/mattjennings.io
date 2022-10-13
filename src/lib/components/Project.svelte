@@ -54,17 +54,13 @@
     {/if}
   </div>
   <div class="order-1 md:order-2 w-auto md:w-2/3">
-    <h2 id={title} class="!mt-0 !mb-0 md:block"><a href={`#${title}`}>{title}</a></h2>
-    <div class="flex justify-start !mt-2 !mb-2 space-x-1">
+    <h2 id={title} class="text-3xl sm:text-4xl !mt-0 !mb-0 md:block">
+      <a href={`#${title}`}>{title}</a>
+    </h2>
+    <div class="flex justify-start !mt-2 !mb-2 gap-2">
       {#each links as link}
-        <a
-          href={link.url}
-          class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium !no-underline bg-slate-200 hover:bg-slate-300 text-slate-800 dark:bg-slate-700 dark:hover:bg-slate-600"
-        >
-          <span class="mr-1">
-            {link.label}
-          </span>
-          <LinkIcon class="w-3" />
+        <a href={link.url} class="inline-flex items-center tracking-wide">
+          {link.label}
         </a>
       {/each}
     </div>

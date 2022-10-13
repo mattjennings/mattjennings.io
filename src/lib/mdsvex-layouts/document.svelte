@@ -1,7 +1,6 @@
 <!-- For any page that represents a normal text document (privacy policies, etc) -->
 <script>
   export let title
-
 </script>
 
 <svelte:head>
@@ -10,7 +9,7 @@
   {/if}
 </svelte:head>
 
-<div class="container mx-auto">
+<div class="container mx-auto prose">
   <h1>{title}</h1>
   <slot />
 </div>

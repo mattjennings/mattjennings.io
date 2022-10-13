@@ -1,20 +1,11 @@
 module.exports = {
   root: true,
-  parser: '@typescript-eslint/parser',
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
-  plugins: ['svelte3', '@typescript-eslint'],
-  ignorePatterns: ['*.cjs'],
+  extends: ['eslint:recommended'],
+  plugins: ['svelte3'],
   overrides: [{ files: ['*.svelte'], processor: 'svelte3/svelte3' }],
-  settings: {
-    'svelte3/typescript': () => require('typescript')
-  },
-  rules: {
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/ban-ts-comment': 'off'
-  },
   parserOptions: {
     sourceType: 'module',
-    ecmaVersion: 2019
+    ecmaVersion: 2021
   },
   env: {
     browser: true,
