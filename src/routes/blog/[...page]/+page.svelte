@@ -18,7 +18,7 @@
 <div class="flex flex-col flex-grow">
   <header class="pt-4">
     <h1
-      class="text-5xl font-bold tracking-wide sm:text-6xl font-drip text-cyan-500 dark:text-pink-300"
+      class="text-4xl sm:text-5xl font-bold tracking-wide font-drip text-cyan-500 dark:text-pink-300"
     >
       blog
     </h1>

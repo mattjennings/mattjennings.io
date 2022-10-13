@@ -32,8 +32,8 @@
   </section>
   <section class="w-full">
     <div class="flex items-center justify-between gap-4 mb-8">
-      <a href="/blog" class="text-4xl sm:text-7xl font-drip text-cyan-500 dark:text-pink-300"
-        >blog -></a
+      <a href="/blog" class="text-4xl sm:text-5xl font-drip text-cyan-500 dark:text-pink-300"
+        >blog ></a
       >
     </div>
     <PostsList posts={data.posts} />

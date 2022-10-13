@@ -56,24 +56,20 @@
     <svelte:element
       this={canGoBack ? 'button' : 'a'}
       href={canGoBack ? undefined : '/blog'}
-      class="absolute items-center justify-center hidden w-10 h-10 mb-8 transition bg-white rounded-full shadow-md -top-1 -left-16 lg:flex group shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 dark:focus-visible:ring-2 dark:ring-white/10 dark:hover:border-zinc-700 dark:hover:ring-white/20"
-      aria-label="Go back to posts"
+      class="absolute items-center justify-center hidden lg:flex -left-16"
+      aria-label="Go back to blog"
       on:click={goBack}
       on:keydown={goBack}
     >
-      <ArrowLeftIcon
-        class="w-4 h-4 transition stroke-zinc-500 group-hover:stroke-zinc-700 dark:stroke-zinc-500 dark:group-hover:stroke-zinc-400"
-      />
+      <span class="text-8xl font-drip text-pink-400 dark:text-pink-300">{'<'}</span>
     </svelte:element>
 
     <article>
       <header class="flex flex-col">
-        <h1
-          class="mt-6 text-4xl font-bold tracking-tight text-cyan-500 dark:text-pink-300 sm:text-5xl"
-        >
+        <h1 class="text-4xl font-bold tracking-tight text-cyan-500 dark:text-pink-300 sm:text-5xl">
           {data.post.title}
         </h1>
-        <div class="flex items-center pt-2 text-base text-zinc-400 dark:text-zinc-500">
+        <div class="flex items-center pt-2 text-base text-cyan-400 dark:text-zinc-500">
           <time dateTime={data.post.date}>
             <span>{format(new Date(parseISO(data.post.date)), 'MMMM d, yyyy')}</span>
           </time>

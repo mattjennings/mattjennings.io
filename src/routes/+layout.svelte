@@ -21,7 +21,7 @@
 <Fathom />
 
 <div
-  class="hidden md:block fixed md:right-[80vw] lg:right-[70vw] -top-[18vh] pointer-events-none -z-10"
+  class="hidden md:block fixed md:right-[80vw] lg:right-[70vw] -top-[12vh] pointer-events-none -z-10"
 >
   <Splatter class="fill-cyan-500" scale={1.5} />
 </div>
