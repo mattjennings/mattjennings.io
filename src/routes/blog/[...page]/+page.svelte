@@ -12,12 +12,16 @@
 </script>
 
 <svelte:head>
-  <title>{name} | blog</title>
+  <title>{name} | Blog</title>
 </svelte:head>
 
 <div class="flex flex-col flex-grow">
   <header class="pt-4">
-    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">blog</h1>
+    <h1
+      class="text-5xl font-bold tracking-wide sm:text-6xl font-drip text-cyan-500 dark:text-pink-300"
+    >
+      blog
+    </h1>
   </header>
 
   <div class="mt-16 sm:mt-20">

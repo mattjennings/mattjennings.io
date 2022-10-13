@@ -1,5 +1,4 @@
 <script>
-  import ArrowRightIcon from '$lib/components/ArrowRightIcon.svelte'
   import PostsList from '$lib/components/PostsList.svelte'
   import SocialLinks from '$lib/components/SocialLinks.svelte'
   import { bio, bioText, name } from '$lib/info.js'
@@ -33,11 +32,8 @@
   </section>
   <section class="w-full">
     <div class="flex items-center justify-between gap-4 mb-8">
-      <h2 class="text-sm sm:text-base text-zinc-900 dark:text-zinc-100 font-bold">blog</h2>
-      <a
-        href="/blog"
-        class="flex items-center gap-1 text-sm font-medium text-pink-500 dark:text-cyan-500"
-        >View All <ArrowRightIcon class="w-4 h-4" /></a
+      <a href="/blog" class="text-4xl sm:text-7xl font-drip text-cyan-500 dark:text-pink-300"
+        >blog -></a
       >
     </div>
     <PostsList posts={data.posts} />

@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.png" />
-    <link rel="preload" href="/ressurrec.ttf" as="font" crossorigin="anonymous" />
-
+    <link rel="preload" href="/adrip1.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="/DJGROSS.ttf" as="font" crossorigin="anonymous" />
     %sveltekit.head%
     <script>
       let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -43,6 +43,23 @@
         updateMode()
       }
     </script>
+    <style>
+      @font-face {
+        font-family: 'Dripping Marker';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url('/adrip1.ttf') format('truetype');
+      }
+
+      @font-face {
+        font-family: 'DJ';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url('/DJGROSS.ttf') format('truetype');
+      }
+    </style>
   </head>
 
   <body class="h-full bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400">

@@ -8,7 +8,7 @@ pre[class*='language-'] {
 .token.selector .class,
 .token.selector.class,
 .token.function {
-  color: theme('colors.pink.400');
+  color: theme('colors.pink.300');
 }
 
 .token.attr-name,
@@ -20,14 +20,14 @@ pre[class*='language-'] {
 }
 
 .token.module {
-  color: theme('colors.pink.400');
+  color: theme('colors.pink.300');
 }
 
 .token.attr-value,
 .token.class,
 .token.string,
 .token.property {
-  color: theme('colors.teal.300');
+  color: theme('colors.cyan.300');
 }
 
 .token.punctuation,

@@ -4,14 +4,6 @@
 @import 'tailwindcss/utilities';
 
 @layer base {
-  @font-face {
-    font-family: 'Ressurrec';
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url('/resserrec.ttf') format('ttf');
-  }
-
   body {
     @apply text-zinc-600 dark:text-zinc-400;
   }
@@ -31,5 +23,13 @@
 
   .prose {
     @apply dark:prose-invert;
+  }
+
+  .font-drip {
+    font-family: 'Dripping Marker', ui-sans-serif, system-ui, -apple-system;
+  }
+
+  .font-dj {
+    font-family: 'DJ', ui-sans-serif, system-ui, -apple-system;
   }
 }

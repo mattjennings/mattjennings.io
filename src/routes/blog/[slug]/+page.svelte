@@ -69,14 +69,13 @@
     <article>
       <header class="flex flex-col">
         <h1
-          class="mt-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
+          class="mt-6 text-4xl font-bold tracking-tight text-cyan-500 dark:text-pink-300 sm:text-5xl"
         >
           {data.post.title}
         </h1>
-        <div class="flex items-center order-first text-base text-zinc-400 dark:text-zinc-500">
-          <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
+        <div class="flex items-center pt-2 text-base text-zinc-400 dark:text-zinc-500">
           <time dateTime={data.post.date}>
-            <span class="ml-3">{format(new Date(parseISO(data.post.date)), 'MMMM d, yyyy')}</span>
+            <span>{format(new Date(parseISO(data.post.date)), 'MMMM d, yyyy')}</span>
           </time>
           <span class="mx-2">•</span>
           <span>{data.post.readingTime}</span>

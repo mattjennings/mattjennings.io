@@ -6,7 +6,6 @@
   import { browser } from '$app/environment'
   import { name } from '$lib/info'
   import Fathom from '../lib/components/Fathom.svelte'
-  import Lazy from '$lib/components/Lazy.svelte'
   import Splatter from '$lib/components/Splatter.svelte'
 
   let isDarkMode = browser ? Boolean(document.documentElement.classList.contains('dark')) : true
@@ -21,17 +20,21 @@
 
 <Fathom />
 
-<div class="hidden sm:block fixed right-[70vw] -top-[20vh] pointer-events-none">
-  <Splatter class="fill-cyan-500 " scale={2} />
+<div
+  class="hidden md:block fixed md:right-[80vw] lg:right-[70vw] -top-[18vh] pointer-events-none -z-10"
+>
+  <Splatter class="fill-cyan-500" scale={1.5} />
 </div>
-<div class="hidden sm:block fixed left-[80vw] top-[10vh] pointer-events-none">
-  <Splatter class="fill-pink-500" scale={3} />
+<div
+  class="hidden md:block fixed md:left-[85vw] lg:left-[80vw] top-[10vh] pointer-events-none -z-10"
+>
+  <Splatter class="fill-pink-400" scale={3} />
 </div>
 
 <div class="flex flex-col min-h-screen">
   <div class="flex flex-col flex-grow w-full px-4 py-2">
     <header class="flex items-center justify-between w-full max-w-2xl py-4 mx-auto lg:pb-8">
-      <a class="header text-lg font-bold sm:text-2xl text-pink-500 dark:text-cyan-500" href="/">
+      <a class="text-4xl sm:text-5xl font-bold font-dj text-pink-500 dark:text-cyan-500" href="/">
         {name}
       </a>
 
@@ -40,7 +43,7 @@
         role="switch"
         aria-label="Toggle Dark Mode"
         aria-checked={isDarkMode}
-        class="w-4 h-4 sm:h-8 sm:w-8 sm:p-1"
+        class="w-6 h-6 sm:h-8 sm:w-8 sm:p-1"
         on:click={() => {
           isDarkMode = !isDarkMode
           localStorage.setItem('isDarkMode', isDarkMode.toString())
@@ -54,7 +57,7 @@
           }
         }}
       >
-        <MoonIcon class="hidden text-pink-100 dark:block" />
+        <MoonIcon class="hidden text-pink-200 dark:block" />
         <SunIcon class="block text-cyan-500 dark:hidden" />
       </button>
     </header>
@@ -63,9 +66,3 @@
     </main>
   </div>
 </div>
-
-<style>
-  .header {
-    font-family: 'Ressurrec', ui-sans-serif, system-ui, -apple-system;
-  }
-</style>
