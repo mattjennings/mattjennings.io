@@ -1,10 +1,9 @@
 <script>
   import { format, parseISO } from 'date-fns'
-  import { name, bio } from '$lib/info.js'
+  import { name } from '$lib/info.js'
   import ToC from '$lib/components/ToC.svelte'
-  import ArrowLeftIcon from '$lib/components/ArrowLeftIcon.svelte'
-  import SocialLinks from '$lib/components/SocialLinks.svelte'
   import { afterNavigate } from '$app/navigation'
+  import PostDate from '$lib/components/PostDate.svelte'
 
   /** @type {import('./$types').PageData} */
   export let data
@@ -27,7 +26,7 @@
 </svelte:head>
 
 <div class="root w-full">
-  <div class="hidden lg:block">
+  <div class="hidden lg:block pt-8">
     <div class="sticky top-4 w-full flex justify-end pr-8">
       <svelte:element
         this={canGoBack ? 'button' : 'a'}
@@ -38,7 +37,7 @@
         on:keydown={goBack}
       >
         <div
-          class="text-8xl w-20 h-16 overflow-hidden flex -rotate-6 font-drip text-pink-400 dark:text-pink-300"
+          class="text-8xl w-20 h-16 overflow-hidden flex -rotate-6 font-drip text-pink-500 dark:text-pink-300"
         >
           <span>{'<'}</span>
           <span class="-mt-3">{'-'}</span>
@@ -50,16 +49,10 @@
   <div class="w-full max-w-2xl mx-auto overflow-x-hidden">
     <article>
       <header class="flex flex-col">
-        <h1 class="text-4xl font-bold tracking-tight text-cyan-500 dark:text-pink-300 sm:text-5xl">
+        <h1 class="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-300 sm:text-5xl">
           {data.post.title}
         </h1>
-        <div class="flex items-center pt-2 text-base text-zinc-400 dark:text-zinc-500">
-          <time dateTime={data.post.date}>
-            <span>{format(new Date(parseISO(data.post.date)), 'MMMM d, yyyy')}</span>
-          </time>
-          <span class="mx-2">•</span>
-          <span>{data.post.readingTime}</span>
-        </div>
+        <PostDate post={data.post} class="text-lg sm:text-2xl " />
       </header>
 
       <!-- render the post -->
@@ -68,23 +61,16 @@
       </div>
     </article>
 
-    <hr />
-    <div class="prose pb-8">
-      <p>
-        {@html bio}
-      </p>
-      <p>
-        <a href="/blog"><ArrowLeftIcon class="w-4 inline mr-2" />Check out some of my other posts</a
-        >
-      </p>
-      <div class="flex justify-center gap-6">
-        <SocialLinks />
-      </div>
+    <div class="py-8 lg:hidden">
+      <a href="/blog" class="inline-flex text-5xl font-drip text-pink-400 dark:text-pink-300">
+        <span>{'<'}</span>
+        <span class="-mt-1 mr-4">{'-'}</span> Blog</a
+      >
     </div>
   </div>
 
   <!-- table of contents -->
-  <div class="hidden xl:block">
+  <div class="hidden xl:block pt-10">
     <aside class="sticky hidden w-48 ml-8 xl:block top-8" aria-label="Table of Contents">
       <ToC post={data.post} />
     </aside>

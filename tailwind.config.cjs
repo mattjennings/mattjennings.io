@@ -79,7 +79,7 @@ module.exports = {
       DEFAULT: {
         css: {
           '--tw-prose-body': theme('colors.zinc.600'),
-          '--tw-prose-headings': theme('colors.cyan.500'),
+          '--tw-prose-headings': theme('colors.zinc.900'),
           '--tw-prose-links': theme('colors.pink.500'),
           '--tw-prose-links-hover': theme('colors.pink.600'),
           '--tw-prose-underline': theme('colors.pink.500 / 0.2'),
@@ -99,7 +99,7 @@ module.exports = {
           '--tw-prose-td-borders': theme('colors.zinc.100'),
 
           '--tw-prose-invert-body': theme('colors.zinc.400'),
-          '--tw-prose-invert-headings': theme('colors.pink.300'),
+          '--tw-prose-invert-headings': theme('colors.zinc.300'),
           '--tw-prose-invert-links': theme('colors.cyan.400'),
           '--tw-prose-invert-links-hover': theme('colors.cyan.400'),
           '--tw-prose-invert-underline': theme('colors.cyan.400 / 0.3'),
@@ -162,7 +162,7 @@ module.exports = {
           // Inline elements
           a: {
             color: 'var(--tw-prose-links)',
-            fontWeight: theme('fontWeight.semibold'),
+            fontWeight: theme('fontWeight.bold'),
             textDecoration: 'underline',
             textDecorationColor: 'var(--tw-prose-underline)',
             transitionProperty: 'color, text-decoration-color',

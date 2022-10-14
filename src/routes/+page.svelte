@@ -29,7 +29,7 @@
     <div class="flex items-center justify-between gap-4 mb-8">
       <a
         href="/blog"
-        class="text-4xl -rotate-3 sm:text-5xl font-drip text-cyan-500 dark:text-pink-300">blog -></a
+        class="text-4xl -rotate-3 sm:text-5xl font-drip text-zinc-900 dark:text-zinc-100">blog -></a
       >
     </div>
     <PostsList posts={data.posts} />
