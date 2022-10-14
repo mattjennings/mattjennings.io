@@ -16,7 +16,6 @@
       document.documentElement.classList.remove('[&_*]:!transition-none')
     }, 0)
   }
-  $: console.log($page.data)
 </script>
 
 <svelte:head>
