@@ -41,7 +41,8 @@
       </svelte:element>
     </div>
   </div>
-  <div class="relative flex-1 w-full max-w-2xl">
+
+  <div class="w-full max-w-2xl mx-auto overflow-x-hidden">
     <article>
       <header class="flex flex-col">
         <h1 class="text-4xl font-bold tracking-tight text-cyan-500 dark:text-pink-300 sm:text-5xl">
@@ -85,9 +86,15 @@
   </div>
 </div>
 
-<style>
+<style lang="postcss">
   .root {
     display: grid;
-    grid-template-columns: 1fr 42rem 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  @media screen(lg) {
+    .root {
+      grid-template-columns: 1fr 42rem 1fr;
+    }
   }
 </style>
