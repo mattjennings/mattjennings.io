@@ -1,10 +1,9 @@
 import { defineConfig } from 'vite'
 import { sveltekit } from '@sveltejs/kit/vite'
-import satori from 'satori-jsx/vite'
 import fs from 'fs'
 
 export default defineConfig({
-  plugins: [sveltekit(), satori(), base64Fonts(['.ttf', '.otf'])],
+  plugins: [sveltekit(), base64Fonts(['.ttf', '.otf'])],
   // allows vite access to ./posts
   server: {
     fs: {

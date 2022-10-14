@@ -29,7 +29,7 @@ specifiers:
   remark-preview: ^1.0.2
   remark-reading-time: ^1.0.1
   satori: ^0.0.40
-  satori-jsx: ^1.0.0
+  satori-html: ^0.1.0
   svelte: ^3.50.0
   svelte-preprocess: ^4.10.7
   tailwindcss: ^3.1.5
@@ -68,7 +68,7 @@ devDependencies:
   remark-preview: 1.0.2
   remark-reading-time: 1.0.1
   satori: 0.0.40
-  satori-jsx: 1.0.0
+  satori-html: 0.1.0
   svelte: 3.51.0
   svelte-preprocess: 4.10.7_jpkecdau5evh5q47f6ivikl35u
   tailwindcss: 3.1.8_postcss@8.4.14
@@ -2804,8 +2804,10 @@ packages:
       rimraf: 2.7.1
     dev: true
 
-  /satori-jsx/1.0.0:
-    resolution: {integrity: sha512-dULjL755ULEj14KIJzOJT1R5OezQawDZJnZVz0Oka7dKKuW9jWM+YbpfQ5HPnCySqhnTk4ueyxFlvC7/eXRbtg==}
+  /satori-html/0.1.0:
+    resolution: {integrity: sha512-iWo72xXkutuHj07Oq/kZp+XBr3i1DziQLsA3ExQw/Ob4C+wKKBVq716Mccrrklz+U0h74J5dAXGKTCnOoS74kg==}
+    dependencies:
+      ultrahtml: 0.2.1
     dev: true
 
   /satori/0.0.40:
@@ -3195,6 +3197,10 @@ packages:
     resolution: {integrity: sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==}
     engines: {node: '>=4.2.0'}
     hasBin: true
+    dev: true
+
+  /ultrahtml/0.2.1:
+    resolution: {integrity: sha512-JyhGH6Uqu0KwGuemaSfp2f+bPxCwS0/B0ntiX4xsZugoXf77DZjmqJRDFZE2SrzqducyZh0u4V671HSPaJinLQ==}
     dev: true
 
   /undici/5.11.0:
