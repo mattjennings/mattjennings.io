@@ -26,19 +26,22 @@
   <meta name="author" content={name} />
 </svelte:head>
 
-<div class="flex">
-  <div class="relative w-full max-w-2xl">
-    <svelte:element
-      this={canGoBack ? 'button' : 'a'}
-      href={canGoBack ? undefined : '/blog'}
-      class="absolute items-center justify-center hidden lg:flex -left-16"
-      aria-label="Go back to blog"
-      on:click={goBack}
-      on:keydown={goBack}
-    >
-      <span class="text-8xl font-drip text-pink-400 dark:text-pink-300">{'<'}</span>
-    </svelte:element>
-
+<div class="root w-full">
+  <div class="hidden lg:block">
+    <div class="sticky top-4 w-full flex justify-end pr-8">
+      <svelte:element
+        this={canGoBack ? 'button' : 'a'}
+        href={canGoBack ? undefined : '/blog'}
+        style:transform-origin="top 35%"
+        aria-label="Go back to blog"
+        on:click={goBack}
+        on:keydown={goBack}
+      >
+        <span class="text-8xl font-drip text-pink-400 dark:text-pink-300">{'<'}</span>
+      </svelte:element>
+    </div>
+  </div>
+  <div class="relative flex-1 w-full max-w-2xl">
     <article>
       <header class="flex flex-col">
         <h1 class="text-4xl font-bold tracking-tight text-cyan-500 dark:text-pink-300 sm:text-5xl">
@@ -73,6 +76,7 @@
       </div>
     </div>
   </div>
+
   <!-- table of contents -->
   <div class="hidden xl:block">
     <aside class="sticky hidden w-48 ml-8 xl:block top-8" aria-label="Table of Contents">
@@ -80,3 +84,10 @@
     </aside>
   </div>
 </div>
+
+<style>
+  .root {
+    display: grid;
+    grid-template-columns: 1fr 42rem 1fr;
+  }
+</style>

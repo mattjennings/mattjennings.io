@@ -21,6 +21,9 @@ export async function load({ data }) {
       description: data.post.preview.text,
       imgText: data.post.title,
       url: `${website}/blog/${data.post.slug}`
+    },
+    layout: {
+      fullWidth: true
     }
   }
 }

@@ -54,38 +54,40 @@
   <Splatter class="fill-pink-400" scale={3} />
 </div>
 
-<div class="flex flex-col min-h-screen">
-  <div class="flex flex-col flex-grow w-full px-4 py-2">
-    <header class="flex items-center justify-between w-full max-w-2xl py-4 mx-auto lg:pb-8">
-      <a class="text-4xl sm:text-5xl font-bold font-dj text-pink-500 dark:text-cyan-500" href="/">
-        {name}
-      </a>
+<div class="flex flex-col flex-grow w-full px-4 py-2 min-h-screen">
+  <header class="flex items-center justify-between w-full max-w-2xl py-4 mx-auto lg:pb-8">
+    <a class="text-4xl sm:text-5xl font-bold font-dj text-pink-500 dark:text-cyan-500" href="/">
+      {name}
+    </a>
 
-      <button
-        type="button"
-        role="switch"
-        aria-label="Toggle Dark Mode"
-        aria-checked={isDarkMode}
-        class="w-6 h-6 sm:h-8 sm:w-8 sm:p-1"
-        on:click={() => {
-          isDarkMode = !isDarkMode
-          localStorage.setItem('isDarkMode', isDarkMode.toString())
+    <button
+      type="button"
+      role="switch"
+      aria-label="Toggle Dark Mode"
+      aria-checked={isDarkMode}
+      class="w-6 h-6 sm:h-8 sm:w-8 sm:p-1"
+      on:click={() => {
+        isDarkMode = !isDarkMode
+        localStorage.setItem('isDarkMode', isDarkMode.toString())
 
-          disableTransitionsTemporarily()
+        disableTransitionsTemporarily()
 
-          if (isDarkMode) {
-            document.querySelector('html').classList.add('dark')
-          } else {
-            document.querySelector('html').classList.remove('dark')
-          }
-        }}
-      >
-        <MoonIcon class="hidden text-pink-200 dark:block" />
-        <SunIcon class="block text-cyan-500 dark:hidden" />
-      </button>
-    </header>
-    <main class="flex flex-col flex-grow w-full max-w-2xl mx-auto" data-sveltekit-prefetch>
-      <slot />
-    </main>
-  </div>
+        if (isDarkMode) {
+          document.querySelector('html').classList.add('dark')
+        } else {
+          document.querySelector('html').classList.remove('dark')
+        }
+      }}
+    >
+      <MoonIcon class="hidden text-pink-200 dark:block" />
+      <SunIcon class="block text-cyan-500 dark:hidden" />
+    </button>
+  </header>
+  <main
+    class="flex flex-col flex-grow w-full mx-auto"
+    class:max-w-2xl={!$page.data.layout?.fullWidth}
+    data-sveltekit-prefetch
+  >
+    <slot />
+  </main>
 </div>
