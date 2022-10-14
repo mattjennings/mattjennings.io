@@ -1,6 +1,5 @@
 <script>
   import Card from './Card.svelte'
-  import ArrowRightIcon from './ArrowRightIcon.svelte'
 
   export let post
 </script>
@@ -13,8 +12,7 @@
   </div>
   <div slot="actions">
     <div class="flex items-center text-pink-500 dark:text-cyan-500">
-      <span class="text-sm font-medium">Read</span>
-      <ArrowRightIcon class="w-4 h-4 ml-1" />
+      <span class="text-2xl font-medium font-drip tracking-wider">Read -></span>
     </div>
   </div>
 </Card>

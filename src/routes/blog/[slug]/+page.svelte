@@ -37,7 +37,12 @@
         on:click={goBack}
         on:keydown={goBack}
       >
-        <span class="text-8xl font-drip text-pink-400 dark:text-pink-300">{'<'}</span>
+        <div
+          class="text-8xl w-20 h-16 overflow-hidden flex -rotate-6 font-drip text-pink-400 dark:text-pink-300"
+        >
+          <span>{'<'}</span>
+          <span class="-mt-3">{'-'}</span>
+        </div>
       </svelte:element>
     </div>
   </div>

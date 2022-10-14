@@ -79,7 +79,7 @@
         }
       }}
     >
-      <MoonIcon class="hidden text-pink-200 dark:block" />
+      <MoonIcon class="hidden text-pink-300 dark:block" />
       <SunIcon class="block text-cyan-500 dark:hidden" />
     </button>
   </header>
