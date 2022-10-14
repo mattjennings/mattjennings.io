@@ -3,7 +3,7 @@ import { sveltekit } from '@sveltejs/kit/vite'
 import fs from 'fs'
 
 export default defineConfig({
-  plugins: [sveltekit(), base64Fonts(['.ttf', '.otf'])],
+  plugins: [base64(), sveltekit()],
   // allows vite access to ./posts
   server: {
     fs: {
@@ -12,17 +12,19 @@ export default defineConfig({
   }
 })
 
-function base64Fonts(ext) {
+// import as base64 string by adding ?base64 to the end of the import
+function base64() {
   return {
-    name: 'vite-plugin-base64-fonts',
-    resolveId(id) {
-      return ext.some((e) => id.endsWith(e)) ? id : null
-    },
+    name: 'vite-plugin-base64-loader',
     transform(code, id) {
-      if (ext.some((e) => id.endsWith(e))) {
-        const base64 = fs.readFileSync(id, { encoding: 'base64' })
-        return { code: `export default ${JSON.stringify(base64)}`, map: null }
+      const [path, query] = id.split('?')
+
+      if (query !== 'base64') {
+        return null
       }
+
+      const base64 = fs.readFileSync(path, { encoding: 'base64' })
+      return { code: `export default ${JSON.stringify(base64)}`, map: null }
     }
   }
 }
