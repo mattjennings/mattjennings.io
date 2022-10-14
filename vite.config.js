@@ -1,8 +1,10 @@
 import { defineConfig } from 'vite'
 import { sveltekit } from '@sveltejs/kit/vite'
+import satori from 'satori-jsx/vite'
+import fs from 'fs'
 
 export default defineConfig({
-  plugins: [sveltekit()],
+  plugins: [sveltekit(), satori(), base64(['.ttf', '.otf'])],
   // allows vite access to ./posts
   server: {
     fs: {
@@ -10,3 +12,18 @@ export default defineConfig({
     }
   }
 })
+
+function base64(ext) {
+  return {
+    name: 'vite-plugin-array-buffer',
+    resolveId(id) {
+      return ext.some((e) => id.endsWith(e)) ? id : null
+    },
+    transform(code, id) {
+      if (ext.some((e) => id.endsWith(e))) {
+        const base64 = fs.readFileSync(id, { encoding: 'base64' })
+        return { code: `export default ${JSON.stringify(base64)}`, map: null }
+      }
+    }
+  }
+}

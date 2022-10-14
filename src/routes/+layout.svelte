@@ -4,10 +4,10 @@
   import MoonIcon from 'heroicons-svelte/solid/MoonIcon.svelte'
   import SunIcon from 'heroicons-svelte/solid/SunIcon.svelte'
   import { browser } from '$app/environment'
-  import { name } from '$lib/info'
+  import { bioText, name, website } from '$lib/info'
   import Fathom from '../lib/components/Fathom.svelte'
   import Splatter from '$lib/components/Splatter.svelte'
-
+  import { page } from '$app/stores'
   let isDarkMode = browser ? Boolean(document.documentElement.classList.contains('dark')) : true
 
   function disableTransitionsTemporarily() {
@@ -16,8 +16,32 @@
       document.documentElement.classList.remove('[&_*]:!transition-none')
     }, 0)
   }
+  $: console.log($page.data)
 </script>
 
+<svelte:head>
+  <title>{$page.data.seo?.title ?? name}</title>
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content={$page.data.seo?.url ?? website} />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={$page.data.seo?.title ?? name} />
+  <meta property="og:description" content={$page.data.seo?.description ?? bioText} />
+  <meta
+    property="og:image"
+    content={`${website}/og?text=${encodeURIComponent($page.data.seo?.imgText ?? name)}`}
+  />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="twitter:domain" content={$page.data.seo?.url ?? website} />
+  <meta property="twitter:url" content={$page.data.seo?.url ?? website} />
+  <meta name="twitter:title" content={$page.data.seo?.title ?? name} />
+  <meta name="twitter:description" content={$page.data.seo?.description ?? bioText} />
+  <meta
+    name="twitter:image"
+    content={`${website}/og?text=${encodeURIComponent($page.data.seo?.imgText ?? name)}`}
+  />
+</svelte:head>
 <Fathom />
 
 <div

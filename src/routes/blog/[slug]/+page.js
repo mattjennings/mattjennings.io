@@ -1,3 +1,4 @@
+import { website, name } from '$lib/info'
 /**
  * Dynamically loads the svelte component for the post (only possible in +page.js)
  * and pass on the data from +page.server.js
@@ -14,6 +15,12 @@ export async function load({ data }) {
 
   return {
     post: data.post,
-    component: component.default
+    component: component.default,
+    seo: {
+      title: `${data.post.title} - ${name}`,
+      description: data.post.preview.text,
+      imgText: data.post.title,
+      url: `${website}/blog/${data.post.slug}`
+    }
   }
 }

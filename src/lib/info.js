@@ -1,4 +1,6 @@
-export const website = 'https://mattjennings.io'
+export const website = import.meta.env.DEV
+  ? 'http://313a0218beab.ngrok.io'
+  : 'https://mattjennings.io'
 
 export const firstName = 'Matt'
 export const lastName = 'Jennings'

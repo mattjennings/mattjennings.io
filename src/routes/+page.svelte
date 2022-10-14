@@ -1,16 +1,11 @@
 <script>
   import PostsList from '$lib/components/PostsList.svelte'
   import SocialLinks from '$lib/components/SocialLinks.svelte'
-  import { bio, bioText, name } from '$lib/info.js'
+  import { bio } from '$lib/info.js'
 
   /** @type {import('./$types').PageData} */
   export let data
 </script>
-
-<svelte:head>
-  <title>{name}</title>
-  <meta name="description" content={bioText} />
-</svelte:head>
 
 <div class="flex flex-col flex-grow gap-8 pb-16">
   <!-- bio -->
