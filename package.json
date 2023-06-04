@@ -13,8 +13,8 @@
 	},
 	"devDependencies": {
 		"@resvg/resvg-js": "^2.1.0",
-		"@sveltejs/adapter-auto": "1.0.0-next.80",
-		"@sveltejs/kit": "1.0.0-next.511",
+		"@sveltejs/adapter-auto": "^2.1.0",
+		"@sveltejs/kit": "latest",
 		"@tailwindcss/typography": "^0.5.7",
 		"@vcarl/remark-headings": "^0.0.1",
 		"autoprefixer": "^10.4.7",
@@ -42,13 +42,13 @@
 		"remark-reading-time": "^1.0.1",
 		"satori": "^0.0.40",
 		"satori-html": "^0.1.0",
-		"svelte": "^3.50.0",
-		"svelte-preprocess": "^4.10.7",
+		"svelte": "^3.59.0",
+		"svelte-preprocess": "^5.0.4",
 		"tailwindcss": "^3.1.5",
 		"truncate-html": "^1.0.4",
 		"tslib": "^2.4.0",
 		"typescript": "^4.8.4",
 		"unist-util-visit": "^3.1.0",
-		"vite": "^3.1.0"
+		"vite": "^4.3.0"
 	}
 }
