@@ -2,6 +2,7 @@ module.exports = {
   darkMode: 'class',
   content: ['./src/**/*.{html,js,svelte,ts,md,svx}'],
   plugins: [require('@tailwindcss/typography')],
+
   theme: {
     extend: {
       colors: {
@@ -80,10 +81,10 @@ module.exports = {
         css: {
           '--tw-prose-body': theme('colors.zinc.600'),
           '--tw-prose-headings': theme('colors.zinc.900'),
-          '--tw-prose-links': theme('colors.pink.500'),
-          '--tw-prose-links-hover': theme('colors.pink.600'),
-          '--tw-prose-underline': theme('colors.pink.500 / 0.2'),
-          '--tw-prose-underline-hover': theme('colors.pink.500'),
+          '--tw-prose-links': theme('colors.cyan.500'),
+          '--tw-prose-links-hover': theme('colors.cyan.600'),
+          '--tw-prose-underline': theme('colors.cyan.500 / 0.2'),
+          '--tw-prose-underline-hover': theme('colors.cyan.500'),
           '--tw-prose-bold': theme('colors.zinc.900'),
           '--tw-prose-counters': theme('colors.zinc.900'),
           '--tw-prose-bullets': theme('colors.zinc.900'),
