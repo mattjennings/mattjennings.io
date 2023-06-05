@@ -11,7 +11,7 @@
   <!-- bio -->
   <section class="flex flex-col items-center gap-16 pb-16">
     <div class="flex flex-col w-full gap-6 rounded-lg">
-      <div class="prose ">
+      <div class="prose">
         <p class="text-base text-zinc-600 dark:text-zinc-400 mt-0">
           {@html bio}
         </p>
@@ -27,10 +27,7 @@
   </section>
   <section class="w-full">
     <div class="flex items-center justify-between gap-4 mb-8">
-      <a
-        href="/blog"
-        class="text-4xl -rotate-3 sm:text-5xl font-drip text-zinc-900 dark:text-zinc-100">blog -></a
-      >
+      <a href="/blog" class="text-4xl -rotate-3 sm:text-5xl font-drip text-primary">view blog -></a>
     </div>
     <PostsList posts={data.posts} />
   </section>

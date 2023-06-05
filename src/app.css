@@ -3,6 +3,10 @@
 @import './prism.css';
 @import 'tailwindcss/utilities';
 
+html {
+  font-size: 105%;
+}
+
 @layer base {
   body {
     @apply text-zinc-600 dark:text-zinc-400;
@@ -31,5 +35,33 @@
 
   .font-dj {
     font-family: 'DJ', ui-sans-serif, system-ui, -apple-system;
+  }
+
+  .text-primary {
+    @apply text-cyan-500;
+  }
+
+  .text-secondary {
+    @apply text-pink-300;
+  }
+
+  .text-gray {
+    @apply text-zinc-500 dark:text-zinc-400;
+  }
+
+  .fill-primary {
+    @apply fill-cyan-500;
+  }
+
+  .fill-primary-light {
+    @apply fill-cyan-400;
+  }
+
+  .fill-secondary {
+    @apply fill-pink-300;
+  }
+
+  .fill-secondary-light {
+    @apply fill-pink-400;
   }
 }

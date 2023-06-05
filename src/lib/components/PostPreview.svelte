@@ -11,7 +11,7 @@
     {@html post.preview.html}
   </div>
   <div slot="actions">
-    <div class="flex items-center text-pink-500 dark:text-cyan-500">
+    <div class="flex items-center text-primary">
       <span class="text-2xl font-medium font-drip tracking-wider">Read -></span>
     </div>
   </div>

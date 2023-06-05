@@ -44,19 +44,19 @@
 <Fathom />
 
 <div
-  class="hidden md:block fixed md:right-[80vw] lg:right-[70vw] -top-[12vh] pointer-events-none -z-10"
+  class="hidden md:block fixed md:right-[80vw] lg:right-[77vw] -top-[12vh] pointer-events-none -z-10"
 >
-  <Splatter class="fill-cyan-500" scale={1.5} />
+  <Splatter class="fill-primary" scale={1.5} />
 </div>
 <div
   class="hidden md:block fixed md:left-[85vw] lg:left-[80vw] top-[10vh] pointer-events-none -z-10"
 >
-  <Splatter class="fill-pink-400" scale={3} />
+  <Splatter class="fill-secondary" scale={3} />
 </div>
 
 <div class="flex flex-col flex-grow w-full px-4 py-2 min-h-screen">
   <header class="flex items-center justify-between w-full max-w-2xl py-4 mx-auto lg:pb-8">
-    <a class="text-4xl sm:text-5xl font-bold font-dj text-pink-500 dark:text-cyan-500" href="/">
+    <a class="text-4xl sm:text-5xl font-bold font-dj text-primary" href="/">
       {name}
     </a>
 
@@ -79,8 +79,8 @@
         }
       }}
     >
-      <MoonIcon class="hidden text-pink-300 dark:block" />
-      <SunIcon class="block text-cyan-500 dark:hidden" />
+      <MoonIcon class="hidden text-primary dark:block" />
+      <SunIcon class="block text-primary dark:hidden" />
     </button>
   </header>
   <main
